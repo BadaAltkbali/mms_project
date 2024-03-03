@@ -91,17 +91,17 @@
                            </a>
                            <ul class="list-unstyled">
                                @can('mainInfo-wahadat')
-                                   <li><a href="/stopping"><i class="fi fi-rr-house-building"></i>قائمه
+                                   <li><a href="{{ route('subList/stopping') }}"><i class="fi fi-rr-house-building"></i>قائمه
                                            المنقطعين</a>
                                    </li>
                                @endcan
                                @can('mainInfo-banks')
-                                   <li><a href="/fleeing"><i class="fi fi-rr-bank"></i>قائمه الهروب
+                                   <li><a href="{{ route('subList/fleeing') }}"><i class="fi fi-rr-bank"></i>قائمه الهروب
 
                                        </a></li>
                                @endcan
                                @can('mainInfo-adjectives')
-                                   <li><a href="retired"><i class="fi fi-rr-briefcase"></i>قائمه
+                                   <li><a href="{{ route('subList/retired') }}"><i class="fi fi-rr-briefcase"></i>قائمه
                                            المتقاعدين</a>
                                    </li>
                                @endcan

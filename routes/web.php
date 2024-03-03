@@ -29,10 +29,6 @@ Route::get('/', [StaticController::class, 'index'])->name('dashboard');
 Route::get('/saveSuccess', [StaticController::class, 'save'])->name('saveSuccess');
 
 
-Route::get('/fleeing', [Filter::class, 'getFleeing'])->name('Fleeing');
-Route::get('/retired', [Filter::class, 'getRetired'])->name('Retired');
-Route::get('/stopping', [Filter::class, 'getStopping'])->name('Stopping');
-
 
 
 // Route::resource('users',  UserController::class);
@@ -63,6 +59,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('Personnel',  PersonnelController::class);
     Route::get('PersonnelEmployees', [PersonnelController::class, 'employees'])->name('Personnel/employee');
     Route::get('PersonnelEmployeesOfficer', [PersonnelController::class, 'employeesOfficer'])->name('Personnel/employeeOfficer');
+
+
+Route::get('fleeing', [Filter::class, 'fleeings'])->name('subList/fleeing');
+Route::get('retired', [Filter::class, 'retired'])->name('subList/retired');
+Route::get('stopping', [Filter::class, 'stopping'])->name('subList/stopping');
+
+
+
 
     Route::resource('Bank',  BanksController::class);
     Route::resource('Branch',  BanksBranchController::class);
