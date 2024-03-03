@@ -61,9 +61,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('PersonnelEmployeesOfficer', [PersonnelController::class, 'employeesOfficer'])->name('Personnel/employeeOfficer');
 
 
-Route::get('fleeing', [Filter::class, 'fleeings'])->name('subList/fleeing');
-Route::get('retired', [Filter::class, 'retired'])->name('subList/retired');
-Route::get('stopping', [Filter::class, 'stopping'])->name('subList/stopping');
+Route::get('fleeing', [Filter::class, 'getFleeing'])->name('subList/fleeing');
+Route::get('retired', [Filter::class, 'getRetired'])->name('subList/retired');
+Route::get('stopping', [Filter::class, 'getStopping'])->name('subList/stopping');
 
 
 

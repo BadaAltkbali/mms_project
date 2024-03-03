@@ -8,7 +8,7 @@
                    <li class="menu-title">شؤون الموظفين</li>
 
                    <li class="has_sub">
-                       <a href="/" class="waves-effect">
+                       <a href="{{ route('dashboard') }}" class="waves-effect">
                            <i class="fi fi-rr-apps"></i>
                            <span> لوحة التحكم </span> </a>
                    </li>
