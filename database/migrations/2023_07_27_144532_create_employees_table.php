@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('fileNumber')->unique()->nullable();
             $table->string('full_name')->unique();
-            $table->unsignedBigInteger('adjective_id');
+            $table->unsignedBigInteger('adjective_id')->default(null);;
             // $table->string('adjective')->nullable();
             $table->string('national_no')->unique()->nullable();
             $table->string('birth_d')->nullable();

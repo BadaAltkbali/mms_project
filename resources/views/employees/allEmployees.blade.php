@@ -47,7 +47,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
     </div> --}}
 
     {{-- Upload employee file Excel --}}
-    {{-- <form action="{{ route('uploadusers') }}" enctype="multipart/form-data" method="POST" class="blur_effect">
+    <form action="{{ route('uploadusers') }}" enctype="multipart/form-data" method="POST" class="blur_effect">
         @csrf
         <div class="col-lg-12 py-3">
             <label for="users">Upload Users File</label>
@@ -57,7 +57,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
         <br><br>
         <button type="submit" class="btn btn-success" name="upload">Upload</button>
         <br><br><br>
-    </form><br><br> --}}
+    </form><br><br>
     {{-- <br><br><br><br><br><br><br>
     @foreach ($emp_data as $emp)
         {{ $emp->name }}<br>
