@@ -57,15 +57,7 @@
                     </select>
                 </div>
 
-                {{-- <div class="form-group col-md-2  m-b-30">
-                    <label for="exampleInputPassword1">الصفه</label>
-                    <select class="form-control" id="" name="adjective" value="{{ old('adjective') }}">
-                        <option value="/"> -- اختر -- </option>
-                        <option value="مدير">مدير</option>
-                        <option value="رئيس قسم">رئيس قسم</option>
-                        <option value="موظف">موظف</option>
-                    </select>
-                </div> --}}
+               
                 <div class="form-group col-md-2 m-b-30">
                     <label for="exampleInputPassword1">الرقم الوطني</label>
                     <input type="number" class="form-control" name="national_no" value="{{ old('national_no') }}">
@@ -76,6 +68,11 @@
                         <span class="" style="font-size: 15px;position: absolute;color:#f5707a">الرجاء ادخال اسم
                             الموظف</span>
                     @enderror --}}
+                </div>
+                <div class="form-group col-md-2 m-b-30">
+                    <label for="exampleInputPassword1">اسم الأم ثلاثي</label>
+                    <input type="text" class="form-control" name="familyHandbook_No"
+                        value="{{ old('familyHandbook_No') }}">
                 </div>
                 <div class="form-group col-md-2 m-b-30">
                     <label for="exampleInputEmail1">تاريخ الميلاد</label>
@@ -167,11 +164,7 @@
                     <input type="text" class="form-control" name="familyRegistration_No"
                         value="{{ old('familyRegistration_No') }}">
                 </div>
-                <div class="form-group col-md-2 m-b-30">
-                    <label for="exampleInputPassword1">رقم كتيب العائله</label>
-                    <input type="text" class="form-control" name="familyHandbook_No"
-                        value="{{ old('familyHandbook_No') }}">
-                </div>
+                
                 <div class="form-group col-md-2 m-b-30">
                     <label for="exampleInputPassword1">رقم ورقه العائله</label>
                     <input type="text" class="form-control" name="familyPaper_No"

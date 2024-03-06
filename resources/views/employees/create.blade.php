@@ -98,6 +98,11 @@
                         @endif
                     @endforeach
                 </div>
+                <div class="form-group col-md-2 m-b-30">
+                    <label for="familyHandbook_No">اسم الام ثلاثي</label>
+                    <input id="familyHandbook_No" type="tex0t" class="form-control" name="familyHandbook_No"
+                        value="{{ old('familyHandbook_No') }}">
+                </div>
                 <div class="form-group col-md-2  m-b-30">
                     <label for="birth_d">تاريخ الميلاد</label>
                     <input id="birth_d" type="date" class="form-control" name="birth_d"
@@ -201,11 +206,7 @@
                     <input id="familyRegistration_No" type="number" class="form-control"
                         name="familyRegistration_No" value="{{ old('familyRegistration_No') }}">
                 </div>
-                <div class="form-group col-md-2 m-b-30">
-                    <label for="familyHandbook_No">رقم كتيب العائله</label>
-                    <input id="familyHandbook_No" type="number" class="form-control" name="familyHandbook_No"
-                        value="{{ old('familyHandbook_No') }}">
-                </div>
+                
                 <div class="form-group col-md-2 m-b-30">
                     <label for="familyPaper_No">رقم ورقه العائله</label>
                     <input id="familyPaper_No" type="number" class="form-control" name="familyPaper_No"

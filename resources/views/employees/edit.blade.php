@@ -103,6 +103,11 @@
                     @endforeach
                 </div>
                 <div class="form-group col-md-2">
+                    <label for="exampleInputPassword1">اسم الأم ثلاثي</label>
+                    <input type="text" class="form-control" name="familyHandbook_No"
+                        value="{{ $employee->familyHandbook_No }}">
+                </div>
+                <div class="form-group col-md-2">
                     <label for="exampleInputEmail1">تاريخ الميلاد</label>
                     <input type="date" class="form-control" name="birth_d" value="{{ $employee->birth_d }}">
                 </div>
@@ -304,11 +309,7 @@
                     <input type="text" class="form-control" name="familyRegistration_No"
                         value="{{ $employee->familyRegistration_No }}">
                 </div>
-                <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">رقم كتيب العائله</label>
-                    <input type="text" class="form-control" name="familyHandbook_No"
-                        value="{{ $employee->familyHandbook_No }}">
-                </div>
+                
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">رقم ورقه العائله</label>
                     <input type="text" class="form-control" name="familyPaper_No"

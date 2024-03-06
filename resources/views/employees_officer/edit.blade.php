@@ -254,6 +254,11 @@
                     </select>
                 </div>
                 <div class="form-group col-md-2">
+                    <label for="exampleInputPassword1">اسم الأم ثلاثي</label>
+                    <input type="text" class="form-control" name="familyHandbook_No"
+                        value="{{ $employeeOfficers->familyHandbook_No }}">
+                </div>
+                <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">الرقم الوطني</label>
                     <input type="number" class="form-control" name="national_no"
                         value="{{ $employeeOfficers->national_no }}">
@@ -467,11 +472,7 @@
                     <input type="text" class="form-control" name="familyRegistration_No"
                         value="{{ $employeeOfficers->familyRegistration_No }}">
                 </div>
-                <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">رقم كتيب العائله</label>
-                    <input type="text" class="form-control" name="familyHandbook_No"
-                        value="{{ $employeeOfficers->familyHandbook_No }}">
-                </div>
+                
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">رقم ورقه العائله</label>
                     <input type="text" class="form-control" name="familyPaper_No"
