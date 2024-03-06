@@ -10,7 +10,7 @@
 
 </style>
 
-{{-- <img src="{{ url('assets/images/logo.png') }}" alt="" srcset="" width="70%">  --}}
+{{-- <img src="{{ url('assets/images/logo.jpg') }}" alt="" srcset="" width="70%">  --}}
 
 
 

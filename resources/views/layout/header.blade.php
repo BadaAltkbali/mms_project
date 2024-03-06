@@ -8,7 +8,7 @@
         <!-- Image logo -->
         {{-- <a href="index.html" class="logo">
                <span>
-                    <img src="assets/images/logo.png" alt="" height="30">
+                    <img src="assets/images/logo.jpg" alt="" height="30">
                 </span>
                <i>
                    <img src="assets/images/logo_sm.png" alt="" height="28">
@@ -161,7 +161,7 @@
                 <li class="dropdown user-box">
                     <a href="" class="dropdown-toggle waves-effect user-link" data-toggle="dropdown"
                         aria-expanded="true">
-                        <img src="{{ url('assets/images/logo.png') }}" alt="user-img" class="img-circle user-img">
+                        <img src="{{ url('assets/images/logo.jpg') }}" alt="user-img" class="img-circle user-img">
                     </a>
 
                     <ul
