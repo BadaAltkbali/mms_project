@@ -45,27 +45,26 @@
                 </script>
 
 
+
                 <section class="forms" id="printableArea">
                     <div class="container-fluid">
-                        <center>
-                            <form action="{{ route('printsOffice') }}" method ="GET">
-                                <br>
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="container-fluid">
 
-                                            <div class="form-group row">
+                        <form action="{{ route('prints') }}" method ="GET">
+                            <br>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="container-fluid">
 
-                                                <input type="search" class="form-control input-sm" name="search"
-                                                    placeholder="" />
-
-                                            </div>
+                                        <div class="">
+                                            <input type="search" class="form-control input-sm" name="search"
+                                                placeholder="" />
                                         </div>
+
                                     </div>
                                 </div>
-                                <br>
-                            </form>
-                        </center>
+                            </div>
+                            <br>
+                        </form>
                         <a href="javascript:window.print();"><i class="fas fa-print"></i></a>
 
 
@@ -74,17 +73,19 @@
                                 <tr>
                                     <th>#</th>
                                     <th>الاسم</th>
-                                    <th>الرقم العسكري</th>
-                                    <th>الرتبة</th>
+                                    <th>الرقم المالي</th>
+                                    <th>الصفة</th>
                                     <th>الرقم الوطني</th>
-                                    {{-- <th>اسم الأم</th> --}}
-                                    {{-- <th>نوع الاثبات</th>
-                                    <th>رقم الاثبات</th> --}}
-                                    {{-- <th>المصرف</th>
+                                    <th>اسم الأم</th>
+                                    <th>نوع الاثبات</th>
+                                    <th>رقم الاثبات</th>
+                                    <th>رقم القيد</th>
+                                    <th>رقم القرار</th>
+                                    <th>المصرف</th>
                                     <th>الفرع</th>
                                     <th>رقم الحساب</th>
                                     <th>الدرجة</th>
-                                    <th>آخر للترقية</th> --}}
+                                    <th>آخر للترقية</th>
                                     <th>الوحدة الفرعيه</th>
 
                                 </tr>
@@ -94,46 +95,23 @@
                                     <tr>
                                         <th scope="row">{{ ++$i }}</th>
                                         <td>{{ $employee->full_name }}</td>
-                                        <td>{{ $employee->military_number }}</td>
-                                        <td>
-                                            @if ($employee->Rank == '/')
-                                                /
-                                            @elseif ($employee->Rank == '')
-                                                /
-                                            @elseif ($employee->Rank == '1')
-                                                اللواء
-                                            @elseif ($employee->Rank == '2')
-                                                عميد
-                                            @elseif ($employee->Rank == '3')
-                                                عقيد
-                                            @elseif ($employee->Rank == '4')
-                                                رائد
-                                            @elseif ($employee->Rank == '5')
-                                                نقيب
-                                            @elseif ($employee->Rank == '6')
-                                                ملازم أول
-                                            @elseif ($employee->Rank == '7')
-                                                ملازم ثاني
-                                            @elseif ($employee->Rank == '8')
-                                                رئيس عرفة وحدة
-                                            @elseif ($employee->Rank == '9')
-                                                رئيس عرفة سرية
-                                            @elseif ($employee->Rank == '10')
-                                                عريف
-                                            @elseif ($employee->Rank == '11')
-                                                نائب عريف
-                                            @elseif ($employee->Rank == '12')
-                                                جندي أول
-                                            @elseif ($employee->Rank == '13')
-                                                جندي
+                                        <td>{{ $employee->financial_Figure }}</td>
+                                        @foreach ($Adjectives as $id => $Adjective_Name)
+                                            @if ($employee->adjective_id == $id)
+                                                <td> {{ $Adjective_Name }}</td>
                                             @endif
-                                        </td>
-
+                                        @endforeach
                                         <td>{{ $employee->national_no }}</td>
-                                        {{-- <td>{{ $employee->familyHandbook_No }}</td> --}}
-                                        {{-- <td>{{ $employee->passport_or_card }}</td>
-                                        <td>{{ $employee->passport }}</td> --}}
-                                        {{-- @foreach ($Banks as $id => $BankName)
+
+                                        <td>{{ $employee->familyHandbook_No }}</td>
+                                        <td>{{ $employee->passport_or_card }}</td>
+                                        <td>{{ $employee->passport }}</td>
+
+                                        <td>{{ $employee->Contract_registrationNo }}</td>
+                                        <td>{{ $employee->appointment_decision }}</td>
+
+
+                                        @foreach ($Banks as $id => $BankName)
                                             @if ($employee->bankName_id == $id)
                                                 <td> {{ $BankName }}</td>
                                             @endif
@@ -145,9 +123,9 @@
                                         @endforeach
                                         <td>{{ $employee->bank_accountNo }}</td>
                                         <td>{{ $employee->current_grade }}</td>
-                                        <td>{{ $employee->current_grade_date }}</td> --}}
+                                        <td>{{ $employee->current_grade_date }}</td>
 
-                                        @foreach ($UnitsBranche as $id => $Branch_Name)
+                                        @foreach ($UnitBranches as $id => $Branch_Name)
                                             @if ($employee->unitBranch_id == $id)
                                                 <td> {{ $Branch_Name }}</td>
                                             @endif
@@ -158,6 +136,14 @@
 
                     </div>
                 </section>
+
+
+
+
+
+
+
+
 
             </div> <!-- container -->
 

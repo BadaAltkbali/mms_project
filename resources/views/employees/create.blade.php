@@ -58,7 +58,11 @@
                     @endforeach
                 </div>
 
-
+                <div class="form-group col-md-2 m-b-30">
+                    <label for="familyHandbook_No">اسم الأم ثلاثي</label>
+                    <input id="familyHandbook_No" type="number" class="form-control" name="familyHandbook_No"
+                        value="{{ old('familyHandbook_No') }}">
+                </div>
                 <div class="form-group col-md-1  m-b-30">
                     <label for="adjective">الصفه</label>
                     <select id="adjective" class="form-control"name="adjective_id">
@@ -183,7 +187,7 @@
                 </div>
                 <div class="form-group col-md-2 m-b-30">
                     <label for="passport">الرقم</label>
-                    <input id="passport" type="number" class="form-control" name="passport"
+                    <input id="passport" type="text" class="form-control" name="passport"
                         value="{{ old('passport') }}">
                 </div>
                 <div class="form-group col-md-2 m-b-30">
@@ -201,11 +205,7 @@
                     <input id="familyRegistration_No" type="number" class="form-control"
                         name="familyRegistration_No" value="{{ old('familyRegistration_No') }}">
                 </div>
-                <div class="form-group col-md-2 m-b-30">
-                    <label for="familyHandbook_No">رقم كتيب العائله</label>
-                    <input id="familyHandbook_No" type="number" class="form-control" name="familyHandbook_No"
-                        value="{{ old('familyHandbook_No') }}">
-                </div>
+                
                 <div class="form-group col-md-2 m-b-30">
                     <label for="familyPaper_No">رقم ورقه العائله</label>
                     <input id="familyPaper_No" type="number" class="form-control" name="familyPaper_No"
@@ -450,50 +450,6 @@
             <fieldset class="m-t-50">
                 <legend>اضافه الى قائمه : </legend>
 
-                {{-- <div class="form-group col-md-2  m-b-30">
-                    <div class="checkbox-wrapper-33">
-                        <label class="checkbox">
-                            <input class="checkbox__trigger visuallyhidden" type="checkbox" name="stopping" />
-                            <span class="checkbox__symbol">
-                                <svg aria-hidden="true" class="icon-checkbox" width="28px" height="28px"
-                                    viewBox="0 0 28 28" version="1" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4 14l8 7L24 7"></path>
-                                </svg>
-                            </span>
-                            <p class="checkbox__textwrapper"> &nbsp; منقطع </p>
-                        </label>
-                    </div>
-                </div> --}}
-
-                {{-- <div class="form-group col-md-2  m-b-30">
-                    <div class="checkbox-wrapper-33">
-                        <label class="checkbox">
-                            <input class="checkbox__trigger visuallyhidden" type="checkbox" name="fleeing" />
-                            <span class="checkbox__symbol">
-                                <svg aria-hidden="true" class="icon-checkbox" width="28px" height="28px"
-                                    viewBox="0 0 28 28" version="1" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4 14l8 7L24 7"></path>
-                                </svg>
-                            </span>
-                            <p class="checkbox__textwrapper"> &nbsp; هارب </p>
-                        </label>
-                    </div>
-                </div> --}}
-
-                {{-- <div class="form-group col-md-2  m-b-30">
-                    <div class="checkbox-wrapper-33">
-                        <label class="checkbox">
-                            <input class="checkbox__trigger visuallyhidden" type="checkbox" name="retired" />
-                            <span class="checkbox__symbol">
-                                <svg aria-hidden="true" class="icon-checkbox" width="28px" height="28px"
-                                    viewBox="0 0 28 28" version="1" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4 14l8 7L24 7"></path>
-                                </svg>
-                            </span>
-                            <p class="checkbox__textwrapper"> &nbsp; متقاعد </p>
-                        </label>
-                    </div>
-                </div> --}}
                 <div class="body_switch">
                     <p class="checkbox__textwrapper"> &nbsp; هارب &nbsp;&nbsp;</p>
 
@@ -579,18 +535,12 @@
                     </div>
                 </div>
             </fieldset>
-            {{-- <button type="submit" class="btn btn-success waves-effect waves-light m-r-0 btn-md">حفظ</button> --}}
 
             <div class="w-full h-40 flex items-center justify-center">
                 <button type="submit"
                     class="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-success rounded-full shadow-md group">
                     <span
                         class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-success group-hover:translate-x-0 ease">
-                        {{-- <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg> --}}
 
                         <img width="30" height="30"
                             src="https://img.icons8.com/sf-regular/48/FFFFFF/add-user-male.png"

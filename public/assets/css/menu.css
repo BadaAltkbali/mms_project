@@ -37,9 +37,9 @@ File: Menu
 
 .logo {
   color: #ffffff !important;
-  font-size: 24px;
+  font-size: 20px;
   text-transform: uppercase;
-  font-family: 'Hind Madurai', sans-serif;
+  font-family: 'Amiri';
   font-weight: 600;
   letter-spacing: 1px;
   line-height: 70px;
@@ -61,7 +61,7 @@ File: Menu
 .user-box .user-img {
   position: relative;
   height: 36px;
-  width: 36px;
+  width: 42px;
   margin: 0px auto;
 }
 

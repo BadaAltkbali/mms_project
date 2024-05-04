@@ -38,224 +38,245 @@
                     @endforeach
                 </div>
                 <div class="form-group col-md-2">
+                    <label for="exampleInputPassword1">اسم الأم ثلاثي</label>
+                    <input type="text" class="form-control" name="familyHandbook_No"
+                        value="{{ $employeeOfficers->familyHandbook_No }}">
+                </div>
+
+                <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">الرتبة</label>
                     <select class="form-control" id="" name="Rank">
                         @if ($employeeOfficers->Rank == '/')
                             <option value="/" selected> -- اختر -- </option>
-                            <option value="اللواء">اللواء</option>
-                            <option value="عميد">عميد</option>
-                            <option value="عقيد">عقيد</option>
-                            <option value="رائد">رائد</option>
-                            <option value="نقيب">نقيب</option>
-                            <option value="ملازم أول">ملازم أول </option>
-                            <option value="ملازم ثاني">ملازم ثاني</option>
-                            <option value="رئيس عرفه سريه">رئيس عرفه سريه</option>
-                            <option value="رئيس عرفه وحدة">رئيس عرفه وحدة</option>
-                            <option value="عريف">عريف</option>
-                            <option value="نائب عريف">نائب عريف</option>
-                            <option value="جندي">جندي</option>
-                            <option value="جندي أول">جندي أول </option>
-                        @elseif ($employeeOfficers->Rank == 'اللواء')
+                            <option value="1">اللواء</option>
+                            <option value="2">عميد</option>
+                            <option value="3">عقيد</option>
+                            <option value="4">رائد</option>
+                            <option value="5">نقيب</option>
+                            <option value="6">ملازم أول</option>
+                            <option value="7">ملازم ثاني</option>
+                            <option value="8">رئيس عرفة وحدة</option>
+                            <option value="9">رئيس عرفة سرية</option>
+                            <option value="10">عريف</option>
+                            <option value="11">نائب عريف</option>
+                            <option value="12">جندي أول</option>
+                            <option value="13">جندي</option>
+                        @elseif ($employeeOfficers->Rank == '')
+                            <option value="/" selected> -- اختر -- </option>
+                            <option value="1">اللواء</option>
+                            <option value="2">عميد</option>
+                            <option value="3">عقيد</option>
+                            <option value="4">رائد</option>
+                            <option value="5">نقيب</option>
+                            <option value="6">ملازم أول</option>
+                            <option value="7">ملازم ثاني</option>
+                            <option value="8">رئيس عرفة وحدة</option>
+                            <option value="9">رئيس عرفة سرية</option>
+                            <option value="10">عريف</option>
+                            <option value="11">نائب عريف</option>
+                            <option value="12">جندي أول</option>
+                            <option value="13">جندي</option>
+                        @elseif ($employeeOfficers->Rank == '1')
                             <option value="/"> -- اختر -- </option>
-                            <option value="اللواء" selected>اللواء</option>
-                            <option value="عميد">عميد</option>
-                            <option value="عقيد">عقيد</option>
-                            <option value="رائد">رائد</option>
-                            <option value="نقيب">نقيب</option>
-                            <option value="ملازم أول">ملازم أول </option>
-                            <option value="ملازم ثاني">ملازم ثاني</option>
-                            <option value="رئيس عرفه سريه">رئيس عرفه سريه</option>
-                            <option value="رئيس عرفه وحدة">رئيس عرفه وحدة</option>
-                            <option value="عريف">عريف</option>
-                            <option value="نائب عريف">نائب عريف</option>
-                            <option value="جندي">جندي</option>
-                            <option value="جندي أول">جندي أول </option>
-                        @elseif ($employeeOfficers->Rank == 'عميد')
+                            <option value="1"selected>اللواء</option>
+                            <option value="2">عميد</option>
+                            <option value="3">عقيد</option>
+                            <option value="4">رائد</option>
+                            <option value="5">نقيب</option>
+                            <option value="6">ملازم أول</option>
+                            <option value="7">ملازم ثاني</option>
+                            <option value="8">رئيس عرفة وحدة</option>
+                            <option value="9">رئيس عرفة سرية</option>
+                            <option value="10">عريف</option>
+                            <option value="11">نائب عريف</option>
+                            <option value="12">جندي أول</option>
+                            <option value="13">جندي</option>
+                        @elseif ($employeeOfficers->Rank == '2')
                             <option value="/"> -- اختر -- </option>
-                            <option value="اللواء">اللواء</option>
-                            <option value="عميد" selected>عميد</option>
-                            <option value="عقيد">عقيد</option>
-                            <option value="رائد">رائد</option>
-                            <option value="نقيب">نقيب</option>
-                            <option value="ملازم أول">ملازم أول </option>
-                            <option value="ملازم ثاني">ملازم ثاني</option>
-                            <option value="رئيس عرفه سريه">رئيس عرفه سريه</option>
-                            <option value="رئيس عرفه وحدة">رئيس عرفه وحدة</option>
-                            <option value="عريف">عريف</option>
-                            <option value="نائب عريف">نائب عريف</option>
-                            <option value="جندي">جندي</option>
-                            <option value="جندي أول">جندي أول </option>
-                        @elseif ($employeeOfficers->Rank == 'عقيد')
+                            <option value="1">اللواء</option>
+                            <option value="2"selected>عميد</option>
+                            <option value="3">عقيد</option>
+                            <option value="4">رائد</option>
+                            <option value="5">نقيب</option>
+                            <option value="6">ملازم أول</option>
+                            <option value="7">ملازم ثاني</option>
+                            <option value="8">رئيس عرفة وحدة</option>
+                            <option value="9">رئيس عرفة سرية</option>
+                            <option value="10">عريف</option>
+                            <option value="11">نائب عريف</option>
+                            <option value="12">جندي أول</option>
+                            <option value="13">جندي</option>
+                        @elseif ($employeeOfficers->Rank == '3')
                             <option value="/"> -- اختر -- </option>
-                            <option value="اللواء">اللواء</option>
-                            <option value="عميد">عميد</option>
-                            <option value="عقيد" selected>عقيد</option>
-                            <option value="رائد">رائد</option>
-                            <option value="نقيب">نقيب</option>
-                            <option value="ملازم أول">ملازم أول </option>
-                            <option value="ملازم ثاني">ملازم ثاني</option>
-                            <option value="رئيس عرفه سريه">رئيس عرفه سريه</option>
-                            <option value="رئيس عرفه وحدة">رئيس عرفه وحدة</option>
-                            <option value="عريف">عريف</option>
-                            <option value="نائب عريف">نائب عريف</option>
-                            <option value="جندي">جندي</option>
-                            <option value="جندي أول">جندي أول </option>
-                        @elseif ($employeeOfficers->Rank == 'رائد')
+                            <option value="1">اللواء</option>
+                            <option value="2">عميد</option>
+                            <option value="3"selected>عقيد</option>
+                            <option value="4">رائد</option>
+                            <option value="5">نقيب</option>
+                            <option value="6">ملازم أول</option>
+                            <option value="7">ملازم ثاني</option>
+                            <option value="8">رئيس عرفة وحدة</option>
+                            <option value="9">رئيس عرفة سرية</option>
+                            <option value="10">عريف</option>
+                            <option value="11">نائب عريف</option>
+                            <option value="12">جندي أول</option>
+                            <option value="13">جندي</option>
+                        @elseif ($employeeOfficers->Rank == '4')
                             <option value="/"> -- اختر -- </option>
-                            <option value="اللواء">اللواء</option>
-                            <option value="عميد">عميد</option>
-                            <option value="عقيد">عقيد</option>
-                            <option value="رائد" selected>رائد</option>
-                            <option value="نقيب">نقيب</option>
-                            <option value="ملازم أول">ملازم أول </option>
-                            <option value="ملازم ثاني">ملازم ثاني</option>
-                            <option value="رئيس عرفه سريه">رئيس عرفه سريه</option>
-                            <option value="رئيس عرفه وحدة">رئيس عرفه وحدة</option>
-                            <option value="عريف">عريف</option>
-                            <option value="نائب عريف">نائب عريف</option>
-                            <option value="جندي">جندي</option>
-                            <option value="جندي أول">جندي أول </option>
-                        @elseif ($employeeOfficers->Rank == 'نقيب')
+                            <option value="1">اللواء</option>
+                            <option value="2">عميد</option>
+                            <option value="3">عقيد</option>
+                            <option value="4"selected>رائد</option>
+                            <option value="5">نقيب</option>
+                            <option value="6">ملازم أول</option>
+                            <option value="7">ملازم ثاني</option>
+                            <option value="8">رئيس عرفة وحدة</option>
+                            <option value="9">رئيس عرفة سرية</option>
+                            <option value="10">عريف</option>
+                            <option value="11">نائب عريف</option>
+                            <option value="12">جندي أول</option>
+                            <option value="13">جندي</option>
+                        @elseif ($employeeOfficers->Rank == '5')
                             <option value="/"> -- اختر -- </option>
-                            <option value="اللواء">اللواء</option>
-                            <option value="عميد">عميد</option>
-                            <option value="عقيد">عقيد</option>
-                            <option value="رائد">رائد</option>
-                            <option value="نقيب" selected>نقيب</option>
-                            <option value="ملازم أول">ملازم أول </option>
-                            <option value="ملازم ثاني">ملازم ثاني</option>
-                            <option value="رئيس عرفه سريه">رئيس عرفه سريه</option>
-                            <option value="رئيس عرفه وحدة">رئيس عرفه وحدة</option>
-                            <option value="عريف">عريف</option>
-                            <option value="نائب عريف">نائب عريف</option>
-                            <option value="جندي">جندي</option>
-                            <option value="جندي أول">جندي أول </option>
-                        @elseif ($employeeOfficers->Rank == 'ملازم أول')
+                            <option value="1">اللواء</option>
+                            <option value="2">عميد</option>
+                            <option value="3">عقيد</option>
+                            <option value="4">رائد</option>
+                            <option value="5"selected>نقيب</option>
+                            <option value="6">ملازم أول</option>
+                            <option value="7">ملازم ثاني</option>
+                            <option value="8">رئيس عرفة وحدة</option>
+                            <option value="9">رئيس عرفة سرية</option>
+                            <option value="10">عريف</option>
+                            <option value="11">نائب عريف</option>
+                            <option value="12">جندي أول</option>
+                            <option value="13">جندي</option>
+                        @elseif ($employeeOfficers->Rank == '6')
                             <option value="/"> -- اختر -- </option>
-                            <option value="اللواء">اللواء</option>
-                            <option value="عميد">عميد</option>
-                            <option value="عقيد">عقيد</option>
-                            <option value="رائد">رائد</option>
-                            <option value="نقيب">نقيب</option>
-                            <option value="ملازم أول" selected>ملازم أول </option>
-                            <option value="ملازم ثاني">ملازم ثاني</option>
-                            <option value="رئيس عرفه سريه">رئيس عرفه سريه</option>
-                            <option value="رئيس عرفه وحدة">رئيس عرفه وحدة</option>
-                            <option value="عريف">عريف</option>
-                            <option value="نائب عريف">نائب عريف</option>
-                            <option value="جندي">جندي</option>
-                            <option value="جندي أول">جندي أول </option>
-                        @elseif ($employeeOfficers->Rank == 'ملازم ثاني')
+                            <option value="1">اللواء</option>
+                            <option value="2">عميد</option>
+                            <option value="3">عقيد</option>
+                            <option value="4">رائد</option>
+                            <option value="5">نقيب</option>
+                            <option value="6"selected>ملازم أول</option>
+                            <option value="7">ملازم ثاني</option>
+                            <option value="8">رئيس عرفة وحدة</option>
+                            <option value="9">رئيس عرفة سرية</option>
+                            <option value="10">عريف</option>
+                            <option value="11">نائب عريف</option>
+                            <option value="12">جندي أول</option>
+                            <option value="13">جندي</option>
+                        @elseif ($employeeOfficers->Rank == '7')
                             <option value="/"> -- اختر -- </option>
-                            <option value="اللواء">اللواء</option>
-                            <option value="عميد">عميد</option>
-                            <option value="عقيد">عقيد</option>
-                            <option value="رائد">رائد</option>
-                            <option value="نقيب">نقيب</option>
-                            <option value="ملازم أول">ملازم أول </option>
-                            <option value="ملازم ثاني" selected>ملازم ثاني</option>
-                            <option value="رئيس عرفه سريه">رئيس عرفه سريه</option>
-                            <option value="رئيس عرفه وحدة">رئيس عرفه وحدة</option>
-                            <option value="عريف">عريف</option>
-                            <option value="نائب عريف">نائب عريف</option>
-                            <option value="جندي">جندي</option>
-                            <option value="جندي أول">جندي أول </option>
-                        @elseif ($employeeOfficers->Rank == 'رئيس عرفه سرسه')
+                            <option value="1">اللواء</option>
+                            <option value="2">عميد</option>
+                            <option value="3">عقيد</option>
+                            <option value="4">رائد</option>
+                            <option value="5">نقيب</option>
+                            <option value="6">ملازم أول</option>
+                            <option value="7"selected>ملازم ثاني</option>
+                            <option value="8">رئيس عرفة وحدة</option>
+                            <option value="9">رئيس عرفة سرية</option>
+                            <option value="10">عريف</option>
+                            <option value="11">نائب عريف</option>
+                            <option value="12">جندي أول</option>
+                            <option value="13">جندي</option>
+                        @elseif ($employeeOfficers->Rank == '8')
                             <option value="/"> -- اختر -- </option>
-                            <option value="اللواء">اللواء</option>
-                            <option value="عميد">عميد</option>
-                            <option value="عقيد">عقيد</option>
-                            <option value="رائد">رائد</option>
-                            <option value="نقيب">نقيب</option>
-                            <option value="ملازم أول">ملازم أول </option>
-                            <option value="ملازم ثاني">ملازم ثاني</option>
-                            <option value="رئيس عرفه سريه" selected>رئيس عرفه سريه</option>
-                            <option value="رئيس عرفه وحدة">رئيس عرفه وحدة</option>
-                            <option value="عريف">عريف</option>
-                            <option value="نائب عريف">نائب عريف</option>
-                            <option value="جندي">جندي</option>
-                            <option value="جندي أول">جندي أول </option>
-                        @elseif ($employeeOfficers->Rank == 'رئيس عرفه وحدة')
+                            <option value="1">اللواء</option>
+                            <option value="2">عميد</option>
+                            <option value="3">عقيد</option>
+                            <option value="4">رائد</option>
+                            <option value="5">نقيب</option>
+                            <option value="6">ملازم أول</option>
+                            <option value="7">ملازم ثاني</option>
+                            <option value="8"selected>رئيس عرفة وحدة</option>
+                            <option value="9">رئيس عرفة سرية</option>
+                            <option value="10">عريف</option>
+                            <option value="11">نائب عريف</option>
+                            <option value="12">جندي أول</option>
+                            <option value="13">جندي</option>
+                        @elseif ($employeeOfficers->Rank == '9')
                             <option value="/"> -- اختر -- </option>
-                            <option value="اللواء">اللواء</option>
-                            <option value="عميد">عميد</option>
-                            <option value="عقيد">عقيد</option>
-                            <option value="رائد">رائد</option>
-                            <option value="نقيب">نقيب</option>
-                            <option value="ملازم أول">ملازم أول </option>
-                            <option value="ملازم ثاني">ملازم ثاني</option>
-                            <option value="رئيس عرفه سريه">رئيس عرفه سريه</option>
-                            <option value="رئيس عرفه وحدة" selected>رئيس عرفه وحدة</option>
-                            <option value="عريف">عريف</option>
-                            <option value="نائب عريف">نائب عريف</option>
-                            <option value="جندي">جندي</option>
-                            <option value="جندي أول">جندي أول </option>
-                        @elseif ($employeeOfficers->Rank == 'عريف')
+                            <option value="1">اللواء</option>
+                            <option value="2">عميد</option>
+                            <option value="3">عقيد</option>
+                            <option value="4">رائد</option>
+                            <option value="5">نقيب</option>
+                            <option value="6">ملازم أول</option>
+                            <option value="7">ملازم ثاني</option>
+                            <option value="8">رئيس عرفة وحدة</option>
+                            <option value="9"selected>رئيس عرفة سرية</option>
+                            <option value="10">عريف</option>
+                            <option value="11">نائب عريف</option>
+                            <option value="12">جندي أول</option>
+                            <option value="13">جندي</option>
+                        @elseif ($employeeOfficers->Rank == '10')
                             <option value="/"> -- اختر -- </option>
-                            <option value="اللواء">اللواء</option>
-                            <option value="عميد">عميد</option>
-                            <option value="عقيد">عقيد</option>
-                            <option value="رائد">رائد</option>
-                            <option value="نقيب">نقيب</option>
-                            <option value="ملازم أول">ملازم أول </option>
-                            <option value="ملازم ثاني">ملازم ثاني</option>
-                            <option value="رئيس عرفه سريه">رئيس عرفه سريه</option>
-                            <option value="رئيس عرفه وحدة">رئيس عرفه وحدة</option>
-                            <option value="عريف" selected>عريف</option>
-                            <option value="نائب عريف">نائب عريف</option>
-                            <option value="جندي">جندي</option>
-                            <option value="جندي أول">جندي أول </option>
-                        @elseif ($employeeOfficers->Rank == 'نائب عريف')
+                            <option value="1">اللواء</option>
+                            <option value="2">عميد</option>
+                            <option value="3">عقيد</option>
+                            <option value="4">رائد</option>
+                            <option value="5">نقيب</option>
+                            <option value="6">ملازم أول</option>
+                            <option value="7">ملازم ثاني</option>
+                            <option value="8">رئيس عرفة وحدة</option>
+                            <option value="9">رئيس عرفة سرية</option>
+                            <option value="10"selected>عريف</option>
+                            <option value="11">نائب عريف</option>
+                            <option value="12">جندي أول</option>
+                            <option value="13">جندي</option>
+                        @elseif ($employeeOfficers->Rank == '11')
                             <option value="/"> -- اختر -- </option>
-                            <option value="اللواء">اللواء</option>
-                            <option value="عميد">عميد</option>
-                            <option value="عقيد">عقيد</option>
-                            <option value="رائد">رائد</option>
-                            <option value="نقيب">نقيب</option>
-                            <option value="ملازم أول">ملازم أول </option>
-                            <option value="ملازم ثاني">ملازم ثاني</option>
-                            <option value="رئيس عرفه سريه">رئيس عرفه سريه</option>
-                            <option value="رئيس عرفه وحدة">رئيس عرفه وحدة</option>
-                            <option value="عريف">عريف</option>
-                            <option value="نائب عريف" selected>نائب عريف</option>
-                            <option value="جندي">جندي</option>
-                            <option value="جندي أول">جندي أول </option>
-                        @elseif ($employeeOfficers->Rank == 'جندي')
+                            <option value="1">اللواء</option>
+                            <option value="2">عميد</option>
+                            <option value="3">عقيد</option>
+                            <option value="4">رائد</option>
+                            <option value="5">نقيب</option>
+                            <option value="6">ملازم أول</option>
+                            <option value="7">ملازم ثاني</option>
+                            <option value="8">رئيس عرفة وحدة</option>
+                            <option value="9">رئيس عرفة سرية</option>
+                            <option value="10">عريف</option>
+                            <option value="11"selected>نائب عريف</option>
+                            <option value="12">جندي أول</option>
+                            <option value="13">جندي</option>
+                        @elseif ($employeeOfficers->Rank == '12')
                             <option value="/"> -- اختر -- </option>
-                            <option value="اللواء">اللواء</option>
-                            <option value="عميد">عميد</option>
-                            <option value="عقيد">عقيد</option>
-                            <option value="رائد">رائد</option>
-                            <option value="نقيب">نقيب</option>
-                            <option value="ملازم أول">ملازم أول </option>
-                            <option value="ملازم ثاني">ملازم ثاني</option>
-                            <option value="رئيس عرفه سريه">رئيس عرفه سريه</option>
-                            <option value="رئيس عرفه وحدة">رئيس عرفه وحدة</option>
-                            <option value="عريف">عريف</option>
-                            <option value="نائب عريف">نائب عريف</option>
-                            <option value="جندي" selected>جندي</option>
-                            <option value="جندي أول">جندي أول </option>
-                        @elseif ($employeeOfficers->Rank == 'جندي أول')
+                            <option value="1">اللواء</option>
+                            <option value="2">عميد</option>
+                            <option value="3">عقيد</option>
+                            <option value="4">رائد</option>
+                            <option value="5">نقيب</option>
+                            <option value="6">ملازم أول</option>
+                            <option value="7">ملازم ثاني</option>
+                            <option value="8">رئيس عرفة وحدة</option>
+                            <option value="9">رئيس عرفة سرية</option>
+                            <option value="10">عريف</option>
+                            <option value="11">نائب عريف</option>
+                            <option value="12"selected>جندي أول</option>
+                            <option value="13">جندي</option>
+                        @elseif ($employeeOfficers->Rank == '13')
                             <option value="/"> -- اختر -- </option>
-                            <option value="اللواء">اللواء</option>
-                            <option value="عميد">عميد</option>
-                            <option value="عقيد">عقيد</option>
-                            <option value="رائد">رائد</option>
-                            <option value="نقيب">نقيب</option>
-                            <option value="ملازم أول">ملازم أول </option>
-                            <option value="ملازم ثاني">ملازم ثاني</option>
-                            <option value="رئيس عرفه سريه">رئيس عرفه سريه</option>
-                            <option value="رئيس عرفه وحدة">رئيس عرفه وحدة</option>
-                            <option value="عريف">عريف</option>
-                            <option value="نائب عريف">نائب عريف</option>
-                            <option value="جندي">جندي</option>
-                            <option value="جندي أول" selected>جندي أول </option>
+                            <option value="1">اللواء</option>
+                            <option value="2">عميد</option>
+                            <option value="3">عقيد</option>
+                            <option value="4">رائد</option>
+                            <option value="5">نقيب</option>
+                            <option value="6">ملازم أول</option>
+                            <option value="7">ملازم ثاني</option>
+                            <option value="8">رئيس عرفة وحدة</option>
+                            <option value="9">رئيس عرفة سرية</option>
+                            <option value="10">عريف</option>
+                            <option value="11">نائب عريف</option>
+                            <option value="12">جندي أول</option>
+                            <option value="13"selected>جندي</option>
                         @endif
                     </select>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">الرقم الوطني</label>
-                    <input type="number" class="form-control" name="national_no"
+                    <input type="text" class="form-control" name="national_no"
                         value="{{ $employeeOfficers->national_no }}">
                     @foreach ($errors->get('national_no') as $error)
                         <span style="font-size: 15px;position: absolute;color:#f5707a">{{ $error }}</span>
@@ -449,7 +470,7 @@
                 </div>
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">الرقم</label>
-                    <input type="number" class="form-control" name="passport"
+                    <input type="text" class="form-control" name="passport"
                         value="{{ $employeeOfficers->passport }}">
                 </div>
                 <div class="form-group col-md-2">
@@ -512,69 +533,25 @@
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">المصرف</label>
                     <select class="form-control" name="bankName_id">
-                        @if ($employeeOfficers->bankName_id == '/')
-                            <option value="/" selected> -- اختر -- </option>
-                            <option value="الجمهوريه">الجمهوريه</option>
-                            <option value="الوحدة">الوحدة</option>
-                            <option value="شمال أفريقيا">شمال أفريقيا</option>
-                            <option value="اليقين">اليقين</option>
-                            <option value="النوران">النوران</option>
-                            <option value="الأمان">الأمان</option>
-                        @elseif ($employeeOfficers->bankName_id == 'الجمهوريه')
-                            <option value="/"> -- اختر -- </option>
-                            <option value="الجمهوريه" selected>الجمهوريه</option>
-                            <option value="الوحدة">الوحدة</option>
-                            <option value="شمال أفريقيا">شمال أفريقيا</option>
-                            <option value="اليقين">اليقين</option>
-                            <option value="النوران">النوران</option>
-                            <option value="الأمان">الأمان</option>
-                        @elseif ($employeeOfficers->bankName_id == 'الوحدة')
-                            <option value="/"> -- اختر -- </option>
-                            <option value="الجمهوريه">الجمهوريه</option>
-                            <option value="الوحدة" selected>الوحدة</option>
-                            <option value="شمال أفريقيا">شمال أفريقيا</option>
-                            <option value="اليقين">اليقين</option>
-                            <option value="النوران">النوران</option>
-                            <option value="الأمان">الأمان</option>
-                        @elseif ($employeeOfficers->bankName_id == 'شمال أفريقيا')
-                            <option value="/"> -- اختر -- </option>
-                            <option value="الجمهوريه">الجمهوريه</option>
-                            <option value="الوحدة">الوحدة</option>
-                            <option value="شمال أفريقيا" selected>شمال أفريقيا</option>
-                            <option value="اليقين">اليقين</option>
-                            <option value="النوران">النوران</option>
-                            <option value="الأمان">الأمان</option>
-                        @elseif ($employeeOfficers->bankName_id == 'اليقين')
-                            <option value="/"> -- اختر -- </option>
-                            <option value="الجمهوريه">الجمهوريه</option>
-                            <option value="الوحدة">الوحدة</option>
-                            <option value="شمال أفريقيا">شمال أفريقيا</option>
-                            <option value="اليقين" selected>اليقين</option>
-                            <option value="النوران">النوران</option>
-                            <option value="الأمان">الأمان</option>
-                        @elseif ($employeeOfficers->bankName_id == 'النوران')
-                            <option value="/"> -- اختر -- </option>
-                            <option value="الجمهوريه">الجمهوريه</option>
-                            <option value="الوحدة">الوحدة</option>
-                            <option value="شمال أفريقيا">شمال أفريقيا</option>
-                            <option value="اليقين">اليقين</option>
-                            <option value="النوران" selected>النوران</option>
-                            <option value="الأمان">الأمان</option>
-                        @elseif ($employeeOfficers->bankName_id == 'الأمان')
-                            <option value="/"> -- اختر -- </option>
-                            <option value="الجمهوريه">الجمهوريه</option>
-                            <option value="الوحدة">الوحدة</option>
-                            <option value="شمال أفريقيا">شمال أفريقيا</option>
-                            <option value="اليقين">اليقين</option>
-                            <option value="النوران">النوران</option>
-                            <option value="الأمان" selected>الأمان</option>
-                        @endif
+
+                        @foreach ($Banks as $id => $BankName)
+                            <option @selected($employeeOfficers->bankName_id == $id) value="{{ $id }}">
+                                {{ $BankName }}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">الفرع</label>
-                    <input type="text" class="form-control" name="bankBranch_id"
-                        value="{{ $employeeOfficers->bankBranch_id }}">
+                    {{-- <input type="text" class="form-control" name="bankBranch_id"
+                        value="{{ $employeeOfficers->bankBranch_id }}"> --}}
+                    <select id="bankBranch_id" class="form-control" name="bankBranch_id">
+                        @foreach ($Branches as $id => $BranchName)
+                            <option @selected($employeeOfficers->bankName_id == $id) value="{{ $id }}">
+                                {{ $BranchName }}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">رقم الحساب</label>
@@ -606,8 +583,16 @@
                 </div>
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1"> الوحدة الفرعية</label>
-                    <input type="text" class="form-control" name="unitBranch_id"
-                        value="{{ $employeeOfficers->unitBranch_id }}">
+                    {{-- <input type="text" class="form-control" name="unitBranch_id"
+                        value="{{ $employeeOfficers->unitBranch_id }}"> --}}
+
+                    <select id="unitBranch_id" class="form-control" name="unitBranch_id">
+                        @foreach ($wahadat as $id => $unitBranch_Name)
+                            <option @selected($employeeOfficers->unitBranch_id == $id) value="{{ $id }}">
+                                {{ $unitBranch_Name }}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">تصنيف عقد العمل</label>
@@ -653,16 +638,7 @@
                     <input type="date" class="form-control" name="lastPromotion"
                         value="{{ $employeeOfficers->lastPromotion }}">
                 </div>
-                {{-- <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">الجهه المنتقل منها</label>
-                    <input type="text" class="form-control" name="current_grade"
-                        value="{{ $employeeOfficers->current_grade }}">
-                </div> --}}
-                {{-- <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">تاريخ النقل</label>
-                    <input type="date" class="form-control" name="current_grade_date"
-                        value="{{ $employeeOfficers->current_grade_date }}">
-                </div> --}}
+
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">الدورات المتحصل عليها</label>
                     <input type="text" class="form-control" name="courses_obtained"
@@ -673,16 +649,7 @@
                     <input type="text" class="form-control" name="vacations"
                         value="{{ $employeeOfficers->vacations }}">
                 </div>
-                {{-- <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">الراحة الطبيه</label>
-                    <input type="text" class="form-control" name="medical_comfort"
-                        value="{{ $employeeOfficers->medical_comfort }}">
-                </div> --}}
-                {{-- <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">التسويات</label>
-                    <input type="text" class="form-control" name="altasweat"
-                        value="{{ $employeeOfficers->altasweat }}">
-                </div> --}}
+
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">المؤهل العلمي</label>
                     <select class="form-control" id="" name="qualification">
@@ -765,11 +732,7 @@
                     <input type="text" class="form-control" name="placement"
                         value="{{ $employeeOfficers->placement }}">
                 </div>
-                {{-- <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">تاريخ التنسيب</label>
-                    <input type="date" class="form-control" name="graduationDate"
-                        value="{{ $employeeOfficers->graduationDate }}">
-                </div> --}}
+
                 <div class="form-group col-md-4">
                     <label for="exampleInputPassword1">ملاحظات</label>
                     <textarea name="notes" class="form-control" cols="30" rows="5"
@@ -778,8 +741,114 @@
 
 
             </fieldset>
+            <fieldset class="m-t-50">
+                <legend>اضافه الى قائمه : </legend>
+
+                <div class="body_switch">
+                    <p class="checkbox__textwrapper"> &nbsp; هارب &nbsp;&nbsp;</p>
+
+                    <div class="toggle-container">
+
+                        @if ($employeeOfficers->fleeing == 'on')
+                            <input class="toggle-input" type="checkbox" name="fleeing" checked>
+                        @elseif($employeeOfficers->fleeing == 'off')
+                            <input class="toggle-input" type="checkbox" name="fleeing">
+                        @endif
+
+                        <svg class="toggle" viewBox="0 0 292 142" xmlns="http://www.w3.org/2000/svg">
+                            <path class="toggle-background"
+                                d="M71 142C31.7878 142 0 110.212 0 71C0 31.7878 31.7878 0 71 0C110.212 0 119 30 146 30C173 30 182 0 221 0C260 0 292 31.7878 292 71C292 110.212 260.212 142 221 142C181.788 142 173 112 146 112C119 112 110.212 142 71 142Z" />
+                            <rect class="toggle-icon on" x="64" y="39" width="12" height="64"
+                                rx="6" />
+                            <path class="toggle-icon off" fill-rule="evenodd"
+                                d="M221 91C232.046 91 241 82.0457 241 71C241 59.9543 232.046 51 221 51C209.954 51 201 59.9543 201 71C201 82.0457 209.954 91 221 91ZM221 103C238.673 103 253 88.6731 253 71C253 53.3269 238.673 39 221 39C203.327 39 189 53.3269 189 71C189 88.6731 203.327 103 221 103Z" />
+                            <g filter="url('#goo')">
+                                <rect class="toggle-circle-center" x="12" y="42" width="116" height="58"
+                                    rx="29" fill="#fff" />
+                                <rect class="toggle-circle left" x="14" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
+                                <rect class="toggle-circle right" x="164" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
+                            </g>
+                            <filter id="goo">
+                                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+                                <feColorMatrix in="blur" mode="matrix"
+                                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                            </filter>
+                        </svg>
+                    </div>
+                </div>
+                <div class="body_switch">
+                    <p class="checkbox__textwrapper"> &nbsp; منقطع &nbsp;&nbsp;</p>
+
+                    <div class="toggle-container">
+
+                        @if ($employeeOfficers->stopping == 'on')
+                            <input class="toggle-input" type="checkbox" name="stopping" checked>
+                        @elseif($employeeOfficers->stopping == 'off')
+                            <input class="toggle-input" type="checkbox" name="stopping">
+                        @endif
+
+                        <svg class="toggle" viewBox="0 0 292 142" xmlns="http://www.w3.org/2000/svg">
+                            <path class="toggle-background"
+                                d="M71 142C31.7878 142 0 110.212 0 71C0 31.7878 31.7878 0 71 0C110.212 0 119 30 146 30C173 30 182 0 221 0C260 0 292 31.7878 292 71C292 110.212 260.212 142 221 142C181.788 142 173 112 146 112C119 112 110.212 142 71 142Z" />
+                            <rect class="toggle-icon on" x="64" y="39" width="12" height="64"
+                                rx="6" />
+                            <path class="toggle-icon off" fill-rule="evenodd"
+                                d="M221 91C232.046 91 241 82.0457 241 71C241 59.9543 232.046 51 221 51C209.954 51 201 59.9543 201 71C201 82.0457 209.954 91 221 91ZM221 103C238.673 103 253 88.6731 253 71C253 53.3269 238.673 39 221 39C203.327 39 189 53.3269 189 71C189 88.6731 203.327 103 221 103Z" />
+                            <g filter="url('#goo')">
+                                <rect class="toggle-circle-center" x="12" y="42" width="116" height="58"
+                                    rx="29" fill="#fff" />
+                                <rect class="toggle-circle left" x="14" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
+                                <rect class="toggle-circle right" x="164" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
+                            </g>
+                            <filter id="goo">
+                                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+                                <feColorMatrix in="blur" mode="matrix"
+                                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                            </filter>
+                        </svg>
+                    </div>
+                </div>
+                <div class="body_switch">
+                    <p class="checkbox__textwrapper"> &nbsp; متقاعد &nbsp;&nbsp;</p>
+
+                    <div class="toggle-container">
+                        @if ($employeeOfficers->retired == 'on')
+                            <input class="toggle-input" type="checkbox" name="retired" checked>
+                        @elseif($employeeOfficers->retired == 'off')
+                            <input class="toggle-input" type="checkbox" name="retired">
+                        @endif
+
+                        <svg class="toggle" viewBox="0 0 292 142" xmlns="http://www.w3.org/2000/svg">
+                            <path class="toggle-background"
+                                d="M71 142C31.7878 142 0 110.212 0 71C0 31.7878 31.7878 0 71 0C110.212 0 119 30 146 30C173 30 182 0 221 0C260 0 292 31.7878 292 71C292 110.212 260.212 142 221 142C181.788 142 173 112 146 112C119 112 110.212 142 71 142Z" />
+                            <rect class="toggle-icon on" x="64" y="39" width="12" height="64"
+                                rx="6" />
+                            <path class="toggle-icon off" fill-rule="evenodd"
+                                d="M221 91C232.046 91 241 82.0457 241 71C241 59.9543 232.046 51 221 51C209.954 51 201 59.9543 201 71C201 82.0457 209.954 91 221 91ZM221 103C238.673 103 253 88.6731 253 71C253 53.3269 238.673 39 221 39C203.327 39 189 53.3269 189 71C189 88.6731 203.327 103 221 103Z" />
+                            <g filter="url('#goo')">
+                                <rect class="toggle-circle-center" x="12" y="42" width="116" height="58"
+                                    rx="29" fill="#fff" />
+                                <rect class="toggle-circle left" x="14" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
+                                <rect class="toggle-circle right" x="164" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
+                            </g>
+                            <filter id="goo">
+                                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+                                <feColorMatrix in="blur" mode="matrix"
+                                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                            </filter>
+                        </svg>
+                    </div>
+                </div>
+            </fieldset>
             <button type="submit" class="btn btn-success waves-effect waves-light m-r-0 btn-md">تعديل</button>
         </form>
+
     </div>
 
     <!-- end row -->

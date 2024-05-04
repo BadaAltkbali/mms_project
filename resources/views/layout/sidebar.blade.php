@@ -13,7 +13,7 @@
                            <span> لوحة التحكم </span> </a>
                    </li>
                    @auth
-                       @role('Admin')
+                       @role('SuperAdmin')
                            @can('users-all')
                                <li class="has_sub">
                                    <a href="javascript:void(0);" class="waves-effect">
@@ -109,7 +109,7 @@
                        </li>
                    @endcan
 
-                   @can('Personal-emp-all')
+                   {{-- @can('Personal-emp-all')
                        <li class="menu-title">شؤون الموظفين</li>
 
                        <li class="has_sub">
@@ -129,7 +129,7 @@
                                @endcan
                            </ul>
                        </li>
-                   @endcan
+                   @endcan --}}
 
                    @can('filter-all')
                        <li class="menu-title"> فلترة البيانات </li>
@@ -148,6 +148,14 @@
                                @endcan
                                @can('filter-empOffice')
                                    <li><a target="blank" href="{{ route('printsOffice') }}">الضباط</a></li>
+                               @endcan
+                               @can('filter-emp')
+                                   <li>
+                                       <a target="blank" href="{{ route('printAllEmp') }}">كل البيانات للموظفين</a>
+                                   </li>
+                               @endcan
+                               @can('filter-empOffice')
+                                   <li><a target="blank" href="{{ route('print_AllEmpOffice') }}">كل بيانات الضباط</a></li>
                                @endcan
                            </ul>
                        </li>

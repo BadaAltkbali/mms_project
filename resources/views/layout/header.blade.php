@@ -5,15 +5,7 @@
     <div class="topbar-left">
         <a href="index.html" class="logo"><span>الخدمات الطبية <span> العسكرية </span></span><i
                 class="mdi mdi-layers"></i></a>
-        <!-- Image logo -->
-        {{-- <a href="index.html" class="logo">
-               <span>
-                    <img src="assets/images/logo.jpg" alt="" height="30">
-                </span>
-               <i>
-                   <img src="assets/images/logo_sm.png" alt="" height="28">
-                </i>
-            </a> --}}
+
     </div>
 
     <!-- Button mobile view to collapse sidebar menu -->
@@ -29,19 +21,7 @@
                         <a href=""><i class="fa fa-search"></i></a>
                     </form>
                 </li>
-                {{-- <li class="hidden-xs">
-                        <a href="#" class="menu-item">New</a>
-                    </li> --}}
-                {{-- <li class="dropdown hidden-xs">
-                        <a data-toggle="dropdown" class="dropdown-toggle menu-item" href="#" aria-expanded="false">English
-                            <span class="caret"></span></a>
-                        <ul role="menu" class="dropdown-menu">
-                            <li><a href="#">German</a></li>
-                            <li><a href="#">French</a></li>
-                            <li><a href="#">Italian</a></li>
-                            <li><a href="#">Spanish</a></li>
-                        </ul>
-                    </li> --}}
+
                 <li>
                     <button class="button-menu-mobile open-left waves-effect">
                         <i class="mdi mdi-menu"></i>
@@ -164,39 +144,41 @@
                         <img src="{{ url('assets/images/logo.jpg') }}" alt="user-img" class="img-circle user-img">
                     </a>
 
-                    <ul
-                        class="dropdown-menu dropdown-menu-left arrow-dropdown-menu arrow-menu-left user-list notify-list" dir="ltr">
+                    <ul class="dropdown-menu dropdown-menu-left arrow-dropdown-menu arrow-menu-left user-list notify-list"
+                        dir="ltr">
                         @guest
-                        @if (Route::has('login'))
+                            @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
+                                </li> --}}
                             @endif
                         @else
-                        <li>
-                            <h5> {{ Auth::user()->name }}</h5>
-                        </li>
-                        <li><a href="javascript:void(0)"><i class="ti-user m-r-10"></i>الملف الشخصي</a></li>
-                        <li><a href="javascript:void(0)"><i class="ti-settings m-r-10"></i>الاعدادات</a></li>
-                        {{-- <li><a href="javascript:void(0)"><i class="ti-lock m-r-5"></i> Lock screen</a></li> --}}
-                        <li>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                            <li>
+                                <h5> Wellcome {{ Auth::user()->username }}</h5>
+                            </li>
+
+                            {{-- <li><a href="javascript:void(0)"><i class="ti-user m-r-10"></i>الملف الشخصي</a></li>
+                        <li><a href="javascript:void(0)"><i class="ti-settings m-r-10"></i>الاعدادات</a></li> --}}
+                            {{-- <li><a href="javascript:void(0)"><i class="ti-lock m-r-5"></i> Lock screen</a></li> --}}
+                            <li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                    <a class="dropdown-item logout-btn" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                       
+                                            {{ __('Logout') }}
                                     </a>
-                            </form>
-                            {{-- <a href="{{ route('logout') }}"><i class="ti-power-off m-r-10"></i>تسجيل خروج</a> --}}
-                        </li>
-                    </ul>
-                </li>
+                                </form>
+                                {{-- <a href="{{ route('logout') }}"><i class="ti-power-off m-r-10"></i>تسجيل خروج</a> --}}
+                            </li>
+                        </ul>
+                    </li>
                 @endguest
             </ul> <!-- end navbar-right -->
 

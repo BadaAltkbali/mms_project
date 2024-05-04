@@ -33,6 +33,19 @@
 <link href="{{ url('assets/css/custom.css') }}" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="{{ url('assets/css/print.css') }}" type="text/css" media="print" />
 
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+
+
+
+
 <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>

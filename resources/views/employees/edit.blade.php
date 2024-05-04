@@ -58,6 +58,12 @@
                 </div>
 
                 <div class="form-group col-md-2">
+                    <label for="exampleInputPassword1">اسم الأم ثلاثي</label>
+                    <input type="text" class="form-control" name="familyHandbook_No"
+                        value="{{ $employee->familyHandbook_No }}">
+                </div>
+
+                <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">الصفه</label>
                     {{-- @dd($Adjectives_ids), --}}
                     {{-- @dd($employee->adjective_id)  --}}
@@ -75,7 +81,7 @@
 
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">الرقم الوطني</label>
-                    <input type="number" class="form-control" name="national_no"
+                    <input type="text" class="form-control" name="national_no"
                         value="{{ $employee->national_no }}">
                     @foreach ($errors->get('national_no') as $error)
                         @if ($error == 'الرقم الوطني الذي ادخلته موجود مسبقاً')
@@ -286,7 +292,7 @@
                 </div>
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">الرقم</label>
-                    <input type="number" class="form-control" name="passport"
+                    <input type="text" class="form-control" name="passport"
                         value="{{ $employee->passport }}">
                 </div>
                 <div class="form-group col-md-2">
@@ -304,11 +310,7 @@
                     <input type="text" class="form-control" name="familyRegistration_No"
                         value="{{ $employee->familyRegistration_No }}">
                 </div>
-                <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">رقم كتيب العائله</label>
-                    <input type="text" class="form-control" name="familyHandbook_No"
-                        value="{{ $employee->familyHandbook_No }}">
-                </div>
+
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">رقم ورقه العائله</label>
                     <input type="text" class="form-control" name="familyPaper_No"
@@ -319,11 +321,6 @@
                     <input type="date" class="form-control" name="familyHandbook_No___releaseDate"
                         value="{{ $employee->familyHandbook_No___releaseDate }}">
                 </div>
-                {{-- <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">مكان الاصدار</label>
-                    <input type="text" class="form-control" name="familyHandbook_No___placeOfissue"
-                        value="{{ $employee->familyHandbook_No___placeOfissue }}">
-                </div> --}}
 
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">أقرب الأقارب</label>
@@ -349,11 +346,6 @@
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">المصرف</label>
                     <select class="form-control" name="bankName_id">
-                        {{-- @foreach ($Banks as $Bank)
-                            <option value="{{ $Bank->id }}"
-                                {{ old('bankName_id') == $Bank->id ? 'selected' : '' }}>
-                                {{ $Bank->BankName }} </option>
-                        @endforeach --}}
 
                         @foreach ($Banks as $id => $BankName)
                             <option @selected($employee->bankName_id == $id) value="{{ $id }}">
@@ -502,16 +494,7 @@
                         <span style="font-size: 15px;position: absolute;color:#f5707a">{{ $error }}</span>
                     @endforeach
                 </div>
-                {{-- <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">الجهه المنتقل منها</label>
-                    <input type="text" class="form-control" name="current_grade"
-                        value="{{ $employee->current_grade }}">
-                </div> --}}
-                {{-- <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">تاريخ النقل</label>
-                    <input type="date" class="form-control" name="current_grade_date"
-                        value="{{ $employee->current_grade_date }}">
-                </div> --}}
+
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">الدورات المتحصل عليها</label>
                     <input type="text" class="form-control" name="courses_obtained"
@@ -522,16 +505,7 @@
                     <input type="text" class="form-control" name="vacations"
                         value="{{ $employee->vacations }}">
                 </div>
-                {{-- <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">الراحة الطبيه</label>
-                    <input type="text" class="form-control" name="medical_comfort"
-                        value="{{ $employee->medical_comfort }}">
-                </div> --}}
-                {{-- <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">التسويات</label>
-                    <input type="text" class="form-control" name="altasweat"
-                        value="{{ $employee->altasweat }}">
-                </div> --}}
+
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">المؤهل العلمي</label>
                     <select class="form-control" id="" name="qualification">
@@ -619,6 +593,113 @@
                     <textarea name="notes" class="form-control" cols="30" rows="5">{{ $employee->notes }}</textarea>
                 </div>
             </fieldset>
+
+            <fieldset class="m-t-50">
+                <legend>اضافه الى قائمه : </legend>
+
+                <div class="body_switch">
+                    <p class="checkbox__textwrapper"> &nbsp; هارب &nbsp;&nbsp;</p>
+
+                    <div class="toggle-container">
+
+                        @if ($employee->fleeing == 'on')
+                            <input class="toggle-input" type="checkbox" name="fleeing" checked>
+                        @elseif($employee->fleeing == 'off')
+                            <input class="toggle-input" type="checkbox" name="fleeing">
+                        @endif
+
+                        <svg class="toggle" viewBox="0 0 292 142" xmlns="http://www.w3.org/2000/svg">
+                            <path class="toggle-background"
+                                d="M71 142C31.7878 142 0 110.212 0 71C0 31.7878 31.7878 0 71 0C110.212 0 119 30 146 30C173 30 182 0 221 0C260 0 292 31.7878 292 71C292 110.212 260.212 142 221 142C181.788 142 173 112 146 112C119 112 110.212 142 71 142Z" />
+                            <rect class="toggle-icon on" x="64" y="39" width="12" height="64"
+                                rx="6" />
+                            <path class="toggle-icon off" fill-rule="evenodd"
+                                d="M221 91C232.046 91 241 82.0457 241 71C241 59.9543 232.046 51 221 51C209.954 51 201 59.9543 201 71C201 82.0457 209.954 91 221 91ZM221 103C238.673 103 253 88.6731 253 71C253 53.3269 238.673 39 221 39C203.327 39 189 53.3269 189 71C189 88.6731 203.327 103 221 103Z" />
+                            <g filter="url('#goo')">
+                                <rect class="toggle-circle-center" x="13" y="42" width="116" height="58"
+                                    rx="29" fill="#fff" />
+                                <rect class="toggle-circle left" x="14" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
+                                <rect class="toggle-circle right" x="164" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
+                            </g>
+                            <filter id="goo">
+                                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+                                <feColorMatrix in="blur" mode="matrix"
+                                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                            </filter>
+                        </svg>
+                    </div>
+                </div>
+                <div class="body_switch">
+                    <p class="checkbox__textwrapper"> &nbsp; منقطع &nbsp;&nbsp;</p>
+
+                    <div class="toggle-container">
+
+                        @if ($employee->stopping == 'on')
+                            <input class="toggle-input" type="checkbox" name="stopping" checked>
+                        @elseif($employee->stopping == 'off')
+                            <input class="toggle-input" type="checkbox" name="stopping">
+                        @endif
+
+                        <svg class="toggle" viewBox="0 0 292 142" xmlns="http://www.w3.org/2000/svg">
+                            <path class="toggle-background"
+                                d="M71 142C31.7878 142 0 110.212 0 71C0 31.7878 31.7878 0 71 0C110.212 0 119 30 146 30C173 30 182 0 221 0C260 0 292 31.7878 292 71C292 110.212 260.212 142 221 142C181.788 142 173 112 146 112C119 112 110.212 142 71 142Z" />
+                            <rect class="toggle-icon on" x="64" y="39" width="12" height="64"
+                                rx="6" />
+                            <path class="toggle-icon off" fill-rule="evenodd"
+                                d="M221 91C232.046 91 241 82.0457 241 71C241 59.9543 232.046 51 221 51C209.954 51 201 59.9543 201 71C201 82.0457 209.954 91 221 91ZM221 103C238.673 103 253 88.6731 253 71C253 53.3269 238.673 39 221 39C203.327 39 189 53.3269 189 71C189 88.6731 203.327 103 221 103Z" />
+                            <g filter="url('#goo')">
+                                <rect class="toggle-circle-center" x="13" y="42" width="116" height="58"
+                                    rx="29" fill="#fff" />
+                                <rect class="toggle-circle left" x="14" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
+                                <rect class="toggle-circle right" x="164" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
+                            </g>
+                            <filter id="goo">
+                                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+                                <feColorMatrix in="blur" mode="matrix"
+                                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                            </filter>
+                        </svg>
+                    </div>
+                </div>
+                <div class="body_switch">
+                    <p class="checkbox__textwrapper"> &nbsp; متقاعد &nbsp;&nbsp;</p>
+
+                    <div class="toggle-container">
+                        @if ($employee->retired == 'on')
+                            <input class="toggle-input" type="checkbox" name="retired" checked>
+                        @elseif($employee->retired == 'off')
+                            <input class="toggle-input" type="checkbox" name="retired">
+                        @endif
+
+                        <svg class="toggle" viewBox="0 0 292 142" xmlns="http://www.w3.org/2000/svg">
+                            <path class="toggle-background"
+                                d="M71 142C31.7878 142 0 110.212 0 71C0 31.7878 31.7878 0 71 0C110.212 0 119 30 146 30C173 30 182 0 221 0C260 0 292 31.7878 292 71C292 110.212 260.212 142 221 142C181.788 142 173 112 146 112C119 112 110.212 142 71 142Z" />
+                            <rect class="toggle-icon on" x="64" y="39" width="12" height="64"
+                                rx="6" />
+                            <path class="toggle-icon off" fill-rule="evenodd"
+                                d="M221 91C232.046 91 241 82.0457 241 71C241 59.9543 232.046 51 221 51C209.954 51 201 59.9543 201 71C201 82.0457 209.954 91 221 91ZM221 103C238.673 103 253 88.6731 253 71C253 53.3269 238.673 39 221 39C203.327 39 189 53.3269 189 71C189 88.6731 203.327 103 221 103Z" />
+                            <g filter="url('#goo')">
+                                <rect class="toggle-circle-center" x="13" y="42" width="116" height="58"
+                                    rx="29" fill="#fff" />
+                                <rect class="toggle-circle left" x="14" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
+                                <rect class="toggle-circle right" x="164" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
+                            </g>
+                            <filter id="goo">
+                                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+                                <feColorMatrix in="blur" mode="matrix"
+                                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                            </filter>
+                        </svg>
+                    </div>
+                </div>
+            </fieldset>
+
             <button type="submit" class="btn btn-success waves-effect waves-light m-r-0 btn-md">تعديل</button>
         </form>
     </div>

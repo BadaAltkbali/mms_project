@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\AdjectiveEmployee;
 use App\Models\employeesOfficer;
 use App\Models\UnitBranch;
+use App\Models\Bank;
+use App\Models\BankBranch;
 use Illuminate\Support\Facades\DB;
 
 class Filter extends Controller
@@ -19,36 +21,163 @@ class Filter extends Controller
 
     public function index()
     {
-        $national_no = Employee::select('national_no')
-            ->groupBy('national_no')
+
+        $Adjectives = AdjectiveEmployee::pluck('AdjName', 'id');
+        $UnitBranches = UnitBranch::pluck('unitBranch_Name', 'id');
+        $Banks = Bank::pluck('BankName', 'id');
+        $BanksBranchs = BankBranch::pluck('BranchName', 'id');
+
+        if (request('search')) {
+
+        $employees = DB::table('employees')
+        
+            ->join('adjective_employees', 'employees.adjective_id', '=', 'adjective_employees.id')
+            ->join('banks', 'employees.bankName_id', '=', 'banks.id')
+            ->join('bank_branches', 'employees.bankBranch_id', '=', 'bank_branches.id')
+            ->join('unit_branches', 'employees.unitBranch_id', '=', 'unit_branches.id')
+            ->Where('full_name', 'LIKE','%' . request('search') .'%')
+            ->orWhere('financial_Figure', 'LIKE','%' . request('search') .'%')
+            ->orWhere('bank_accountNo', 'LIKE','%' . request('search') .'%')
+            ->orWhere('national_no', 'LIKE','%' . request('search') .'%')
+            ->orWhere('familyHandbook_No', 'LIKE','%' . request('search') .'%')
+            ->orWhere('passport_or_card', 'LIKE','%' . request('search') .'%')
+            ->orWhere('passport', 'LIKE','%' . request('search') .'%')
+            ->orWhere('current_grade', 'LIKE','%' . request('search') .'%')
+            ->orWhere('current_grade_date', 'LIKE','%' . request('search') .'%')
+            ->orWhere('banks.BankName', 'LIKE','%' . request('search') .'%')
+            ->orWhere('adjective_employees.AdjName', 'LIKE','%' . request('search') .'%')
+            ->orWhere('bank_branches.BranchName', 'LIKE','%' . request('search') .'%')
+            ->orWhere('unit_branches.unitBranch_Name', 'LIKE','%' . request('search') .'%')
             ->get();
 
-        $financs = Employee::select('financial_Figure')
-            ->groupBy('financial_Figure')
-            ->get();
+        }else {
+            $employees = Employee::orderBy('id')->paginate(3000); 
+        }
 
-        $unitBranch = UnitBranch::pluck('unitBranch_Name', 'id');
-
-
-        return view('print.filter', compact('national_no', 'financs', 'unitBranch'));
+      
+        return view('print.filter', compact('employees', 'Adjectives', 'UnitBranches', 'Banks' ,'BanksBranchs'))->with('i');
     }
-
 
     public function indexOffice()
     {
-        $national_no = employeesOfficer::select('national_no')
-            ->groupBy('national_no')
+
+        $UnitsBranche = UnitBranch::pluck('unitBranch_Name', 'id');
+        $Banks = Bank::pluck('BankName', 'id');
+        $BanksBranchs = BankBranch::pluck('BranchName', 'id');
+
+        
+        if (request('search')) {
+
+        $employees = DB::table('employees_officers')
+        
+            ->join('banks', 'employees_officers.bankName_id', '=', 'banks.id')
+            ->join('bank_branches', 'employees_officers.bankBranch_id', '=', 'bank_branches.id')
+            ->join('unit_branches', 'employees_officers.unitBranch_id', '=', 'unit_branches.id')
+
+            ->Where('full_name', 'LIKE','%' . request('search') .'%')
+            ->orWhere('military_number', 'LIKE','%' . request('search') .'%')
+            ->orWhere('bank_accountNo', 'LIKE','%' . request('search') .'%')
+            ->orWhere('national_no', 'LIKE','%' . request('search') .'%')
+            ->orWhere('Rank', 'LIKE','%' . request('search') .'%')
+
+            ->orWhere('familyHandbook_No', 'LIKE','%' . request('search') .'%')
+            ->orWhere('passport_or_card', 'LIKE','%' . request('search') .'%')
+            ->orWhere('passport', 'LIKE','%' . request('search') .'%')
+            ->orWhere('current_grade', 'LIKE','%' . request('search') .'%')
+            ->orWhere('current_grade_date', 'LIKE','%' . request('search') .'%')
+            ->Where('unit_branches.unitBranch_Name', 'LIKE','%' . request('search') .'%')
+            ->orWhere('banks.BankName', 'LIKE','%' . request('search') .'%')
+            ->orWhere('bank_branches.BranchName', 'LIKE','%' . request('search') .'%')
             ->get();
 
-        $financs = employeesOfficer::select('military_number')
-            ->groupBy('military_number')
-            ->get();
+        }else {
+            $employees = employeesOfficer::orderBy('id')->paginate(3000); 
+        }
 
-        $unitBranch = UnitBranch::pluck('unitBranch_Name', 'id');
+        return view('print.filter_officeEmp', compact('employees', 'UnitsBranche',  'Banks' ,'BanksBranchs'))->with('i');
 
-
-        return view('print.filter_officeEmp', compact('national_no', 'financs', 'unitBranch'));
     }
+
+
+    public function indexAllEmp()
+    {
+
+        $Adjectives = AdjectiveEmployee::pluck('AdjName', 'id');
+        $UnitBranches = UnitBranch::pluck('unitBranch_Name', 'id');
+        $Banks = Bank::pluck('BankName', 'id');
+        $BanksBranchs = BankBranch::pluck('BranchName', 'id');
+
+        if (request('search')) {
+
+        $employees = DB::table('employees')
+        
+            ->join('adjective_employees', 'employees.adjective_id', '=', 'adjective_employees.id')
+            ->join('banks', 'employees.bankName_id', '=', 'banks.id')
+            ->join('bank_branches', 'employees.bankBranch_id', '=', 'bank_branches.id')
+            ->join('unit_branches', 'employees.unitBranch_id', '=', 'unit_branches.id')
+            ->Where('full_name', 'LIKE','%' . request('search') .'%')
+            ->orWhere('financial_Figure', 'LIKE','%' . request('search') .'%')
+            ->orWhere('bank_accountNo', 'LIKE','%' . request('search') .'%')
+            ->orWhere('national_no', 'LIKE','%' . request('search') .'%')
+            ->orWhere('familyHandbook_No', 'LIKE','%' . request('search') .'%')
+            ->orWhere('passport_or_card', 'LIKE','%' . request('search') .'%')
+            ->orWhere('passport', 'LIKE','%' . request('search') .'%')
+            ->orWhere('current_grade', 'LIKE','%' . request('search') .'%')
+            ->orWhere('current_grade_date', 'LIKE','%' . request('search') .'%')
+            ->orWhere('banks.BankName', 'LIKE','%' . request('search') .'%')
+            ->orWhere('adjective_employees.AdjName', 'LIKE','%' . request('search') .'%')
+            ->orWhere('bank_branches.BranchName', 'LIKE','%' . request('search') .'%')
+            ->orWhere('unit_branches.unitBranch_Name', 'LIKE','%' . request('search') .'%')
+            ->get();
+
+        }else {
+            $employees = Employee::orderBy('id')->paginate(3000); 
+        }
+
+      
+        return view('print.filterAllEmp', compact('employees', 'Adjectives', 'UnitBranches', 'Banks' ,'BanksBranchs'))->with('i');
+    }
+
+    public function indexAllEmpOffice()
+    {
+
+        $UnitsBranche = UnitBranch::pluck('unitBranch_Name', 'id');
+        $Banks = Bank::pluck('BankName', 'id');
+        $BanksBranchs = BankBranch::pluck('BranchName', 'id');
+
+        
+        if (request('search')) {
+
+        $employees = DB::table('employees_officers')
+        
+            ->join('banks', 'employees_officers.bankName_id', '=', 'banks.id')
+            ->join('bank_branches', 'employees_officers.bankBranch_id', '=', 'bank_branches.id')
+            ->join('unit_branches', 'employees_officers.unitBranch_id', '=', 'unit_branches.id')
+
+            ->Where('full_name', 'LIKE','%' . request('search') .'%')
+            ->orWhere('military_number', 'LIKE','%' . request('search') .'%')
+            ->orWhere('bank_accountNo', 'LIKE','%' . request('search') .'%')
+            ->orWhere('national_no', 'LIKE','%' . request('search') .'%')
+            ->orWhere('Rank', 'LIKE','%' . request('search') .'%')
+
+            ->orWhere('familyHandbook_No', 'LIKE','%' . request('search') .'%')
+            ->orWhere('passport_or_card', 'LIKE','%' . request('search') .'%')
+            ->orWhere('passport', 'LIKE','%' . request('search') .'%')
+            ->orWhere('current_grade', 'LIKE','%' . request('search') .'%')
+            ->orWhere('current_grade_date', 'LIKE','%' . request('search') .'%')
+            ->Where('unit_branches.unitBranch_Name', 'LIKE','%' . request('search') .'%')
+            ->orWhere('banks.BankName', 'LIKE','%' . request('search') .'%')
+            ->orWhere('bank_branches.BranchName', 'LIKE','%' . request('search') .'%')
+            ->get();
+
+        }else {
+            $employees = employeesOfficer::orderBy('id')->paginate(3000); 
+        }
+        
+        return view('print.filter_officeAllEmp', compact('employees', 'UnitsBranche',  'Banks' ,'BanksBranchs'))->with('i');
+
+    }
+    
 
     public function getNational(Request $request)
     {
@@ -111,8 +240,6 @@ class Filter extends Controller
         }
     }
 
-
-
     public function recordsOffice(Request $request)
     {
         if ($request->ajax()) {
@@ -145,22 +272,28 @@ class Filter extends Controller
     {
 
         $fleeings = Employee::where('fleeing', 'LIKE', "%on%")->get();
+
+        $fleeingsOfficer = employeesOfficer::where('fleeing', 'LIKE', "%on%")->get();
         $Adjectives = AdjectiveEmployee::pluck('AdjName', 'id');
-        return view('branchList.fleeing', compact('fleeings', 'Adjectives'))->with('i');
+        return view('branchList.fleeing', compact('fleeings', 'Adjectives' ,'fleeingsOfficer'))->with('i');
     }
 
     public function getStopping()
     {
         $stoppings = Employee::where('stopping', 'LIKE', "%on%")->get();
+        $stoppingsOfficer = employeesOfficer::where('stopping', 'LIKE', "%on%")->get();
+
         $Adjectives = AdjectiveEmployee::pluck('AdjName', 'id');
-        return view('branchList.stopping', compact('stoppings', 'Adjectives'))->with('i');
+        return view('branchList.stopping', compact('stoppings', 'Adjectives' , 'stoppingsOfficer'))->with('i');
     }
 
     public function getRetired()
     {
         $retireds = Employee::where('retired', 'LIKE', "%on%")->get();
+        $retiredsOfficer = employeesOfficer::where('retired', 'LIKE', "%on%")->get();
+
         $Adjectives = AdjectiveEmployee::pluck('AdjName', 'id');
-        return view('branchList.retired', compact('retireds', 'Adjectives'))->with('i');
+        return view('branchList.retired', compact('retireds', 'Adjectives' , 'retiredsOfficer'))->with('i');
     }
 
 

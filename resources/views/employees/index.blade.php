@@ -17,16 +17,7 @@
 {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
     integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
-<style>
-    /* .blur_effect {
-background: rgba( 187, 40, 40, 0.25 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 4px );
--webkit-backdrop-filter: blur( 4px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
-} */
-</style>
+
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
@@ -36,35 +27,19 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
             <p>{{ $message }}</p>
         </div>
     @endif
-    <div class="row">
-        <div class="">
-            <div class="m-b-30">
-                <a id="addToTable" href="{{ route('employees.create') }}"
-                    class="btn btn-success waves-effect waves-light">Add <i
-                        class="mdi mdi-plus-circle-outline"></i></a>
+    @can('emp-create')
+        <div class="row">
+            <div class="">
+                <div class="m-b-30">
+                    <a id="addToTable" href="{{ route('employees.create') }}"
+                        class="btn btn-success waves-effect waves-light">Add <i
+                            class="mdi mdi-plus-circle-outline"></i></a>
+                </div>
             </div>
         </div>
-    </div>
-
-    {{-- Upload employee file Excel --}}
-    {{-- <form action="{{ route('uploadusers') }}" enctype="multipart/form-data" method="POST" class="blur_effect">
-        @csrf
-        <div class="col-lg-12 py-3">
-            <label for="users">Upload Users File</label>
-            <input type="file" class="form-control" style="padding: 3px;" name="employees_data" required />
-            <br><br>
-        </div>
-        <br><br>
-        <button type="submit" class="btn btn-success" name="upload">Upload</button>
-        <br><br><br>
-    </form><br><br> --}}
-    {{-- <br><br><br><br><br><br><br>
-    @foreach ($emp_data as $emp)
-        {{ $emp->name }}<br>
-    @endforeach --}}
-    {{-- End Upload employee file Excel --}}
+    @endcan
     <form>
-        <input type="search" class="form-control" placeholder="البحث بالرقم الوطني" name="search">
+        <input type="search" class="form-control" placeholder="البحث بالرقم المالي" name="search">
     </form>
     <br>
     <div class="table-responsive">
@@ -73,47 +48,56 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
                 <tr>
                     <th>رقم الملف</th>
                     <th>الرقم المالي</th>
-                    <th>الصفه</th>
                     <th>الاسم</th>
+                    <th>الصفه</th>
                     <th>الرقم الوطني</th>
+                    <th>الوحدة الفرعية</th>
+
                     <th>-</th>
                 </tr>
             </thead>
             <tbody>
 
                 @foreach ($employees as $employee)
-                    {{-- @if ($employees_type = $employee->financial_Figure)  --}}
                     <tr>
-                        <th scope="row">{{ $employee->id }}</th>
+                        <th scope="row">{{ ++$i }}</th>
+                        {{-- <th scope="row">{{ $employee->id }}</th> --}}
                         <td>{{ $employee->financial_Figure }}</td>
-
+                        <td>{{ $employee->full_name }}</td>
                         @foreach ($Adjectives as $id => $Adjective_Name)
                             @if ($employee->adjective_id == $id)
                                 <td> {{ $Adjective_Name }}</td>
                             @endif
                         @endforeach
 
-                        <td>{{ $employee->full_name }}</td>
-                        <td>{{ $employee->national_no }}</td>
-                        {{-- <td>{{ $employee->birth_d }}</td> --}}
-                        {{-- @if ($employee->adjective)
-                            <td>{{$employee->adjective}}</td>
-                        @else --}}
-                        {{-- @endif --}}
 
-                        {{-- <td>{{ $employee->bank_accountNo }}</td> --}}
+                        <td>{{ $employee->national_no }}</td>
+
+
+                        @foreach ($UnitBranches as $id => $Branch_Name)
+                            @if ($employee->unitBranch_id == $id)
+                                <td> {{ $Branch_Name }}</td>
+                            @endif
+                        @endforeach
+
+
+
                         <td class="actions">
                             <form method="POST" action="{{ route('employees.destroy', $employee->id) }}">
                                 @csrf
                                 @method('DELETE')
-                                <a href="{{ route('employees.show', $employee->id) }}"
-                                    class="on-default edit-row"><i class="fi fi-rr-eye"></i></a>
-
-                                <a href="{{ route('employees.edit', $employee->id) }}"
-                                    class="on-default edit-row"><i class="fi fi-rr-pen-square"></i></a>
-
-                                <input name="_method" type="hidden" value="DELETE">
-                                <a type="submit" class="confirm-button"><i class="fi fi-rr-trash"></i></a>
+                                @can('emp-show')
+                                    {{-- <a href="{{ route('employees.show', $employee->id) }}"
+                                        class="on-default edit-row"><i class="fi fi-rr-eye"></i></a> --}}
+                                @endcan
+                                @can('emp-update')
+                                    <a href="{{ route('employees.edit', $employee->id) }}"
+                                        class="on-default edit-row"><i class="fi fi-rr-pen-square"></i></a>
+                                @endcan
+                                @can('emp-delete')
+                                    <input name="_method" type="hidden" value="DELETE">
+                                    <a type="submit" class="confirm-button"><i class="fi fi-rr-trash"></i></a>
+                                @endcan
                             </form>
                         </td>
                     </tr>

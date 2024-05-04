@@ -6,6 +6,11 @@ use App\Models\Wahadat;
 use App\Models\UnitBranch;
 use Illuminate\Http\Request;
 use App\Models\employeesOfficer;
+use App\Models\AdjectiveEmployee;
+use App\Models\Bank;
+use App\Models\BankBranch;
+
+
 
 class EmployeeOfficerController extends Controller
 {
@@ -23,22 +28,26 @@ class EmployeeOfficerController extends Controller
     public function index()
     {
         if (request('search')) {
-            $employeesOfficer['employeesOfficer'] = employeesOfficer::where('national_no', 'like', '%' . request('search') . '%')->get();
-            // $employees::orderBy('id')->paginate(20);
-        } else {
-            $employeesOfficer['employeesOfficer'] = employeesOfficer::orderBy('id')->paginate(20);
-        }
+            $employeesOfficer = employeesOfficer::where('military_number', 'like', '%' . request('search') . '%')
+            ->orWhere('full_name', 'like', '%' . request('search') . '%')
+            ->orWhere('bank_accountNo', 'like', '%' . request('search') . '%')
+            ->orWhere('familyHandbook_No', 'like', '%' . request('search') . '%')
+            ->orWhere('national_no', 'like', '%' . request('search') . '%')->get();
         
-        return view('employees_officer.index', $employeesOfficer);
-    }
+        } else {
+            $employeesOfficer = employeesOfficer::orderBy('id')->paginate(3000);
+        }
+        $UnitBranches = UnitBranch::pluck('unitBranch_Name', 'id');
 
+        return view('employees_officer.index', compact('employeesOfficer', 'UnitBranches'))->with('i');
+
+    }
 
     public function create()
     {
         $wahadat = UnitBranch::all();
         return view('employees_officer.create', compact('wahadat'));
     }
-
 
     public function store(Request $request)
     {
@@ -103,6 +112,9 @@ class EmployeeOfficerController extends Controller
         $employees->specialization = $request->specialization;
         $employees->graduationPlace = $request->graduationPlace;
         $employees->workplace = $request->workplace;
+        $employees->stopping = ($request->stopping) ? 'on' : 'off';
+        $employees->fleeing = ($request->fleeing) ? 'on' : 'off';
+        $employees->retired = ($request->retired) ? 'on' : 'off';
 
         #endregion
 
@@ -211,12 +223,10 @@ class EmployeeOfficerController extends Controller
         return redirect()->route('employeesofficer.index')->with('success', 'تم حفظ الضابط بنجاح');
     }
 
-
     public function show()
     {
         // return view('employees.show');
     }
-
 
     public function edit($id)
     {
@@ -225,15 +235,22 @@ class EmployeeOfficerController extends Controller
 
 
 
+        $Adjectives = AdjectiveEmployee::pluck('AdjName', 'id');
+        $Banks = Bank::pluck('BankName', 'id');
+        $Branches = BankBranch::pluck('BranchName', 'id');
+        $wahadat = UnitBranch::pluck('unitBranch_Name', 'id');
+        
         if ($employeeOfficers) {
-            // return  $employees; 
-            return view('employees_officer.edit', compact('employeeOfficers'));
+            return view('employees_officer.edit', compact('employeeOfficers', 'Adjectives', 'Banks', 'Branches', 'wahadat'));
         } else {
             return response('Employee not found ..!');
         }
-        // return view('employees.edit');
-    }
 
+
+
+
+
+    }
 
     public function update(Request $request, $id)
     {
@@ -270,7 +287,6 @@ class EmployeeOfficerController extends Controller
         $employees->familyPaper_No = $request->familyPaper_No;
         $employees->familyHandbook_No___releaseDate = $request->familyHandbook_No___releaseDate;
         $employees->familyHandbook_No___placeOfissue = $request->familyHandbook_No___placeOfissue;
-        // $employees->adjective = $request->adjective;
         $employees->military_number = $request->military_number;
         $employees->Rank = $request->Rank;
         $employees->bankName_id = $request->bankName_id;
@@ -298,6 +314,9 @@ class EmployeeOfficerController extends Controller
         $employees->specialization = $request->specialization;
         $employees->graduationPlace = $request->graduationPlace;
         $employees->workplace = $request->workplace;
+        $employees->stopping = ($request->stopping) ? 'on' : 'off';
+        $employees->fleeing = ($request->fleeing) ? 'on' : 'off';
+        $employees->retired = ($request->retired) ? 'on' : 'off';
 
         #endregion
 

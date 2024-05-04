@@ -33,7 +33,6 @@ class EmployeeController extends Controller
         $this->middleware('permission:emp-delete', ['only' => ['destroy']]);
     }
 
-
     public function upload(Request $request)
     {
         $request->validate([
@@ -47,28 +46,21 @@ class EmployeeController extends Controller
     public function index()
     {
         if (request('search')) {
-            $employees = Employee::where('national_no', 'like', '%' . request('search') . '%')->get();
+            $employees = Employee::where('financial_Figure', 'like', '%' . request('search') . '%')
+            ->orWhere('full_name', 'like', '%' . request('search') . '%')
+            ->orWhere('bank_accountNo', 'like', '%' . request('search') . '%')
+            ->orWhere('familyHandbook_No', 'like', '%' . request('search') . '%')
+            ->orWhere('national_no', 'like', '%' . request('search') . '%')->get();
             // $employees::orderBy('id')->paginate(20);
         } else {
-            $employees = Employee::orderBy('id')->paginate(100);
+            $employees = Employee::orderBy('id')->paginate(3000);
         }
         $Adjectives = AdjectiveEmployee::pluck('AdjName', 'id');
-
-        // $emp_data['emp_data'] = Emp_data::all();
-        // $Adjectives_id = AdjectiveEmployee::pluck('id');
-        // $Adjectives_name = AdjectiveEmployee::pluck('AdjName');
-        // $adjective['adjective'] = AdjectiveEmployee::all();
-
-
-
-        // ＄searchResult = Employee::where('name', 'like', '%' . request('search') . '%');
-
-
-
+        $UnitBranches = UnitBranch::pluck('unitBranch_Name', 'id');
 
         // return view('welcome')->with('users', ＄searchResult);
 
-        return view('employees.index', compact('employees', 'Adjectives'));
+        return view('employees.index', compact('employees', 'Adjectives' , 'UnitBranches'))->with('i');
     }
 
     public function allEmployees()
@@ -86,8 +78,8 @@ class EmployeeController extends Controller
             $employeesOfficer = employeesOfficer::where('national_no', 'like', '%' . request('search') . '%')->get();
             // $employees::orderBy('id')->paginate(20);
         } else {
-            $employees = Employee::orderBy('id')->paginate(100);
-            $employeesOfficer = employeesOfficer::orderBy('id')->paginate(100);
+            $employees = Employee::orderBy('id')->paginate(3000);
+            $employeesOfficer = employeesOfficer::orderBy('id')->paginate(3000);
         }
         // $employees = Employee::orderBy('id')->paginate(100);
 
@@ -477,7 +469,6 @@ class EmployeeController extends Controller
         return view('employees.edit', compact('employee', 'Adjectives', 'Banks', 'Branches', 'wahadat'));
     }
 
-
     public function update(Request $request, $id)
     {
 
@@ -543,6 +534,9 @@ class EmployeeController extends Controller
         $employees->specialization = $request->specialization;
         $employees->graduationPlace = $request->graduationPlace;
         $employees->workplace = $request->workplace;
+        $employees->stopping = ($request->stopping) ? 'on' : 'off';
+        $employees->fleeing = ($request->fleeing) ? 'on' : 'off';
+        $employees->retired = ($request->retired) ? 'on' : 'off';
 
         #endregion 
 

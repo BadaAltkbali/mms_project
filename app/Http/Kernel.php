@@ -70,5 +70,7 @@ class Kernel extends HttpKernel
 
         'roleType' => \App\Http\Middleware\RoleType::class,
 
+        'splade' => \ProtoneMedia\Splade\Http\SpladeMiddleware::class,
+
     ];
 }

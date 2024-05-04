@@ -17,9 +17,60 @@
             <th>الصفه</th>
             <th>الاسم</th>
             <th>الرقم الوطني</th>
+            <th>-</th>
         </tr>
     </thead>
     <tbody>
+
+        @foreach ($fleeingsOfficer as $fleeing)
+            <tr>
+                <th scope="row">{{ ++$i }}</th>
+                <td>{{ $fleeing->military_number }}</td>
+                <td>
+                    @if ($fleeing->Rank == '/')
+                        /
+                    @elseif ($fleeing->Rank == '')
+                        /
+                    @elseif ($fleeing->Rank == '1')
+                        اللواء
+                    @elseif ($fleeing->Rank == '2')
+                        عميد
+                    @elseif ($fleeing->Rank == '3')
+                        عقيد
+                    @elseif ($fleeing->Rank == '4')
+                        رائد
+                    @elseif ($fleeing->Rank == '5')
+                        نقيب
+                    @elseif ($fleeing->Rank == '6')
+                        ملازم أول
+                    @elseif ($fleeing->Rank == '7')
+                        ملازم ثاني
+                    @elseif ($fleeing->Rank == '8')
+                        رئيس عرفة وحدة
+                    @elseif ($fleeing->Rank == '9')
+                        رئيس عرفة سرية
+                    @elseif ($fleeing->Rank == '10')
+                        عريف
+                    @elseif ($fleeing->Rank == '11')
+                        نائب عريف
+                    @elseif ($fleeing->Rank == '12')
+                        جندي أول
+                    @elseif ($fleeing->Rank == '13')
+                        جندي
+                    @endif
+                </td>
+                <td>{{ $fleeing->full_name }}</td>
+                <td>{{ $fleeing->national_no }}</td>
+                <td>
+                    @can('empOffice-update')
+                        <a href="{{ route('employeesofficer.edit', $fleeing->id) }}" class="on-default edit-row"><i
+                                class="fa fa-pencil"></i></a>
+                    @endcan
+                </td>
+            </tr>
+        @endforeach
+
+        <hr>
 
         @foreach ($fleeings as $fleeing)
             {{-- @if ($employees_type = $employee->financial_Figure)  --}}
@@ -35,20 +86,25 @@
 
                 <td>{{ $fleeing->full_name }}</td>
                 <td>{{ $fleeing->national_no }}</td>
-
+                <td>
+                    @can('empOffice-update')
+                        <a href="{{ route('employees.edit', $fleeing->id) }}" class="on-default edit-row"><i
+                                class="fa fa-pencil"></i></a>
+                    @endcan
+                </td>
 
             </tr>
         @endforeach
 
     </tbody>
 </table>
-<div class="Print">
+
+
+{{-- <div class="Print">
     <button onclick="printDiv('printme')" id="PrintBtn">
-        {{-- <a href="" @click.prevent="printme"> --}}
         <i class="fi fi-rs-print"></i>
-        {{-- </a> --}}
     </button>
-</div>
+</div> --}}
 </div>
 
 

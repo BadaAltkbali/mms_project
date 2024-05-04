@@ -16,17 +16,19 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-    <div class="row">
-        <div class="">
-            <div class="m-b-30">
-                <a id="addToTable" href="{{ route('employeesofficer.create') }}"
-                    class="btn btn-success waves-effect waves-light">Add <i
-                        class="mdi mdi-plus-circle-outline"></i></a>
+    @can('empOffice-create')
+        <div class="row">
+            <div class="">
+                <div class="m-b-30">
+                    <a id="addToTable" href="{{ route('employeesofficer.create') }}"
+                        class="btn btn-success waves-effect waves-light">Add <i
+                            class="mdi mdi-plus-circle-outline"></i></a>
+                </div>
             </div>
         </div>
-    </div>
+    @endcan
     <form>
-        <input type="search" class="form-control" placeholder="البحث بالرقم الوطني" name="search">
+        <input type="search" class="form-control" placeholder="البحث بالرقم العسكري" name="search">
     </form>
     <br>
     <div class="table-responsive">
@@ -34,29 +36,84 @@
             <thead>
                 <tr>
                     <th>رقم الملف</th>
-                    <th>الاسم</th>
-                    <th>الرقم الوطني</th>
-                    <th>تاريخ الميلاد</th>
                     <th>الرقم العسكري</th>
+                    <th>الاسم</th>
                     <th>الرتبه</th>
-                    <th>رقم الحساب</th>
+                    <th>الرقم الوطني</th>
+                    <th>الوحدة الفرعية</th>
+
+
+                    {{-- <th>رقم الحساب</th> --}}
                     <th>-</th>
                 </tr>
             </thead>
             <tbody>
 
                 @foreach ($employeesOfficer as $employee)
-                    {{-- @if ($employees_type = $employee->financial_Figure) --}}
                     <tr>
-                        <th scope="row">{{ $employee->id }}</th>
-                        <td>{{ $employee->full_name }}</td>
-                        <td>{{ $employee->national_no }}</td>
-                        <td>{{ $employee->birth_d }}</td>
+                        <th scope="row">{{ ++$i }}</th>
+                        {{-- <th scope="row">{{ $employee->id }}</th> --}}
                         <td>{{ $employee->military_number }}</td>
-                        <td>{{ $employee->Rank }}</td>
-                        <td>{{ $employee->bank_accountNo }}</td>
+                        <td>{{ $employee->full_name }}</td>
+                        <td>
+
+                            @if ($employee->Rank == 1)
+                                اللواء
+                            @endif
+                            @if ($employee->Rank == 2)
+                                عميد
+                            @endif
+                            @if ($employee->Rank == 3)
+                                عقيد
+                            @endif
+                            @if ($employee->Rank == 4)
+                                رائد
+                            @endif
+                            @if ($employee->Rank == 5)
+                                نقيب
+                            @endif
+                            @if ($employee->Rank == 6)
+                                ملازم أول
+                            @endif
+                            @if ($employee->Rank == 7)
+                                ملازم ثاني
+                            @endif
+                            @if ($employee->Rank == 8)
+                                رئيس عرفة وحدة
+                            @endif
+                            @if ($employee->Rank == 9)
+                                رئيس عرفة سرية
+                            @endif
+                            @if ($employee->Rank == 10)
+                                عريف
+                            @endif
+                            @if ($employee->Rank == 11)
+                                نائب عريف
+                            @endif
+                            @if ($employee->Rank == 12)
+                                جندي أول
+                            @endif
+                            @if ($employee->Rank == 13)
+                                جندي
+                            @endif
+
+
+
+                        </td>
+                        <td>{{ $employee->national_no }}</td>
+
+
+                        @foreach ($UnitBranches as $id => $Branch_Name)
+                            @if ($employee->unitBranch_id == $id)
+                                <td> {{ $Branch_Name }}</td>
+                                
+                            @endif
+                        @endforeach
+
+
+                        {{-- <td>{{ $employee->bank_accountNo }}</td> --}}
                         <td class="actions">
-                            
+
                             {{-- <form action="{{ route('employeesofficer.destroy', $employee->id) }}" method="Post">
 
                                 <a href="{{ route('employeesofficer.edit', $employee->id) }}"
@@ -71,14 +128,17 @@
                             <form method="POST" action="{{ route('employeesofficer.destroy', $employee->id) }}">
                                 @csrf
                                 @method('DELETE')
-                                <a href="{{ route('employeesofficer.edit', $employee->id) }}"
-                                    class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                <input name="_method" type="hidden" value="DELETE">
-                                <a type="submit" class="confirm-button"><i class="fa fa-trash-o"></i></a>
+                                @can('empOffice-update')
+                                    <a href="{{ route('employeesofficer.edit', $employee->id) }}"
+                                        class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                @endcan
+                                @can('empOffice-delete')
+                                    <input name="_method" type="hidden" value="DELETE">
+                                    <a type="submit" class="confirm-button"><i class="fa fa-trash-o"></i></a>
+                                @endcan
                             </form>
                         </td>
                     </tr>
-                    {{-- @endif --}}
                 @endforeach
 
             </tbody>

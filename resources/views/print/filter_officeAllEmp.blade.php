@@ -77,14 +77,16 @@
                                     <th>الرقم العسكري</th>
                                     <th>الرتبة</th>
                                     <th>الرقم الوطني</th>
-                                    {{-- <th>اسم الأم</th> --}}
-                                    {{-- <th>نوع الاثبات</th>
-                                    <th>رقم الاثبات</th> --}}
-                                    {{-- <th>المصرف</th>
+                                    <th>اسم الأم</th>
+                                    <th>نوع الاثبات</th>
+                                    <th>رقم الاثبات</th>
+                                    <th>رقم القيد</th>
+                                    <th>رقم القرار</th>
+                                    <th>المصرف</th>
                                     <th>الفرع</th>
                                     <th>رقم الحساب</th>
                                     <th>الدرجة</th>
-                                    <th>آخر للترقية</th> --}}
+                                    <th>آخر للترقية</th>
                                     <th>الوحدة الفرعيه</th>
 
                                 </tr>
@@ -130,10 +132,14 @@
                                         </td>
 
                                         <td>{{ $employee->national_no }}</td>
-                                        {{-- <td>{{ $employee->familyHandbook_No }}</td> --}}
-                                        {{-- <td>{{ $employee->passport_or_card }}</td>
-                                        <td>{{ $employee->passport }}</td> --}}
-                                        {{-- @foreach ($Banks as $id => $BankName)
+                                        <td>{{ $employee->familyHandbook_No }}</td>
+                                        <td>{{ $employee->passport_or_card }}</td>
+                                        <td>{{ $employee->passport }}</td>
+
+                                        <td>{{ $employee->familyRegistration_No }}</td>
+                                        <td>{{ $employee->appointment_decision }}</td>
+
+                                        @foreach ($Banks as $id => $BankName)
                                             @if ($employee->bankName_id == $id)
                                                 <td> {{ $BankName }}</td>
                                             @endif
@@ -145,7 +151,7 @@
                                         @endforeach
                                         <td>{{ $employee->bank_accountNo }}</td>
                                         <td>{{ $employee->current_grade }}</td>
-                                        <td>{{ $employee->current_grade_date }}</td> --}}
+                                        <td>{{ $employee->current_grade_date }}</td>
 
                                         @foreach ($UnitsBranche as $id => $Branch_Name)
                                             @if ($employee->unitBranch_id == $id)

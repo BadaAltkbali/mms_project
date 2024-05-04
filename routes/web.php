@@ -47,6 +47,10 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('print', [Filter::class, 'index'])->name('prints');
     Route::get('print_Office', [Filter::class, 'indexOffice'])->name('printsOffice');
+
+    Route::get('printAllEmp', [Filter::class, 'indexAllEmp'])->name('printAllEmp');
+    Route::get('print_AllEmpOffice', [Filter::class, 'indexAllEmpOffice'])->name('print_AllEmpOffice');
+    
     Route::get('nationals', [Filter::class, 'getNational'])->name('nationals');
     Route::get('nationalsOffice', [Filter::class, 'getNationalOffice'])->name('nationalsOffice');
     Route::get('accountNo', [Filter::class, 'getaccountNo'])->name('accountNo');
@@ -61,9 +65,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('PersonnelEmployeesOfficer', [PersonnelController::class, 'employeesOfficer'])->name('Personnel/employeeOfficer');
 
 
-Route::get('fleeing', [Filter::class, 'getFleeing'])->name('subList/fleeing');
-Route::get('retired', [Filter::class, 'getRetired'])->name('subList/retired');
-Route::get('stopping', [Filter::class, 'getStopping'])->name('subList/stopping');
+    Route::get('fleeing', [Filter::class, 'getFleeing'])->name('subList/fleeing');
+    Route::get('retired', [Filter::class, 'getRetired'])->name('subList/retired');
+    Route::get('stopping', [Filter::class, 'getStopping'])->name('subList/stopping');
 
 
 
@@ -86,3 +90,9 @@ Route::get('/AllEmployees', [EmployeeController::class, 'allEmployees'])->name('
 //we have to create <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-red-color">FileManagerController</mark>
 
 // Route::get('check/role',[UserController::class,'checkRole'])->middleware('roleType');
+
+
+Route::middleware('splade')->group(function () {
+    // Route::view('/', 'welcome');
+    // Route::view('/contact', 'contact');
+});

@@ -14,19 +14,7 @@
 
 
 <div class="panel">
-{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
-    integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
-<style>
-    /* .blur_effect {
-background: rgba( 187, 40, 40, 0.25 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 4px );
--webkit-backdrop-filter: blur( 4px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
-} */
-</style>
+
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
@@ -36,18 +24,10 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
             <p>{{ $message }}</p>
         </div>
     @endif
-    {{-- <div class="row">
-        <div class="">
-            <div class="m-b-30">
-                <a id="addToTable" href="{{ route('employees.create') }}"
-                    class="btn btn-success waves-effect waves-light">Add <i
-                        class="mdi mdi-plus-circle-outline"></i></a>
-            </div>
-        </div>
-    </div> --}}
+   
 
     {{-- Upload employee file Excel --}}
-    <form action="{{ route('uploadusers') }}" enctype="multipart/form-data" method="POST" class="blur_effect">
+    {{-- <form action="{{ route('uploadusers') }}" enctype="multipart/form-data" method="POST" class="blur_effect">
         @csrf
         <div class="col-lg-12 py-3">
             <label for="users">Upload Users File</label>
@@ -57,7 +37,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
         <br><br>
         <button type="submit" class="btn btn-success" name="upload">Upload</button>
         <br><br><br>
-    </form><br><br>
+    </form><br><br> --}}
     {{-- <br><br><br><br><br><br><br>
     @foreach ($emp_data as $emp)
         {{ $emp->name }}<br>
@@ -94,7 +74,37 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 
 
 
-                        <td> {{ $employeeOfficer->Rank }}</td>
+                        <td>   @if ($employeeOfficer->Rank == '/')
+                            /
+                        @elseif ($employeeOfficer->Rank == '')
+                            /
+                        @elseif ($employeeOfficer->Rank == '1')
+                            اللواء
+                        @elseif ($employeeOfficer->Rank == '2')
+                            عميد
+                        @elseif ($employeeOfficer->Rank == '3')
+                            عقيد
+                        @elseif ($employeeOfficer->Rank == '4')
+                            رائد
+                        @elseif ($employeeOfficer->Rank == '5')
+                            نقيب
+                        @elseif ($employeeOfficer->Rank == '6')
+                            ملازم أول
+                        @elseif ($employeeOfficer->Rank == '7')
+                            ملازم ثاني
+                        @elseif ($employeeOfficer->Rank == '8')
+                            رئيس عرفة وحدة
+                        @elseif ($employeeOfficer->Rank == '9')
+                            رئيس عرفة سرية
+                        @elseif ($employeeOfficer->Rank == '10')
+                            عريف
+                        @elseif ($employeeOfficer->Rank == '11')
+                            نائب عريف
+                        @elseif ($employeeOfficer->Rank == '12')
+                            جندي أول
+                        @elseif ($employeeOfficer->Rank == '13')
+                            جندي
+                        @endif</td>
 
 
 
@@ -107,7 +117,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
                         {{-- @endif --}}
 
                         {{-- <td>{{ $employeeOfficer->bank_accountNo }}</td> --}}
-                        <td class="actions">
+                        {{-- <td class="actions">
                             <form method="POST"
                                 action="{{ route('employeesofficer.destroy', $employeeOfficer->id) }}">
                                 @csrf
@@ -121,7 +131,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
                                 <input name="_method" type="hidden" value="DELETE">
                                 <a type="submit" class="confirm-button"><i class="fi fi-rr-trash"></i></a>
                             </form>
-                        </td>
+                        </td> --}}
                     </tr>
                 @endforeach
 

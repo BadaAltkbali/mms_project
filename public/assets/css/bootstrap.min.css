@@ -2985,9 +2985,11 @@ caption {
 }
 
 th {
-    text-align: right;
+    text-align: center;
 }
-
+td {
+    text-align: center;
+}
 .table {
     width: 100%;
     max-width: 100%;
@@ -3002,7 +3004,7 @@ th {
 .table>thead>tr>th {
     padding: 8px;
     line-height: 1.42857143;
-    vertical-align: top;
+    /* vertical-align: top; */
     border-top: 1px solid #ddd;
 }
 
