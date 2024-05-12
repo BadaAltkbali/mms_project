@@ -33,8 +33,8 @@ return new class extends Migration
             $table->string('closest_relatives_Phone')->nullable();
             $table->string('passport_or_card')->nullable();
             $table->string('passport')->nullable();
-            $table->string('passport_releaseDate')->nullable();
-            $table->string('passport_placeOfissue')->nullable();
+            $table->string('mandate')->nullable();
+            $table->string('doomed')->nullable();
             $table->string('id_card')->nullable();
             $table->string('id_card_releaseDate')->nullable();
             $table->string('id_card_placeOfissue')->nullable();

@@ -24,7 +24,6 @@ class EmployeeOfficerController extends Controller
         $this->middleware('permission:empOffice-delete', ['only' => ['destroy']]);
     }
 
-
     public function index()
     {
         if (request('search')) {
@@ -35,7 +34,7 @@ class EmployeeOfficerController extends Controller
             ->orWhere('national_no', 'like', '%' . request('search') . '%')->get();
         
         } else {
-            $employeesOfficer = employeesOfficer::orderBy('id')->paginate(3000);
+            $employeesOfficer = employeesOfficer::orderBy('military_number')->paginate(3000);
         }
         $UnitBranches = UnitBranch::pluck('unitBranch_Name', 'id');
 
@@ -74,8 +73,8 @@ class EmployeeOfficerController extends Controller
         $employees->closest_relatives_Phone = $request->closest_relatives_Phone;
         $employees->passport_or_card = $request->passport_or_card;
         $employees->passport = $request->passport;
-        $employees->passport_releaseDate = $request->passport_releaseDate;
-        $employees->passport_placeOfissue = $request->passport_placeOfissue;
+        // $employees->passport_releaseDate = $request->passport_releaseDate;
+        // $employees->passport_placeOfissue = $request->passport_placeOfissue;
         $employees->id_card = $request->id_card;
         $employees->id_card_releaseDate = $request->id_card_releaseDate;
         $employees->id_card_placeOfissue = $request->id_card_placeOfissue;
@@ -115,6 +114,8 @@ class EmployeeOfficerController extends Controller
         $employees->stopping = ($request->stopping) ? 'on' : 'off';
         $employees->fleeing = ($request->fleeing) ? 'on' : 'off';
         $employees->retired = ($request->retired) ? 'on' : 'off';
+        $employees->mandate = ($request->mandate) ? 'on' : 'off';
+        $employees->doomed = ($request->doomed) ? 'on' : 'off';
 
         #endregion
 
@@ -277,8 +278,8 @@ class EmployeeOfficerController extends Controller
         $employees->closest_relatives_Phone = $request->closest_relatives_Phone;
         $employees->passport_or_card = $request->passport_or_card;
         $employees->passport = $request->passport;
-        $employees->passport_releaseDate = $request->passport_releaseDate;
-        $employees->passport_placeOfissue = $request->passport_placeOfissue;
+        // $employees->passport_releaseDate = $request->passport_releaseDate;
+        // $employees->passport_placeOfissue = $request->passport_placeOfissue;
         $employees->id_card = $request->id_card;
         $employees->id_card_releaseDate = $request->id_card_releaseDate;
         $employees->id_card_placeOfissue = $request->id_card_placeOfissue;
@@ -317,6 +318,8 @@ class EmployeeOfficerController extends Controller
         $employees->stopping = ($request->stopping) ? 'on' : 'off';
         $employees->fleeing = ($request->fleeing) ? 'on' : 'off';
         $employees->retired = ($request->retired) ? 'on' : 'off';
+        $employees->mandate = ($request->mandate) ? 'on' : 'off';
+        $employees->doomed = ($request->doomed) ? 'on' : 'off';
 
         #endregion
 
@@ -423,7 +426,6 @@ class EmployeeOfficerController extends Controller
         $employees->update();
         return redirect()->route('employeesofficer.index')->with('success', 'تم تعديل بيانات الضابط بنجاح');
     }
-
 
     public function destroy($id)
     {

@@ -27,17 +27,22 @@ class StaticController extends Controller
         $retireds = Employee::where('retired', 'LIKE', "%on%")->get()->count();
         $stoppings = Employee::where('stopping', 'LIKE', "%on%")->get()->count();
         $fleeings = Employee::where('fleeing', 'LIKE', "%on%")->get()->count();
+        $mandates = Employee::where('mandate', 'LIKE', "%on%")->get()->count();
+        $doomeds = Employee::where('doomed', 'LIKE', "%on%")->get()->count();
 
         $retiredsOfficer = employeesOfficer::where('retired', 'LIKE', "%on%")->get()->count();
         $stoppingsOfficer = employeesOfficer::where('stopping', 'LIKE', "%on%")->get()->count();
         $fleeingsOfficer = employeesOfficer::where('fleeing', 'LIKE', "%on%")->get()->count();
+        $mandatesOfficer = employeesOfficer::where('mandate', 'LIKE', "%on%")->get()->count();
+        $doomedsOfficer = employeesOfficer::where('doomed', 'LIKE', "%on%")->get()->count();
 
-        $شمسشبOfficer = employeesOfficer::where('retired', 'LIKE', "%on%")->get()->count();
+        // $شمسشبOfficer = employeesOfficer::where('retired', 'LIKE', "%on%")->get()->count();
 
 
         $allEmployees =  $employees + $employeesOfficer;
 
-        return view('index', compact('users', 'employees', 'employeesOfficer', 'unitBranch', 'retireds', 'stoppings', 'fleeings', 'retiredsOfficer', 'stoppingsOfficer', 'fleeingsOfficer' ,'allEmployees' , 'Banks' , 'unitsBranch' , 'BanksBranchs'));
+        return view('index', compact('users', 'employees', 'employeesOfficer', 'unitBranch', 'retireds', 'stoppings', 'fleeings','mandates', 'doomeds',
+        'retiredsOfficer', 'stoppingsOfficer', 'fleeingsOfficer' , 'mandatesOfficer', 'doomedsOfficer' ,'allEmployees' , 'Banks' , 'unitsBranch' , 'BanksBranchs'));
     }
     public function save()
     {

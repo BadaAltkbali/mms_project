@@ -1411,7 +1411,7 @@ File: Components
 }
 .widget-box-two .widget-two-icon {
   position: absolute;
-  right: 30px;
+  left: 30px;
   font-size: 42px !important;
   top: 30px;
   overflow: hidden;
@@ -1440,6 +1440,22 @@ File: Components
 .widget-two-success .widget-two-icon {
   color: rgba(75, 211, 150, 0.5);
   border: 2px solid rgba(75, 211, 150, 0.5);
+}
+.widget-two-pink{
+  background-color: rgba(161, 75, 211, 0.2);
+  border-color: rgba(161, 75, 211, 0.5);
+}
+.widget-two-pink .widget-two-icon {
+  color: rgba(161, 75, 211, 0.5);
+  border: 2px solid rgba(161, 75, 211, 0.5);
+}
+.widget-two-babyBlue{
+  background-color: rgba(98, 222, 238, 0.2);
+  border-color: rgba(98, 222, 238, 0.5);
+}
+.widget-two-babyBlue .widget-two-icon {
+  color: rgba(98, 222, 238, 0.5);
+  border: 2px solid rgba(98, 222, 238, 0.5);
 }
 .widget-two-warning {
   background-color: rgba(249, 200, 81, 0.2);

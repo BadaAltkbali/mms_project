@@ -112,8 +112,8 @@ CREATE TABLE `employees` (
   `closest_relatives_Phone` varchar(255) DEFAULT NULL,
   `passport_or_card` varchar(255) DEFAULT NULL,
   `passport` varchar(255) DEFAULT NULL,
-  `passport_releaseDate` varchar(255) DEFAULT NULL,
-  `passport_placeOfissue` varchar(255) DEFAULT NULL,
+  -- `passport_releaseDate` varchar(255) DEFAULT NULL, //I replaced by mandate
+  -- `passport_placeOfissue` varchar(255) DEFAULT NULL, //I replaced by doomed
   `id_card` varchar(255) DEFAULT NULL,
   `id_card_releaseDate` varchar(255) DEFAULT NULL,
   `id_card_placeOfissue` varchar(255) DEFAULT NULL,
@@ -159,7 +159,7 @@ CREATE TABLE `employees` (
 -- إرجاع أو استيراد بيانات الجدول `employees`
 --
 
-INSERT INTO `employees` (`id`, `fileNumber`, `full_name`, `adjective_id`, `national_no`, `birth_d`, `place_birth`, `place_residence`, `closest_point`, `nationality`, `religion`, `blood_t`, `phone_n`, `marital_status`, `sons`, `daughter`, `closest_relatives`, `closest_relatives_Phone`, `passport_or_card`, `passport`, `passport_releaseDate`, `passport_placeOfissue`, `id_card`, `id_card_releaseDate`, `id_card_placeOfissue`, `familyHandbook_No`, `familyRegistration_No`, `familyPaper_No`, `familyHandbook_No___releaseDate`, `familyHandbook_No___placeOfissue`, `financial_Figure`, `bankName_id`, `bankBranch_id`, `bank_accountNo`, `unitName`, `unitBranch_id`, `classificationEmpContract`, `hiringDate`, `startJopDate`, `appointment_decision`, `Contract_registrationNo`, `lastPromotion`, `current_grade`, `current_grade_date`, `courses_obtained`, `diseases`, `notes`, `vacations`, `medical_comfort`, `altasweat`, `placement`, `graduationDate`, `qualification`, `specialization`, `graduationPlace`, `workplace`, `stopping`, `fleeing`, `retired`, `created_at`, `updated_at`) VALUES
+INSERT INTO `employees` (`id`, `fileNumber`, `full_name`, `adjective_id`, `national_no`, `birth_d`, `place_birth`, `place_residence`, `closest_point`, `nationality`, `religion`, `blood_t`, `phone_n`, `marital_status`, `sons`, `daughter`, `closest_relatives`, `closest_relatives_Phone`, `passport_or_card`, `passport`, `doomed`, `mandate`, `id_card`, `id_card_releaseDate`, `id_card_placeOfissue`, `familyHandbook_No`, `familyRegistration_No`, `familyPaper_No`, `familyHandbook_No___releaseDate`, `familyHandbook_No___placeOfissue`, `financial_Figure`, `bankName_id`, `bankBranch_id`, `bank_accountNo`, `unitName`, `unitBranch_id`, `classificationEmpContract`, `hiringDate`, `startJopDate`, `appointment_decision`, `Contract_registrationNo`, `lastPromotion`, `current_grade`, `current_grade_date`, `courses_obtained`, `diseases`, `notes`, `vacations`, `medical_comfort`, `altasweat`, `placement`, `graduationDate`, `qualification`, `specialization`, `graduationPlace`, `workplace`, `stopping`, `fleeing`, `retired`, `created_at`, `updated_at`) VALUES
 (1, NULL, 'mawada', 2, '534535', NULL, NULL, NULL, NULL, NULL, NULL, '/', NULL, '/', NULL, NULL, NULL, NULL, '/', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '78575', 1, 1, '53453', NULL, 2, '/', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'تقنيه المعلومات', NULL, '/', NULL, NULL, NULL, 'on', 'off', 'off', '2024-01-03 07:36:18', '2024-01-03 07:36:18');
 
 -- --------------------------------------------------------

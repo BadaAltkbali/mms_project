@@ -53,7 +53,7 @@ class EmployeeController extends Controller
             ->orWhere('national_no', 'like', '%' . request('search') . '%')->get();
             // $employees::orderBy('id')->paginate(20);
         } else {
-            $employees = Employee::orderBy('id')->paginate(3000);
+            $employees = Employee::orderBy('financial_Figure')->paginate(3000);
         }
         $Adjectives = AdjectiveEmployee::pluck('AdjName', 'id');
         $UnitBranches = UnitBranch::pluck('unitBranch_Name', 'id');
@@ -156,8 +156,8 @@ class EmployeeController extends Controller
         $employees->closest_relatives_Phone = $request->closest_relatives_Phone;
         $employees->passport_or_card = $request->passport_or_card;
         $employees->passport = $request->passport;
-        $employees->passport_releaseDate = $request->passport_releaseDate;
-        $employees->passport_placeOfissue = $request->passport_placeOfissue;
+        // $employees->passport_releaseDate = $request->passport_releaseDate;
+        // $employees->passport_placeOfissue = $request->passport_placeOfissue;
         $employees->id_card = $request->id_card;
         $employees->id_card_releaseDate = $request->id_card_releaseDate;
         $employees->id_card_placeOfissue = $request->id_card_placeOfissue;
@@ -198,10 +198,9 @@ class EmployeeController extends Controller
         $employees->stopping = ($request->stopping) ? 'on' : 'off';
         $employees->fleeing = ($request->fleeing) ? 'on' : 'off';
         $employees->retired = ($request->retired) ? 'on' : 'off';
+        $employees->mandate = ($request->mandate) ? 'on' : 'off';
+        $employees->doomed = ($request->doomed) ? 'on' : 'off';
 
-        // $employees->stopping = $request->stopping;
-        // $employees->fleeing = $request->fleeing;
-        // $employees->retired = $request->retired;
         #endregion
 
         if (($employees->national_no) == null && ($employees->bank_accountNo) == null && ($employees->current_grade_date) == null) {
@@ -474,8 +473,6 @@ class EmployeeController extends Controller
 
         $employees = Employee::find($id);
 
-
-
         #region Update Employee Data
 
         $employees->full_name = $request->full_name;
@@ -496,8 +493,8 @@ class EmployeeController extends Controller
         $employees->closest_relatives_Phone = $request->closest_relatives_Phone;
         $employees->passport_or_card = $request->passport_or_card;
         $employees->passport = $request->passport;
-        $employees->passport_releaseDate = $request->passport_releaseDate;
-        $employees->passport_placeOfissue = $request->passport_placeOfissue;
+        // $employees->passport_releaseDate = $request->passport_releaseDate;
+        // $employees->passport_placeOfissue = $request->passport_placeOfissue;
         $employees->id_card = $request->id_card;
         $employees->id_card_releaseDate = $request->id_card_releaseDate;
         $employees->id_card_placeOfissue = $request->id_card_placeOfissue;
@@ -537,6 +534,8 @@ class EmployeeController extends Controller
         $employees->stopping = ($request->stopping) ? 'on' : 'off';
         $employees->fleeing = ($request->fleeing) ? 'on' : 'off';
         $employees->retired = ($request->retired) ? 'on' : 'off';
+        $employees->mandate = ($request->mandate) ? 'on' : 'off';
+        $employees->doomed = ($request->doomed) ? 'on' : 'off';
 
         #endregion 
 
@@ -648,7 +647,6 @@ class EmployeeController extends Controller
 
         return redirect()->route('employees.index')->with('success', 'تم تعديل الموظف بنجاح');
     }
-
 
     public function destroy($id)
     {

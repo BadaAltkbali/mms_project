@@ -105,6 +105,16 @@
                                            المتقاعدين</a>
                                    </li>
                                @endcan
+                               @can('mainInfo-adjectives')
+                                   <li><a href="{{ route('subList/doomed') }}"><i class="fi fi-rr-briefcase"></i>قائمه
+                                           المحكومين</a>
+                                   </li>
+                               @endcan
+                               @can('mainInfo-adjectives')
+                                   <li><a href="{{ route('subList/mandate') }}"><i class="fi fi-rr-briefcase"></i>قائمه
+                                           الندب</a>
+                                   </li>
+                               @endcan
                            </ul>
                        </li>
                    @endcan

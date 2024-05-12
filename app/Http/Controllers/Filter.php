@@ -98,7 +98,6 @@ class Filter extends Controller
 
     }
 
-
     public function indexAllEmp()
     {
 
@@ -178,7 +177,6 @@ class Filter extends Controller
 
     }
     
-
     public function getNational(Request $request)
     {
         if ($request->ajax()) {
@@ -267,7 +265,6 @@ class Filter extends Controller
         }
     }
 
-
     public function getFleeing()
     {
 
@@ -294,6 +291,24 @@ class Filter extends Controller
 
         $Adjectives = AdjectiveEmployee::pluck('AdjName', 'id');
         return view('branchList.retired', compact('retireds', 'Adjectives' , 'retiredsOfficer'))->with('i');
+    }
+
+    public function getMandate()
+    {
+        $mandates = Employee::where('mandate', 'LIKE', "%on%")->get();
+        $mandatesOfficer = employeesOfficer::where('mandate', 'LIKE', "%on%")->get();
+
+        $Adjectives = AdjectiveEmployee::pluck('AdjName', 'id');
+        return view('branchList.mandate', compact('mandates', 'Adjectives' , 'mandatesOfficer'))->with('i');
+    }
+
+    public function getDoomed()
+    {
+        $doomeds = Employee::where('doomed', 'LIKE', "%on%")->get();
+        $doomedsOfficer = employeesOfficer::where('doomed', 'LIKE', "%on%")->get();
+
+        $Adjectives = AdjectiveEmployee::pluck('AdjName', 'id');
+        return view('branchList.doomed', compact('doomeds', 'Adjectives' , 'doomedsOfficer'))->with('i');
     }
 
 

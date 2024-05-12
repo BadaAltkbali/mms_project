@@ -68,6 +68,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('fleeing', [Filter::class, 'getFleeing'])->name('subList/fleeing');
     Route::get('retired', [Filter::class, 'getRetired'])->name('subList/retired');
     Route::get('stopping', [Filter::class, 'getStopping'])->name('subList/stopping');
+    Route::get('Mandate', [Filter::class, 'getMandate'])->name('subList/mandate');
+    Route::get('Doomed', [Filter::class, 'getDoomed'])->name('subList/doomed');
 
 
 

@@ -17,8 +17,8 @@
 </div>
 
 <a href="{{ route('allEmployees') }}">
-<div class="col-lg-4 col-md-6">
-    <div class="card-box widget-box-two widget-two-danger" dir="ltr">
+<div class="col-lg-6 col-md-6">
+    <div class="card-box widget-box-two widget-two-danger" dir="rtl">
         <i class="fi fi-rr-users-alt widget-two-icon"></i>
         <div class="wigdet-two-content">
             <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="employees">كل الموظفين</p>
@@ -33,8 +33,8 @@
 
 
 <a href="{{ route('employees.index') }}">
-<div class="col-lg-4 col-md-6">
-    <div class="card-box widget-box-two widget-two-primary" dir="ltr">
+<div class="col-lg-6 col-md-6">
+    <div class="card-box widget-box-two widget-two-primary" dir="rtl">
         <i class="fi fi-rs-users-alt widget-two-icon"></i>
         <div class="wigdet-two-content">
             <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">الموظفين المدنيين
@@ -48,9 +48,9 @@
 
 
 
-<a href="{{ route('employeesofficer.index') }}" >
-<div class="col-lg-4 col-md-6">
-    <div class="card-box widget-box-two widget-two-warning" dir="ltr">
+<a href="{{ route('employeesofficer.index') }}">
+<div class="col-lg-6 col-md-6">
+    <div class="card-box widget-box-two widget-two-warning" dir="rtl">
         <i class="fi fi-rs-users-alt widget-two-icon"></i>
         <div class="wigdet-two-content">
             <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">الضباط</p>
@@ -62,21 +62,21 @@
 </a>
 
 <a href="{{ route('employeesofficer.index') }}">
-    <div class="col-lg-4 col-md-6">
-        <div class="card-box widget-box-two widget-two-warning" dir="ltr">
-            <i class="fi fi-rs-users-alt widget-two-icon"></i>
-            <div class="wigdet-two-content">
-                <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">ضباط الصف</p>
-                <h2><span data-plugin="counterup">{{ $employeesOfficer }}</span>
-                </h2>
-            </div>
+<div class="col-lg-6 col-md-6">
+    <div class="card-box widget-box-two widget-two-warning" dir="rtl">
+        <i class="fi fi-rs-users-alt widget-two-icon"></i>
+        <div class="wigdet-two-content">
+            <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">ضباط الصف</p>
+            <h2><span data-plugin="counterup">{{ $employeesOfficer }}</span>
+            </h2>
         </div>
-    </div><!-- end col -->
-    </a>
+    </div>
+</div><!-- end col -->
+</a>
 
 <a href="{{ route('subList/retired') }}">
 <div class="col-lg-3 col-md-6">
-    <div class="card-box widget-box-two widget-two-primary flex justify-start" dir="ltr">
+    <div class="card-box widget-box-two widget-two-success flex justify-start" dir="rtl">
         <i class="fi fi-rr-user widget-two-icon"></i>
         <div class="wigdet-two-content">
             <p class="m-0 text-uppercase font-600 font-secondary text-overflow " title="employees">تقاعد</p>
@@ -89,8 +89,8 @@
 </a>
 
 <a href="{{ route('subList/stopping') }}">
-<div class="col-lg-3 col-md-6">
-    <div class="card-box widget-box-two widget-two-primary flex justify-start" dir="ltr">
+<div class="col-lg-6 col-md-6">
+    <div class="card-box widget-box-two widget-two-babyBlue flex justify-start" dir="rtl">
         <i class="fi fi-rr-user widget-two-icon"></i>
         <div class="wigdet-two-content">
             <p class="m-0 text-uppercase font-600 font-secondary text-overflow " title="employees">منقطعين</p>
@@ -104,7 +104,7 @@
 
 <a href="{{ route('subList/fleeing') }}">
 <div class="col-lg-3 col-md-6">
-    <div class="card-box widget-box-two widget-two-warning" dir="ltr">
+    <div class="card-box widget-box-two widget-two-success" dir="rtl">
         <i class="fi fi-rr-user widget-two-icon"></i>
         <div class="wigdet-two-content">
             <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="employees"> الهروب </p>
@@ -115,20 +115,50 @@
 </div><!-- end col -->
 </a>
 
+<a href="{{ route('subList/fleeing') }}">
 <div class="col-lg-3 col-md-6">
-<div class="card-box widget-box-two widget-two-success" dir="ltr">
-    <i class="fi fi-rr-user widget-two-icon"></i>
-    <div class="wigdet-two-content">
-        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User Today">المستخدمين</p>
-        <h2><span data-plugin="counterup">{{ $users }}</span>
-        </h2>
+    <div class="card-box widget-box-two widget-two-danger" dir="rtl">
+        <i class="fi fi-rr-user widget-two-icon"></i>
+        <div class="wigdet-two-content">
+            <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="employees"> المحكومين </p>
+            <h2><span data-plugin="counterup">{{ $doomeds + $doomedsOfficer }} </span>
+            </h2>
+        </div>
     </div>
-</div>
 </div><!-- end col -->
+</a>
+
+<a href="{{ route('subList/fleeing') }}">
+<div class="col-lg-6 col-md-6">
+    <div class="card-box widget-box-two wigdet-two-content" dir="rtl">
+        <i class="fi fi-rr-user widget-two-icon"></i>
+        <div class="wigdet-two-content">
+            <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="employees"> الندب </p>
+            <h2><span data-plugin="counterup">{{ $mandates + $mandatesOfficer }} </span>
+            </h2>
+        </div>
+    </div>
+</div><!-- end col -->
+</a>
+
+<a href="{{ route('wehda.index') }}">
+<div class="col-lg-3 col-md-6">
+    <div class="card-box widget-box-two widget-two-warning" dir="rtl">
+        <i class="fi fi-rs-city widget-two-icon"></i>
+        <div class="wigdet-two-content">
+            <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User Today"> الوحدات
+                الفرعية
+            </p>
+            <h2><span data-plugin="counterup">{{ $unitsBranch }}</span>
+            </h2>
+        </div>
+    </div>
+</div><!-- end col -->
+</a>
 
 <a href="{{ route('Bank.index') }}">
-<div class="col-lg-4 col-md-6">
-    <div class="card-box widget-box-two widget-two-success" dir="ltr">
+<div class="col-lg-6 col-md-6">
+    <div class="card-box widget-box-two widget-two-warning" dir="rtl">
         <i class="fi fi-rs-city widget-two-icon"></i>
         <div class="wigdet-two-content">
             <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User Today">المصارف</p>
@@ -140,11 +170,12 @@
 </a>
 
 <a href="{{ route('Bank.index') }}">
-<div class="col-lg-4 col-md-6">
-    <div class="card-box widget-box-two widget-two-success" dir="ltr">
+<div class="col-lg-6 col-md-6">
+    <div class="card-box widget-box-two widget-two-warning" dir="rtl">
         <i class="fi fi-rs-city widget-two-icon"></i>
         <div class="wigdet-two-content">
-            <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User Today">فروع المصارف</p>
+            <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User Today">فروع المصارف
+            </p>
             <h2><span data-plugin="counterup">{{ $BanksBranchs }}</span>
             </h2>
         </div>
@@ -152,19 +183,16 @@
 </div><!-- end col -->
 </a>
 
-<a href="{{ route('wehda.index') }}">
-<div class="col-lg-4 col-md-6">
-    <div class="card-box widget-box-two widget-two-success" dir="ltr">
-        <i class="fi fi-rs-city widget-two-icon"></i>
-        <div class="wigdet-two-content">
-            <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User Today"> الوحدات الفرعية
-            </p>
-            <h2><span data-plugin="counterup">{{ $unitsBranch }}</span>
-            </h2>
-        </div>
+<div class="col-lg-12 col-md-6">
+<div class="card-box widget-box-two widget-two-pink" dir="rtl">
+    <i class="fi fi-rr-user widget-two-icon"></i>
+    <div class="wigdet-two-content">
+        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User Today">المستخدمين</p>
+        <h2><span data-plugin="counterup">{{ $users }}</span>
+        </h2>
     </div>
+</div>
 </div><!-- end col -->
-</a>
 
 
 </div>

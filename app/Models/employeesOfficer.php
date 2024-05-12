@@ -27,7 +27,7 @@ class employeesOfficer extends Model
         'closest_relatives_Phone',
         'passport_or_card',
         'passport',
-        'passport_releaseDate',
+        // 'passport_releaseDate',
         'passport_placeOfissue',
         'id_card',
         'id_card_releaseDate',
