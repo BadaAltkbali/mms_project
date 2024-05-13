@@ -43,6 +43,18 @@ class EmployeeController extends Controller
         return back()->with('massage', 'User Imported Successfully');
     }
 
+    public function PrintEmployees()
+    {
+        
+        $employees = Employee::orderBy('financial_Figure')->paginate(3000);
+       
+        $Adjectives = AdjectiveEmployee::pluck('AdjName', 'id');
+        $UnitBranches = UnitBranch::pluck('unitBranch_Name', 'id');
+
+
+        return view('employees.print', compact('employees', 'Adjectives' , 'UnitBranches'))->with('i');
+    }
+    
     public function index()
     {
         if (request('search')) {

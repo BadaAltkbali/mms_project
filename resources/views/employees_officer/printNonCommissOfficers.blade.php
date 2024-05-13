@@ -1,78 +1,45 @@
 <!DOCTYPE html>
 <html dir="rtl">
-
 <head>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
 
-        th,
-        td {
-            text-align: center;
-            padding: 2px;
-            font-size: 0.7rem
-        }
+th, td {
+  text-align: center;
+  padding: 8px;
+}
 
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
+tr:nth-child(even) {background-color: #f2f2f2;}
 
-        .container_search {
-            width: 100%;
-            /* background-color: #531616; */
-            display: flex;
-            justify-content: center;
-            padding: 10px 0;
-        }
-
-        .container_search .btn-search {
-            border: none;
-            outline: none;
-            background: #f2f2f2;
-            padding: 8px 5px;
-        }
-    </style>
+</style>
 </head>
-
 <body>
 
-    <form action="{{ route('print_AllEmpOffice') }}" method ="GET" class="container_search" dir="ltr">
-        <input type="search" class="form-control input-sm btn-search" name="search"
-            placeholder=" click here to filter .." />
-    </form>
-
+<h2> &nbsp;&nbsp; &nbsp;  ضباط الصف</h2>
     <div class="table-responsive">
         <table class="table m-0 table-colored table-success" id="datatable-editable">
-            <thead style="font-size: 12px;">
+            <thead>
                 <tr>
-                    <th>#</th>
-                    <th>الاسم</th>
+                    <th>رقم الملف</th>
                     <th>الرقم العسكري</th>
-                    <th>الرتبة</th>
+                    <th>الاسم</th>
+                    <th>الرتبه</th>
                     <th>الرقم الوطني</th>
-                    <th>اسم الأم</th>
-                    <th>نوع الاثبات</th>
-                    <th>رقم الاثبات</th>
-                    <th>رقم القيد</th>
-                    <th>رقم القرار</th>
-                    <th>المصرف</th>
-                    <th>الفرع</th>
-                    <th>رقم الحساب</th>
-                    <th>الدرجة</th>
-                    <th>آخر للترقية</th>
-                    <th>الوحدة الفرعيه</th>
-
+                    <th>الوحدة الفرعية</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($employees as $employee)
+
+                @foreach ($employeesOfficer as $employee)
                     <tr>
                         <th scope="row">{{ ++$i }}</th>
-                        <td>{{ $employee->full_name }}</td>
                         <td>{{ $employee->military_number }}</td>
+                        <td>{{ $employee->full_name }}</td>
                         <td>
+
                             @if ($employee->Rank == 'اللواء')
                                 اللواء
                             @endif
@@ -112,36 +79,24 @@
                             @if ($employee->Rank == 'جندي')
                                 جندي
                             @endif
+
                         </td>
                         <td>{{ $employee->national_no }}</td>
-                        <td>{{ $employee->familyHandbook_No }}</td>
-                        <td>{{ $employee->passport_or_card }}</td>
-                        <td>{{ $employee->passport }}</td>
-                        <td>{{ $employee->familyRegistration_No }}</td>
-                        <td>{{ $employee->appointment_decision }}</td>
-                        @foreach ($Banks as $id => $BankName)
-                            @if ($employee->bankName_id == $id)
-                                <td> {{ $BankName }}</td>
-                            @endif
-                        @endforeach
-                        @foreach ($BanksBranchs as $id => $BranchName)
-                            @if ($employee->bankBranch_id == $id)
-                                <td> {{ $BranchName }}</td>
-                            @endif
-                        @endforeach
-                        <td>{{ $employee->bank_accountNo }}</td>
-                        <td>{{ $employee->current_grade }}</td>
-                        <td>{{ $employee->current_grade_date }}</td>
-                        @foreach ($UnitsBranche as $id => $Branch_Name)
+
+
+                        @foreach ($UnitBranches as $id => $Branch_Name)
                             @if ($employee->unitBranch_id == $id)
                                 <td> {{ $Branch_Name }}</td>
                             @endif
                         @endforeach
+
+                    </tr>
                 @endforeach
+
             </tbody>
         </table>
     </div>
 
-</body>
 
+</body>
 </html>

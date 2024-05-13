@@ -34,6 +34,10 @@
                     <a id="addToTable" href="{{ route('employees.create') }}"
                         class="btn btn-success waves-effect waves-light">Add <i
                             class="mdi mdi-plus-circle-outline"></i></a>
+                           
+                            <a id="addToTable" href="{{ route('employees/PrintEmployees') }}"
+                        class="btn btn-success waves-effect waves-light">Print <i
+                            class="mdi mdi-plus-circle-outline"></i></a>
                 </div>
             </div>
         </div>

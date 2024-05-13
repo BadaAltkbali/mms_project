@@ -56,6 +56,31 @@ class EmployeeOfficerController extends Controller
 
     }
 
+    public function PrintOfficers()
+    {
+        
+            $employeesOfficer = employeesOfficer::orderBy('military_number')->paginate(3000);
+       
+        $UnitBranches = UnitBranch::pluck('unitBranch_Name', 'id');
+
+        return view('employees_officer.print', compact('employeesOfficer', 'UnitBranches'))->with('i');
+
+    }
+    public function PrintNonCommissOfficers()
+    {
+        $employeesOfficer = employeesOfficer::orderBy('military_number')->where('Rank', 'like', 'رئيس عرفه وحدة')
+        ->orWhere('Rank', 'like', 'رئيس عرفه سريه')
+        ->orWhere('Rank', 'like', 'عريف')
+        ->orWhere('Rank', 'like', 'نائب عريف')
+        ->orWhere('Rank', 'like', 'جندي أول')
+        ->orWhere('Rank', 'like', 'جندي')->get();
+       
+        $UnitBranches = UnitBranch::pluck('unitBranch_Name', 'id');
+
+        return view('employees_officer.printNonCommissOfficers', compact('employeesOfficer', 'UnitBranches'))->with('i');
+
+    }
+
     public function index()
     {
         if (request('search')) {

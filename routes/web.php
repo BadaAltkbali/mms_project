@@ -44,9 +44,15 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     Route::resource('employees',  EmployeeController::class);
+    Route::get('PrintEmployees', [EmployeeController::class, 'PrintEmployees'])->name('employees/PrintEmployees');
+
+    
     Route::resource('employeesofficer',  EmployeeOfficerController::class);
     Route::get('NonCommissOfficers', [EmployeeOfficerController::class, 'NonCommissOfficers'])->name('employeesofficer/NonCommissOfficers');
+    Route::get('PrintEmployeesOfficer', [EmployeeOfficerController::class, 'PrintOfficers'])->name('employeesofficer/PrintEmployeesOfficer');
+    Route::get('PrintENonCommissOfficers', [EmployeeOfficerController::class, 'PrintNonCommissOfficers'])->name('employeesofficer/PrintNonCommissOfficers');
 
+    
     // Route::resource('NonCommissOfficers',  NonCommissOfficers::class);
 
     Route::get('print', [Filter::class, 'index'])->name('prints');
