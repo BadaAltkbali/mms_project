@@ -96,35 +96,43 @@
                                         <td>{{ $employee->full_name }}</td>
                                         <td>{{ $employee->military_number }}</td>
                                         <td>
-                                            @if ($employee->Rank == '/')
-                                                /
-                                            @elseif ($employee->Rank == '')
-                                                /
-                                            @elseif ($employee->Rank == '1')
+                                            @if ($employee->Rank == 'اللواء')
                                                 اللواء
-                                            @elseif ($employee->Rank == '2')
+                                            @endif
+                                            @if ($employee->Rank == 'عميد')
                                                 عميد
-                                            @elseif ($employee->Rank == '3')
+                                            @endif
+                                            @if ($employee->Rank == 'عقيد')
                                                 عقيد
-                                            @elseif ($employee->Rank == '4')
+                                            @endif
+                                            @if ($employee->Rank == 'رائد')
                                                 رائد
-                                            @elseif ($employee->Rank == '5')
+                                            @endif
+                                            @if ($employee->Rank == 'نقيب')
                                                 نقيب
-                                            @elseif ($employee->Rank == '6')
+                                            @endif
+                                            @if ($employee->Rank == 'ملازم أول')
                                                 ملازم أول
-                                            @elseif ($employee->Rank == '7')
+                                            @endif
+                                            @if ($employee->Rank == 'ملازم ثاني')
                                                 ملازم ثاني
-                                            @elseif ($employee->Rank == '8')
+                                            @endif
+                                            @if ($employee->Rank == 'رئيس عرفة وحدة')
                                                 رئيس عرفة وحدة
-                                            @elseif ($employee->Rank == '9')
+                                            @endif
+                                            @if ($employee->Rank == 'رئيس عرفة سرية')
                                                 رئيس عرفة سرية
-                                            @elseif ($employee->Rank == '10')
+                                            @endif
+                                            @if ($employee->Rank == 'عريف')
                                                 عريف
-                                            @elseif ($employee->Rank == '11')
+                                            @endif
+                                            @if ($employee->Rank == 'نائب عريف')
                                                 نائب عريف
-                                            @elseif ($employee->Rank == '12')
+                                            @endif
+                                            @if ($employee->Rank == 'جندي أول')
                                                 جندي أول
-                                            @elseif ($employee->Rank == '13')
+                                            @endif
+                                            @if ($employee->Rank == 'جندي')
                                                 جندي
                                             @endif
                                         </td>

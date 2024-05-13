@@ -28,37 +28,47 @@
                 <th scope="row">{{ ++$i }}</th>
                 <td>{{ $doomed->military_number }}</td>
                 <td>
-                    @if ($doomed->Rank == '/')
-                        /
-                    @elseif ($doomed->Rank == '')
-                        /
-                    @elseif ($doomed->Rank == '1')
+
+                    @if ($doomed->Rank == 'اللواء')
                         اللواء
-                    @elseif ($doomed->Rank == '2')
+                    @endif
+                    @if ($doomed->Rank == 'عميد')
                         عميد
-                    @elseif ($doomed->Rank == '3')
+                    @endif
+                    @if ($doomed->Rank == 'عقيد')
                         عقيد
-                    @elseif ($doomed->Rank == '4')
+                    @endif
+                    @if ($doomed->Rank == 'رائد')
                         رائد
-                    @elseif ($doomed->Rank == '5')
+                    @endif
+                    @if ($doomed->Rank == 'نقيب')
                         نقيب
-                    @elseif ($doomed->Rank == '6')
+                    @endif
+                    @if ($doomed->Rank == 'ملازم أول')
                         ملازم أول
-                    @elseif ($doomed->Rank == '7')
+                    @endif
+                    @if ($doomed->Rank == 'ملازم ثاني')
                         ملازم ثاني
-                    @elseif ($doomed->Rank == '8')
+                    @endif
+                    @if ($doomed->Rank == 'رئيس عرفة وحدة')
                         رئيس عرفة وحدة
-                    @elseif ($doomed->Rank == '9')
+                    @endif
+                    @if ($doomed->Rank == 'رئيس عرفة سرية')
                         رئيس عرفة سرية
-                    @elseif ($doomed->Rank == '10')
+                    @endif
+                    @if ($doomed->Rank == 'عريف')
                         عريف
-                    @elseif ($doomed->Rank == '11')
+                    @endif
+                    @if ($doomed->Rank == 'نائب عريف')
                         نائب عريف
-                    @elseif ($doomed->Rank == '12')
+                    @endif
+                    @if ($doomed->Rank == 'جندي أول')
                         جندي أول
-                    @elseif ($doomed->Rank == '13')
+                    @endif
+                    @if ($doomed->Rank == 'جندي')
                         جندي
                     @endif
+
                 </td>
                 <td>{{ $doomed->full_name }}</td>
                 <td>{{ $doomed->national_no }}</td>
@@ -77,7 +87,7 @@
 
 
         @foreach ($doomeds as $doomed)
-            {{-- @if ($employees_type = $employee->financial_Figure)  --}}
+            {{-- @if ($employees_type = $doomed->financial_Figure)  --}}
             <tr>
                 <th scope="row">{{ ++$i }}</th>
                 <td>{{ $doomed->financial_Figure }}</td>

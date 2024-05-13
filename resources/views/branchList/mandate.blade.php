@@ -28,37 +28,47 @@
                 <th scope="row">{{ ++$i }}</th>
                 <td>{{ $mandate->military_number }}</td>
                 <td>
-                    @if ($mandate->Rank == '/')
-                        /
-                    @elseif ($mandate->Rank == '')
-                        /
-                    @elseif ($mandate->Rank == '1')
+
+                    @if ($mandate->Rank == 'اللواء')
                         اللواء
-                    @elseif ($mandate->Rank == '2')
+                    @endif
+                    @if ($mandate->Rank == 'عميد')
                         عميد
-                    @elseif ($mandate->Rank == '3')
+                    @endif
+                    @if ($mandate->Rank == 'عقيد')
                         عقيد
-                    @elseif ($mandate->Rank == '4')
+                    @endif
+                    @if ($mandate->Rank == 'رائد')
                         رائد
-                    @elseif ($mandate->Rank == '5')
+                    @endif
+                    @if ($mandate->Rank == 'نقيب')
                         نقيب
-                    @elseif ($mandate->Rank == '6')
+                    @endif
+                    @if ($mandate->Rank == 'ملازم أول')
                         ملازم أول
-                    @elseif ($mandate->Rank == '7')
+                    @endif
+                    @if ($mandate->Rank == 'ملازم ثاني')
                         ملازم ثاني
-                    @elseif ($mandate->Rank == '8')
+                    @endif
+                    @if ($mandate->Rank == 'رئيس عرفة وحدة')
                         رئيس عرفة وحدة
-                    @elseif ($mandate->Rank == '9')
+                    @endif
+                    @if ($mandate->Rank == 'رئيس عرفة سرية')
                         رئيس عرفة سرية
-                    @elseif ($mandate->Rank == '10')
+                    @endif
+                    @if ($mandate->Rank == 'عريف')
                         عريف
-                    @elseif ($mandate->Rank == '11')
+                    @endif
+                    @if ($mandate->Rank == 'نائب عريف')
                         نائب عريف
-                    @elseif ($mandate->Rank == '12')
+                    @endif
+                    @if ($mandate->Rank == 'جندي أول')
                         جندي أول
-                    @elseif ($mandate->Rank == '13')
+                    @endif
+                    @if ($mandate->Rank == 'جندي')
                         جندي
                     @endif
+
                 </td>
                 <td>{{ $mandate->full_name }}</td>
                 <td>{{ $mandate->national_no }}</td>

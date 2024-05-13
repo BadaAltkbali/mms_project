@@ -28,37 +28,47 @@
             <th scope="row">{{ ++$i }}</th>
             <td>{{ $retired->military_number }}</td>
             <td>
-                @if ($retired->Rank == '/')
-                    /
-                @elseif ($retired->Rank == '')
-                    /
-                @elseif ($retired->Rank == '1')
+
+                @if ($retired->Rank == 'اللواء')
                     اللواء
-                @elseif ($retired->Rank == '2')
+                @endif
+                @if ($retired->Rank == 'عميد')
                     عميد
-                @elseif ($retired->Rank == '3')
+                @endif
+                @if ($retired->Rank == 'عقيد')
                     عقيد
-                @elseif ($retired->Rank == '4')
+                @endif
+                @if ($retired->Rank == 'رائد')
                     رائد
-                @elseif ($retired->Rank == '5')
+                @endif
+                @if ($retired->Rank == 'نقيب')
                     نقيب
-                @elseif ($retired->Rank == '6')
+                @endif
+                @if ($retired->Rank == 'ملازم أول')
                     ملازم أول
-                @elseif ($retired->Rank == '7')
+                @endif
+                @if ($retired->Rank == 'ملازم ثاني')
                     ملازم ثاني
-                @elseif ($retired->Rank == '8')
+                @endif
+                @if ($retired->Rank == 'رئيس عرفة وحدة')
                     رئيس عرفة وحدة
-                @elseif ($retired->Rank == '9')
+                @endif
+                @if ($retired->Rank == 'رئيس عرفة سرية')
                     رئيس عرفة سرية
-                @elseif ($retired->Rank == '10')
+                @endif
+                @if ($retired->Rank == 'عريف')
                     عريف
-                @elseif ($retired->Rank == '11')
+                @endif
+                @if ($retired->Rank == 'نائب عريف')
                     نائب عريف
-                @elseif ($retired->Rank == '12')
+                @endif
+                @if ($retired->Rank == 'جندي أول')
                     جندي أول
-                @elseif ($retired->Rank == '13')
+                @endif
+                @if ($retired->Rank == 'جندي')
                     جندي
                 @endif
+
             </td>
             <td>{{ $retired->full_name }}</td>
             <td>{{ $retired->national_no }}</td>

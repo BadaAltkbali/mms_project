@@ -61,13 +61,13 @@
 </div><!-- end col -->
 </a>
 
-<a href="{{ route('employeesofficer.index') }}">
+<a href="{{ route('employeesofficer/NonCommissOfficers') }}">
 <div class="col-lg-6 col-md-6">
     <div class="card-box widget-box-two widget-two-warning" dir="rtl">
         <i class="fi fi-rs-users-alt widget-two-icon"></i>
         <div class="wigdet-two-content">
             <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">ضباط الصف</p>
-            <h2><span data-plugin="counterup">{{ $employeesOfficer }}</span>
+            <h2><span data-plugin="counterup">{{ $NonCommissOfficers }}</span>
             </h2>
         </div>
     </div>
@@ -115,7 +115,7 @@
 </div><!-- end col -->
 </a>
 
-<a href="{{ route('subList/fleeing') }}">
+<a href="{{ route('subList/doomed') }}">
 <div class="col-lg-3 col-md-6">
     <div class="card-box widget-box-two widget-two-danger" dir="rtl">
         <i class="fi fi-rr-user widget-two-icon"></i>
@@ -128,7 +128,7 @@
 </div><!-- end col -->
 </a>
 
-<a href="{{ route('subList/fleeing') }}">
+<a href="{{ route('subList/mandate') }}">
 <div class="col-lg-6 col-md-6">
     <div class="card-box widget-box-two wigdet-two-content" dir="rtl">
         <i class="fi fi-rr-user widget-two-icon"></i>

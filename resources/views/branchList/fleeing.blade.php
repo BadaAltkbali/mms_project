@@ -27,37 +27,47 @@
                 <th scope="row">{{ ++$i }}</th>
                 <td>{{ $fleeing->military_number }}</td>
                 <td>
-                    @if ($fleeing->Rank == '/')
-                        /
-                    @elseif ($fleeing->Rank == '')
-                        /
-                    @elseif ($fleeing->Rank == '1')
+
+                    @if ($fleeing->Rank == 'اللواء')
                         اللواء
-                    @elseif ($fleeing->Rank == '2')
+                    @endif
+                    @if ($fleeing->Rank == 'عميد')
                         عميد
-                    @elseif ($fleeing->Rank == '3')
+                    @endif
+                    @if ($fleeing->Rank == 'عقيد')
                         عقيد
-                    @elseif ($fleeing->Rank == '4')
+                    @endif
+                    @if ($fleeing->Rank == 'رائد')
                         رائد
-                    @elseif ($fleeing->Rank == '5')
+                    @endif
+                    @if ($fleeing->Rank == 'نقيب')
                         نقيب
-                    @elseif ($fleeing->Rank == '6')
+                    @endif
+                    @if ($fleeing->Rank == 'ملازم أول')
                         ملازم أول
-                    @elseif ($fleeing->Rank == '7')
+                    @endif
+                    @if ($fleeing->Rank == 'ملازم ثاني')
                         ملازم ثاني
-                    @elseif ($fleeing->Rank == '8')
+                    @endif
+                    @if ($fleeing->Rank == 'رئيس عرفة وحدة')
                         رئيس عرفة وحدة
-                    @elseif ($fleeing->Rank == '9')
+                    @endif
+                    @if ($fleeing->Rank == 'رئيس عرفة سرية')
                         رئيس عرفة سرية
-                    @elseif ($fleeing->Rank == '10')
+                    @endif
+                    @if ($fleeing->Rank == 'عريف')
                         عريف
-                    @elseif ($fleeing->Rank == '11')
+                    @endif
+                    @if ($fleeing->Rank == 'نائب عريف')
                         نائب عريف
-                    @elseif ($fleeing->Rank == '12')
+                    @endif
+                    @if ($fleeing->Rank == 'جندي أول')
                         جندي أول
-                    @elseif ($fleeing->Rank == '13')
+                    @endif
+                    @if ($fleeing->Rank == 'جندي')
                         جندي
                     @endif
+
                 </td>
                 <td>{{ $fleeing->full_name }}</td>
                 <td>{{ $fleeing->national_no }}</td>

@@ -36,12 +36,17 @@ class StaticController extends Controller
         $mandatesOfficer = employeesOfficer::where('mandate', 'LIKE', "%on%")->get()->count();
         $doomedsOfficer = employeesOfficer::where('doomed', 'LIKE', "%on%")->get()->count();
 
-        // $شمسشبOfficer = employeesOfficer::where('retired', 'LIKE', "%on%")->get()->count();
+        $NonCommissOfficers = employeesOfficer::where('Rank', 'like', 'رئيس عرفه وحدة')
+        ->orWhere('Rank', 'like', 'رئيس عرفه سريه')
+        ->orWhere('Rank', 'like', 'عريف')
+        ->orWhere('Rank', 'like', 'نائب عريف')
+        ->orWhere('Rank', 'like', 'جندي أول')
+        ->orWhere('Rank', 'like', 'جندي')->get()->count();
 
 
         $allEmployees =  $employees + $employeesOfficer;
 
-        return view('index', compact('users', 'employees', 'employeesOfficer', 'unitBranch', 'retireds', 'stoppings', 'fleeings','mandates', 'doomeds',
+        return view('index', compact('users', 'employees', 'employeesOfficer', 'NonCommissOfficers', 'unitBranch', 'retireds', 'stoppings', 'fleeings','mandates', 'doomeds',
         'retiredsOfficer', 'stoppingsOfficer', 'fleeingsOfficer' , 'mandatesOfficer', 'doomedsOfficer' ,'allEmployees' , 'Banks' , 'unitsBranch' , 'BanksBranchs'));
     }
     public function save()

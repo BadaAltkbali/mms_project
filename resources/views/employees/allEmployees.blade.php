@@ -71,42 +71,48 @@
                     <tr>
                         <th scope="row"> {{ ++$i }} </th>
                         <td>{{ $employeeOfficer->military_number }}</td>
+                        <td>
 
-
-
-                        <td>   @if ($employeeOfficer->Rank == '/')
-                            /
-                        @elseif ($employeeOfficer->Rank == '')
-                            /
-                        @elseif ($employeeOfficer->Rank == '1')
-                            اللواء
-                        @elseif ($employeeOfficer->Rank == '2')
-                            عميد
-                        @elseif ($employeeOfficer->Rank == '3')
-                            عقيد
-                        @elseif ($employeeOfficer->Rank == '4')
-                            رائد
-                        @elseif ($employeeOfficer->Rank == '5')
-                            نقيب
-                        @elseif ($employeeOfficer->Rank == '6')
-                            ملازم أول
-                        @elseif ($employeeOfficer->Rank == '7')
-                            ملازم ثاني
-                        @elseif ($employeeOfficer->Rank == '8')
-                            رئيس عرفة وحدة
-                        @elseif ($employeeOfficer->Rank == '9')
-                            رئيس عرفة سرية
-                        @elseif ($employeeOfficer->Rank == '10')
-                            عريف
-                        @elseif ($employeeOfficer->Rank == '11')
-                            نائب عريف
-                        @elseif ($employeeOfficer->Rank == '12')
-                            جندي أول
-                        @elseif ($employeeOfficer->Rank == '13')
-                            جندي
-                        @endif</td>
-
-
+                            @if ($employeeOfficer->Rank == 'اللواء')
+                                اللواء
+                            @endif
+                            @if ($employeeOfficer->Rank == 'عميد')
+                                عميد
+                            @endif
+                            @if ($employeeOfficer->Rank == 'عقيد')
+                                عقيد
+                            @endif
+                            @if ($employeeOfficer->Rank == 'رائد')
+                                رائد
+                            @endif
+                            @if ($employeeOfficer->Rank == 'نقيب')
+                                نقيب
+                            @endif
+                            @if ($employeeOfficer->Rank == 'ملازم أول')
+                                ملازم أول
+                            @endif
+                            @if ($employeeOfficer->Rank == 'ملازم ثاني')
+                                ملازم ثاني
+                            @endif
+                            @if ($employeeOfficer->Rank == 'رئيس عرفة وحدة')
+                                رئيس عرفة وحدة
+                            @endif
+                            @if ($employeeOfficer->Rank == 'رئيس عرفة سرية')
+                                رئيس عرفة سرية
+                            @endif
+                            @if ($employeeOfficer->Rank == 'عريف')
+                                عريف
+                            @endif
+                            @if ($employeeOfficer->Rank == 'نائب عريف')
+                                نائب عريف
+                            @endif
+                            @if ($employeeOfficer->Rank == 'جندي أول')
+                                جندي أول
+                            @endif
+                            @if ($employeeOfficer->Rank == 'جندي')
+                                جندي
+                            @endif
+                        </td>
 
                         <td>{{ $employeeOfficer->full_name }}</td>
                         <td>{{ $employeeOfficer->national_no }}</td>

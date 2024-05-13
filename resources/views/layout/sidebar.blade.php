@@ -74,6 +74,14 @@
                            </a>
                        </li>
                    @endcan
+                   @can('empOffice-list')
+                       <li class="has_sub">
+                           <a href="{{ route('employeesofficer/NonCommissOfficers') }}" class="waves-effect">
+                               <i class="fi fi-rr-badge-sheriff"></i>
+                               <span> ضباط الصف </span>
+                           </a>
+                       </li>
+                   @endcan
                    @can('emp-all')
                        <li class="has_sub">
                            <a href="{{ route('allEmployees') }}" class="waves-effect">

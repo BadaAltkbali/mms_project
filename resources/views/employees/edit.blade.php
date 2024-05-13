@@ -28,7 +28,7 @@
                     <input type="text" class="form-control text-center" name="fileNumber"
                         value="{{ $employee->id }}" disabled>
                 </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-4">
                     <label for="exampleInputEmail1">الاسم رباعي</label>
                     <input type="text" class="form-control" name="full_name" value="{{ $employee->full_name }}">
                     @foreach ($errors->get('full_name') as $error)
@@ -57,7 +57,7 @@
                     @endforeach
                 </div>
 
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-4">
                     <label for="exampleInputPassword1">اسم الأم ثلاثي</label>
                     <input type="text" class="form-control" name="familyHandbook_No"
                         value="{{ $employee->familyHandbook_No }}">
@@ -103,6 +103,36 @@
                                 <script>
                                     document.getElementById("national_no").classList.add("inputHasWarning");
                                     document.getElementById("national_no").focus();
+                                </script>
+                            </span>
+                        @endif
+                    @endforeach
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="exampleInputPassword1">الرقم المالي</label>
+                    <input type="text" class="form-control" name="financial_Figure"
+                        value="{{ $employee->financial_Figure }}">
+                    @foreach ($errors->get('financial_Figure') as $error)
+                        @if ($error == 'الرجاء ادخال الرقم المالي')
+                            <span @class([
+                                'errorText' => $errors->get('financial_Figure'),
+                            ])>
+                                <i class="fa fa-info-circle" aria-hidden="true"></i> {{ $error }}
+                                <script>
+                                    document.getElementById("financial_Figure").classList.add("inputHasError");
+                                    document.getElementById("financial_Figure").focus();
+                                </script>
+                            </span>
+                        @elseif ($error == 'الرقم المالي موجود مسبقاً ')
+                            <span @class([
+                                'WarningText' => $errors->get('financial_Figure'),
+                            ])>
+                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                {{ $error }}
+                                <script>
+                                    document.getElementById("financial_Figure").classList.add("inputHasWarning");
+                                    document.getElementById("financial_Figure").focus();
                                 </script>
                             </span>
                         @endif
@@ -219,7 +249,7 @@
                             <option value="AB-">AB-</option>
                             <option value="O+">O+</option>
                             <option value="O-" selected>O-</option>
-                        @elseif ($employee->blood_t == '/')
+                        @elseif ($employee->blood_t == '/' || $employee->blood_t == '')
                             <option value="/" selected> -- اختر -- </option>
                             <option value="A+">A+</option>
                             <option value="A-">A-</option>
@@ -236,7 +266,7 @@
                 <div class="form-group col-md-2">
                     <label for="exampleInputEmail1">الحاله الاجتماعيه</label>
                     <select class="form-control" id="" name="marital_status">
-                        @if ($employee->marital_status == '/')
+                        @if ($employee->marital_status == '/' || $employee->marital_status == '')
                             <option value="/" selected> -- اختر -- </option>
                             <option value="متزوج">متزوج</option>
                             <option value="أعزب">أعزب</option>
@@ -272,10 +302,10 @@
                     <label for="exampleInputEmail1">رقم الهاتف</label>
                     <input type="number" class="form-control" name="phone_n" value="{{ $employee->phone_n }}">
                 </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-3">
                     <label for="exampleInputPassword1">رقم جواز السفر أو البطاقه الشخصيه</label>
                     <select class="form-control" id="" name="passport_or_card">
-                        @if ($employee->passport_or_card == '/')
+                        @if ($employee->passport_or_card == '/' || $employee->passport_or_card == '')
                             <option value="/" selected> -- اختر -- </option>
                             <option value="جواز سفر">جواز سفر</option>
                             <option value="بطاقة شخصيه">بطاقه شخصيه</option>
@@ -327,7 +357,7 @@
                     <input type="text" class="form-control" name="closest_relatives"
                         value="{{ $employee->closest_relatives }}">
                 </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-3">
                     <label for="exampleInputPassword1">رقم هاتف (أقرب الأقارب)</label>
                     <input type="text" class="form-control" name="closest_relatives_Phone"
                         value="{{ $employee->closest_relatives_Phone }}">
@@ -342,8 +372,27 @@
             <fieldset class="m-t-50">
                 <legend>البيانات المالية : </legend>
 
-
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-4">
+                    <label for="unitName">اسم الوحدة</label>
+                    <input id="unitName" type="text" class="form-control" name="unitName"
+                        value="الخدمات الطبية العسكرية" disabled>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="unitBranch_id"> الوحدة الفرعية</label>
+                    <select id="unitBranch_id" class="form-control" name="unitBranch_id">
+                        @foreach ($wahadat as $id => $unitBranch_Name)
+                            <option @selected($employee->unitBranch_id == $id) value="{{ $id }}">
+                                {{ $unitBranch_Name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="exampleInputPassword1">التنسيب الداخلي</label>
+                    <input type="text" class="form-control" name="placement"
+                        value="{{ $employee->placement }}">
+                </div>
+                <div class="form-group col-md-4">
                     <label for="exampleInputPassword1">المصرف</label>
                     <select class="form-control" name="bankName_id">
 
@@ -354,7 +403,7 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-4">
                     <label for="exampleInputPassword1">الفرع</label>
                     <select id="bankBranch_id" class="form-control" name="bankBranch_id">
                         @foreach ($Branches as $id => $BranchName)
@@ -364,7 +413,7 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-4">
                     <label for="exampleInputPassword1">رقم الحساب</label>
                     <input type="text" class="form-control" name="bank_accountNo"
                         value="{{ $employee->bank_accountNo }}">
@@ -382,55 +431,6 @@
                         @endif
                     @endforeach
                 </div>
-                <div class="form-group col-md-3">
-                    <label for="unitName">اسم الوحدة</label>
-                    <input id="unitName" type="text" class="form-control" name="unitName"
-                        value="الخدمات الطبية العسكرية" disabled>
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="unitBranch_id"> الوحدة الفرعية</label>
-                    <select id="unitBranch_id" class="form-control" name="unitBranch_id">
-                        @foreach ($wahadat as $id => $unitBranch_Name)
-                            <option @selected($employee->unitBranch_id == $id) value="{{ $id }}">
-                                {{ $unitBranch_Name }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">التنسيب الداخلي</label>
-                    <input type="text" class="form-control" name="placement"
-                        value="{{ $employee->placement }}">
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">الرقم المالي</label>
-                    <input type="text" class="form-control" name="financial_Figure"
-                        value="{{ $employee->financial_Figure }}">
-                    @foreach ($errors->get('financial_Figure') as $error)
-                        @if ($error == 'الرجاء ادخال الرقم المالي')
-                            <span @class([
-                                'errorText' => $errors->get('financial_Figure'),
-                            ])>
-                                <i class="fa fa-info-circle" aria-hidden="true"></i> {{ $error }}
-                                <script>
-                                    document.getElementById("financial_Figure").classList.add("inputHasError");
-                                    document.getElementById("financial_Figure").focus();
-                                </script>
-                            </span>
-                        @elseif ($error == 'الرقم المالي موجود مسبقاً ')
-                            <span @class([
-                                'WarningText' => $errors->get('financial_Figure'),
-                            ])>
-                                <i class="fa fa-info-circle" aria-hidden="true"></i>
-                                {{ $error }}
-                                <script>
-                                    document.getElementById("financial_Figure").classList.add("inputHasWarning");
-                                    document.getElementById("financial_Figure").focus();
-                                </script>
-                            </span>
-                        @endif
-                    @endforeach
-                </div>
             </fieldset>
 
             <fieldset class="m-t-50">
@@ -439,7 +439,7 @@
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">تصنيف عقد العمل</label>
                     <select class="form-control" id="" name="classificationEmpContract">
-                        @if ($employee->classificationEmpContract == '/')
+                        @if ($employee->classificationEmpContract == '/' || $employee->classificationEmpContract == '')
                             <option value="/" selected> -- اختر -- </option>
                             <option value="تعيين">تعيين</option>
                             <option value="عقد عمل">عقد عمل</option>
@@ -509,7 +509,7 @@
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">المؤهل العلمي</label>
                     <select class="form-control" id="" name="qualification">
-                        @if ($employee->qualification == '/')
+                        @if ($employee->qualification == '/' || $employee->qualification == '')
                             <option value="/" selected> -- اختر -- </option>
                             <option value="دكتوراء">دكتوراء</option>
                             <option value="ماجستير">ماجستير</option>
@@ -766,7 +766,22 @@
                 </div>
             </fieldset>
 
-            <button type="submit" class="btn btn-success waves-effect waves-light m-r-0 btn-md">تعديل</button>
+            <div class="w-full h-40 flex items-center justify-center">
+                <button type="submit"
+                    class="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-success rounded-full shadow-md group">
+                    <span
+                        class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-success group-hover:translate-x-0 ease">
+
+                        <img width="30" height="30"
+                            src="https://img.icons8.com/sf-regular/48/FFFFFF/edit-user-male.png"
+                            alt="add-user-male" /> </span>
+                    <span
+                        class="absolute flex items-center justify-center w-full h-full text-success transition-all duration-300 transform group-hover:translate-x-full ease">تعديل
+                    </span>
+                    <span class="relative invisible">Button</span>
+                </button>
+            </div>
+            {{-- <button type="submit" class="btn btn-success waves-effect waves-light m-r-0 btn-md">تعديل</button> --}}
         </form>
     </div>
     <!-- end row -->

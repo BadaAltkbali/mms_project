@@ -3,7 +3,7 @@
 @section('title_content_main')
     الضباط
 @section('title_content_sub')
-    عرض الضباط
+    ضباط الصف 
 @endsection
 @endsection
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
@@ -16,19 +16,7 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-    @can('empOffice-create')
-        <div class="row">
-            <div class="">
-                <div class="m-b-30">
-                    <a id="addToTable" href="{{ route('employeesofficer.create') }}"
-                        class="btn btn-success waves-effect waves-light">Add <i
-                            class="mdi mdi-plus-circle-outline"></i></a>
-                </div>
-            </div>
-        </div>
-    @endcan
-    
-    
+   
     <form>
         <input type="search" class="form-control" placeholder="البحث بالرقم العسكري" name="search">
     </form>
@@ -98,7 +86,7 @@
                             @if ($employee->Rank == 'جندي')
                                 جندي
                             @endif
-
+                            
                         </td>
                         <td>{{ $employee->national_no }}</td>
 
@@ -106,6 +94,7 @@
                         @foreach ($UnitBranches as $id => $Branch_Name)
                             @if ($employee->unitBranch_id == $id)
                                 <td> {{ $Branch_Name }}</td>
+                                
                             @endif
                         @endforeach
 

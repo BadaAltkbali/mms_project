@@ -24,6 +24,38 @@ class EmployeeOfficerController extends Controller
         $this->middleware('permission:empOffice-delete', ['only' => ['destroy']]);
     }
 
+    public function NonCommissOfficers()
+    {
+        if (request('search')) {
+            if($employeesOfficerss = employeesOfficer::where('Rank', 'like', 'رئيس عرفه وحدة')
+            ->orWhere('Rank', 'like', 'رئيس عرفه سريه')
+            ->orWhere('Rank', 'like', 'عريف')
+            ->orWhere('Rank', 'like', 'نائب عريف')
+            ->orWhere('Rank', 'like', 'جندي أول')
+            ->orWhere('Rank', 'like', 'جندي'))
+            {
+            $employeesOfficer = employeesOfficer::where('military_number', 'like', '%' . request('search') . '%')
+            ->orWhere('full_name', 'like', '%' . request('search') . '%')
+            ->orWhere('bank_accountNo', 'like', '%' . request('search') . '%')
+            ->orWhere('familyHandbook_No', 'like', '%' . request('search') . '%')
+            ->orWhere('national_no', 'like', '%' . request('search') . '%')
+            ->orWhere('Rank', 'like', '%' . request('search') . '%')->get();
+        }
+        
+        } else {
+            $employeesOfficer = employeesOfficer::where('Rank', 'like', 'رئيس عرفه وحدة')
+            ->orWhere('Rank', 'like', 'رئيس عرفه سريه')
+            ->orWhere('Rank', 'like', 'عريف')
+            ->orWhere('Rank', 'like', 'نائب عريف')
+            ->orWhere('Rank', 'like', 'جندي أول')
+            ->orWhere('Rank', 'like', 'جندي')->paginate(3000); 
+        }
+        $UnitBranches = UnitBranch::pluck('unitBranch_Name', 'id');
+
+        return view('employees_officer.NonCommissOfficers', compact('employeesOfficer', 'UnitBranches'))->with('i');
+
+    }
+
     public function index()
     {
         if (request('search')) {
@@ -44,8 +76,11 @@ class EmployeeOfficerController extends Controller
 
     public function create()
     {
-        $wahadat = UnitBranch::all();
-        return view('employees_officer.create', compact('wahadat'));
+        $Banks = Bank::pluck('BankName', 'id');
+        $Branches = BankBranch::pluck('BranchName', 'id');
+        $wahadat = UnitBranch::pluck('unitBranch_Name', 'id');
+        // $wahadat = UnitBranch::all();
+        return view('employees_officer.create', compact('wahadat', 'Banks', 'Branches'));
     }
 
     public function store(Request $request)

@@ -12,6 +12,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PersonnelController;
 use App\Http\Controllers\BanksBranchController;
 use App\Http\Controllers\EmployeeOfficerController;
+// use App\Http\Controllers\NonCommissOfficers;
 use App\Http\Controllers\AdjectiveEmployeeController;
 
 /*
@@ -44,6 +45,9 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('employees',  EmployeeController::class);
     Route::resource('employeesofficer',  EmployeeOfficerController::class);
+    Route::get('NonCommissOfficers', [EmployeeOfficerController::class, 'NonCommissOfficers'])->name('employeesofficer/NonCommissOfficers');
+
+    // Route::resource('NonCommissOfficers',  NonCommissOfficers::class);
 
     Route::get('print', [Filter::class, 'index'])->name('prints');
     Route::get('print_Office', [Filter::class, 'indexOffice'])->name('printsOffice');

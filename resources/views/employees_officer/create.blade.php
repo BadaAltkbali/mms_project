@@ -25,7 +25,7 @@
                     <label for="exampleInputEmail1">رقم الملف</label>
                     <input type="text" class="form-control" name="fileNumber" >
                 </div> --}}
-                <div class="form-group col-md-2  m-b-30">
+                <div class="form-group col-md-3  m-b-30">
                     <label for="exampleInputEmail1">الاسم رباعي</label>
                     <input type="text" class="form-control" name="full_name" value="{{ old('full_name') }}">
                     {{-- @error('full_name')
@@ -37,7 +37,7 @@
                     @endforeach
                 </div>
 
-                <div class="form-group col-md-2 m-b-30">
+                <div class="form-group col-md-3 m-b-30">
                     <label for="exampleInputPassword1">اسم الأم ثلاثي</label>
                     <input type="text" class="form-control" name="familyHandbook_No"
                         value="{{ old('familyHandbook_No') }}">
@@ -61,6 +61,15 @@
                         <option value="جندي أول">جندي أول </option>
                         <option value="جندي">جندي</option>
                     </select>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="exampleInputPassword1">الرقم العسكري</label>
+                    <input type="text" class="form-control" name="military_number"
+                        value="{{ old('military_number') }}">
+                    @foreach ($errors->get('military_number') as $error)
+                        <span style="font-size: 15px;position: absolute;color:#f5707a">{{ $error }}</span>
+                    @endforeach
                 </div>
 
                 <div class="form-group col-md-2 m-b-30">
@@ -132,11 +141,11 @@
                     <label for="exampleInputEmail1">عدد الأبناء - الاناث</label>
                     <input type="text" class="form-control" name="daughter" value="{{ old('daughter') }}">
                 </div>
-                <div class="form-group col-md-2 m-b-30">
+                <div class="form-group col-md-4 m-b-30">
                     <label for="exampleInputEmail1">رقم الهاتف</label>
                     <input type="number" class="form-control" name="phone_n" value="{{ old('phone_n') }}">
                 </div>
-                <div class="form-group col-md-2 m-b-30">
+                <div class="form-group col-md-3 m-b-30">
                     <label for="exampleInputPassword1">رقم جواز السفر أو البطاقه الشخصيه</label>
                     <select class="form-control" id="" name="passport_or_card"
                         value="{{ old('passport_or_card') }}">
@@ -164,7 +173,7 @@
                     <input type="text" class="form-control" name="familyRegistration_No"
                         value="{{ old('familyRegistration_No') }}">
                 </div>
-                
+
                 {{-- <div class="form-group col-md-2 m-b-30">
                     <label for="exampleInputPassword1">رقم ورقه العائله</label>
                     <input type="text" class="form-control" name="familyPaper_No"
@@ -181,7 +190,7 @@
                     <input type="text" class="form-control" name="closest_relatives"
                         value="{{ old('closest_relatives') }}">
                 </div>
-                <div class="form-group col-md-2 m-b-30">
+                <div class="form-group col-md-3 m-b-30">
                     <label for="exampleInputPassword1">رقم هاتف (أقرب الأقارب)</label>
                     <input type="text" class="form-control" name="closest_relatives_Phone"
                         value="{{ old('closest_relatives_Phone') }}">
@@ -195,25 +204,48 @@
             <fieldset class="m-t-50">
                 <legend>البيانات المالية : </legend>
 
+                <div class="form-group col-md-4">
+                    <label for="exampleInputPassword1">اسم الوحدة</label>
 
-                <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">المصرف</label>
-                    <select class="form-control" name="bankName_id" value="{{ old('bankName_id') }}">
-                        <option value="/"> -- اختر -- </option>
-                        <option value="الجمهوريه">الجمهوريه</option>
-                        <option value="الوحدة">الوحدة</option>
-                        <option value="شمال أفريقيا">شمال أفريقيا</option>
-                        <option value="اليقين">اليقين</option>
-                        <option value="النوران">النوران</option>
-                        <option value="الأمان">الأمان</option>
+                    <input type="text" class="form-control" name="unitName" value="الخدمات الطبية العسكرية"
+                        disabled>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="unitBranch_id"> الوحدة الفرعية</label>
+                    <select id="unitBranch_id" class="form-control" name="unitBranch_id">
+                        @foreach ($wahadat as $id => $wehda_Name)
+                            <option value="{{ $id }}">
+                                {{ $wehda_Name }}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
-                <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">الفرع</label>
-                    <input type="text" class="form-control" name="bankBranch_id"
-                        value="{{ old('bankBranch_id') }}">
+                <div class="form-group col-md-4">
+                    <label for="placement">التنسيب الداخلي</label>
+                    <input id="placement" type="text" class="form-control" name="placement"
+                        value="{{ old('placement') }}">
                 </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-4">
+                    <label for="exampleInputPassword1">المصرف</label>
+                    <select id="bankName_id" class="form-control" name="bankName_id">
+                        @foreach ($Banks as $id => $Bank_Name)
+                            <option value="{{ $id }}">
+                                {{ $Bank_Name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="exampleInputPassword1">الفرع</label>
+                    <select id="bankBranch_id" class="form-control" name="bankBranch_id">
+                        @foreach ($Branches as $id => $Branche_Name)
+                            <option value="{{ $id }}">
+                                {{ $Branche_Name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
                     <label for="exampleInputPassword1">رقم الحساب</label>
                     <input type="text" class="form-control" name="bank_accountNo"
                         value="{{ old('bank_accountNo') }}">
@@ -221,36 +253,11 @@
                         <span style="font-size: 15px;position: absolute;color:#f5707a">{{ $error }}</span>
                     @endforeach
                 </div>
-                <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">الرقم العسكري</label>
-                    <input type="text" class="form-control" name="military_number"
-                        value="{{ old('military_number') }}">
-                    @foreach ($errors->get('military_number') as $error)
-                        <span style="font-size: 15px;position: absolute;color:#f5707a">{{ $error }}</span>
-                    @endforeach
-                </div>
-
             </fieldset>
 
             <fieldset class="m-t-50">
                 <legend>بيانات العمل : </legend>
 
-
-                <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">اسم الوحدة</label>
-
-                    <input type="text" class="form-control" name="unitName" value="الخدمات الطبية العسكرية"
-                        disabled>
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="unitBranch_id"> الوحدة الفرعية</label>
-                    <select class="form-control" id="unitBranch_id" name="unitBranch_id">
-                        <option value="/"> -- اختر -- </option>
-                        @foreach ($wahadat as $wehda)
-                            <option value="{{ $wehda->unitBranch_Name }}">{{ $wehda->unitBranch_Name }}</option>
-                        @endforeach
-                    </select>
-                </div>
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">تصنيف عقد العمل</label>
                     <select class="form-control" id="" name="classificationEmpContract"
@@ -282,6 +289,19 @@
                         value="{{ old('Contract_registrationNo') }}">
                 </div>
                 <div class="form-group col-md-2">
+                    <label for="current_grade">الدرجة الحاليه</label>
+                    <input id="current_grade" type="text" class="form-control" name="current_grade"
+                        value="{{ old('current_grade') }}">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="current_grade_date">تاريخ الحصول عليها</label>
+                    <input id="current_grade_date" type="date" class="form-control" name="current_grade_date"
+                        value="{{ old('current_grade_date') }}">
+                    @foreach ($errors->get('current_grade_date') as $error)
+                        <span style="font-size: 15px;position: absolute;color:#f5707a">{{ $error }}</span>
+                    @endforeach
+                </div>
+                <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">تاريخ آخر قرار ترقيه</label>
                     <input type="date" class="form-control" name="lastPromotion"
                         value="{{ old('lastPromotion') }}">
@@ -295,7 +315,7 @@
                     <label for="exampleInputPassword1">الاجازات</label>
                     <input type="text" class="form-control" name="vacations" value="{{ old('vacations') }}">
                 </div>
-              
+
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">المؤهل العلمي</label>
                     <select class="form-control" id="" name="qualification"
@@ -322,14 +342,18 @@
                         value="{{ old('graduationPlace') }}">
                 </div>
                 <div class="form-group col-md-2">
+                    <label for="">تاريخ التخرج</label>
+                    <input id="" type="date" class="form-control" name="graduationDate">
+                </div>
+                <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">جهة العمل</label>
                     <input type="text" class="form-control" name="workplace" value="{{ old('workplace') }}">
                 </div>
-                <div class="form-group col-md-2">
+                {{-- <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">التنسيب</label>
                     <input type="text" class="form-control" name="placement" value="{{ old('placement') }}">
-                </div>
-              
+                </div> --}}
+
 
                 <div class="form-group col-md-4">
                     <label for="exampleInputPassword1">ملاحظات</label>
@@ -349,17 +373,17 @@
                         <svg class="toggle" viewBox="0 0 292 142" xmlns="http://www.w3.org/2000/svg">
                             <path class="toggle-background"
                                 d="M71 142C31.7878 142 0 110.212 0 71C0 31.7878 31.7878 0 71 0C110.212 0 119 30 146 30C173 30 182 0 221 0C260 0 292 31.7878 292 71C292 110.212 260.212 142 221 142C181.788 142 173 112 146 112C119 112 110.212 142 71 142Z" />
-                            <rect class="toggle-icon on" x="64" y="39" width="12"
-                                height="64" rx="6" />
+                            <rect class="toggle-icon on" x="64" y="39" width="12" height="64"
+                                rx="6" />
                             <path class="toggle-icon off" fill-rule="evenodd"
                                 d="M221 91C232.046 91 241 82.0457 241 71C241 59.9543 232.046 51 221 51C209.954 51 201 59.9543 201 71C201 82.0457 209.954 91 221 91ZM221 103C238.673 103 253 88.6731 253 71C253 53.3269 238.673 39 221 39C203.327 39 189 53.3269 189 71C189 88.6731 203.327 103 221 103Z" />
                             <g filter="url('#goo')">
-                                <rect class="toggle-circle-center" x="13" y="42" width="116"
-                                    height="58" rx="29" fill="#fff" />
-                                <rect class="toggle-circle left" x="14" y="14" width="114"
-                                    height="114" rx="58" fill="#fff" />
-                                <rect class="toggle-circle right" x="164" y="14" width="114"
-                                    height="114" rx="58" fill="#fff" />
+                                <rect class="toggle-circle-center" x="13" y="42" width="116" height="58"
+                                    rx="29" fill="#fff" />
+                                <rect class="toggle-circle left" x="14" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
+                                <rect class="toggle-circle right" x="164" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
                             </g>
                             <filter id="goo">
                                 <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
@@ -377,17 +401,17 @@
                         <svg class="toggle" viewBox="0 0 292 142" xmlns="http://www.w3.org/2000/svg">
                             <path class="toggle-background"
                                 d="M71 142C31.7878 142 0 110.212 0 71C0 31.7878 31.7878 0 71 0C110.212 0 119 30 146 30C173 30 182 0 221 0C260 0 292 31.7878 292 71C292 110.212 260.212 142 221 142C181.788 142 173 112 146 112C119 112 110.212 142 71 142Z" />
-                            <rect class="toggle-icon on" x="64" y="39" width="12"
-                                height="64" rx="6" />
+                            <rect class="toggle-icon on" x="64" y="39" width="12" height="64"
+                                rx="6" />
                             <path class="toggle-icon off" fill-rule="evenodd"
                                 d="M221 91C232.046 91 241 82.0457 241 71C241 59.9543 232.046 51 221 51C209.954 51 201 59.9543 201 71C201 82.0457 209.954 91 221 91ZM221 103C238.673 103 253 88.6731 253 71C253 53.3269 238.673 39 221 39C203.327 39 189 53.3269 189 71C189 88.6731 203.327 103 221 103Z" />
                             <g filter="url('#goo')">
-                                <rect class="toggle-circle-center" x="13" y="42" width="116"
-                                    height="58" rx="29" fill="#fff" />
-                                <rect class="toggle-circle left" x="14" y="14" width="114"
-                                    height="114" rx="58" fill="#fff" />
-                                <rect class="toggle-circle right" x="164" y="14" width="114"
-                                    height="114" rx="58" fill="#fff" />
+                                <rect class="toggle-circle-center" x="13" y="42" width="116" height="58"
+                                    rx="29" fill="#fff" />
+                                <rect class="toggle-circle left" x="14" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
+                                <rect class="toggle-circle right" x="164" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
                             </g>
                             <filter id="goo">
                                 <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
@@ -405,17 +429,17 @@
                         <svg class="toggle" viewBox="0 0 292 142" xmlns="http://www.w3.org/2000/svg">
                             <path class="toggle-background"
                                 d="M71 142C31.7878 142 0 110.212 0 71C0 31.7878 31.7878 0 71 0C110.212 0 119 30 146 30C173 30 182 0 221 0C260 0 292 31.7878 292 71C292 110.212 260.212 142 221 142C181.788 142 173 112 146 112C119 112 110.212 142 71 142Z" />
-                            <rect class="toggle-icon on" x="64" y="39" width="12"
-                                height="64" rx="6" />
+                            <rect class="toggle-icon on" x="64" y="39" width="12" height="64"
+                                rx="6" />
                             <path class="toggle-icon off" fill-rule="evenodd"
                                 d="M221 91C232.046 91 241 82.0457 241 71C241 59.9543 232.046 51 221 51C209.954 51 201 59.9543 201 71C201 82.0457 209.954 91 221 91ZM221 103C238.673 103 253 88.6731 253 71C253 53.3269 238.673 39 221 39C203.327 39 189 53.3269 189 71C189 88.6731 203.327 103 221 103Z" />
                             <g filter="url('#goo')">
-                                <rect class="toggle-circle-center" x="13" y="42" width="116"
-                                    height="58" rx="29" fill="#fff" />
-                                <rect class="toggle-circle left" x="14" y="14" width="114"
-                                    height="114" rx="58" fill="#fff" />
-                                <rect class="toggle-circle right" x="164" y="14" width="114"
-                                    height="114" rx="58" fill="#fff" />
+                                <rect class="toggle-circle-center" x="13" y="42" width="116" height="58"
+                                    rx="29" fill="#fff" />
+                                <rect class="toggle-circle left" x="14" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
+                                <rect class="toggle-circle right" x="164" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
                             </g>
                             <filter id="goo">
                                 <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
@@ -433,17 +457,17 @@
                         <svg class="toggle" viewBox="0 0 292 142" xmlns="http://www.w3.org/2000/svg">
                             <path class="toggle-background"
                                 d="M71 142C31.7878 142 0 110.212 0 71C0 31.7878 31.7878 0 71 0C110.212 0 119 30 146 30C173 30 182 0 221 0C260 0 292 31.7878 292 71C292 110.212 260.212 142 221 142C181.788 142 173 112 146 112C119 112 110.212 142 71 142Z" />
-                            <rect class="toggle-icon on" x="64" y="39" width="12"
-                                height="64" rx="6" />
+                            <rect class="toggle-icon on" x="64" y="39" width="12" height="64"
+                                rx="6" />
                             <path class="toggle-icon off" fill-rule="evenodd"
                                 d="M221 91C232.046 91 241 82.0457 241 71C241 59.9543 232.046 51 221 51C209.954 51 201 59.9543 201 71C201 82.0457 209.954 91 221 91ZM221 103C238.673 103 253 88.6731 253 71C253 53.3269 238.673 39 221 39C203.327 39 189 53.3269 189 71C189 88.6731 203.327 103 221 103Z" />
                             <g filter="url('#goo')">
-                                <rect class="toggle-circle-center" x="13" y="42" width="116"
-                                    height="58" rx="29" fill="#fff" />
-                                <rect class="toggle-circle left" x="14" y="14" width="114"
-                                    height="114" rx="58" fill="#fff" />
-                                <rect class="toggle-circle right" x="164" y="14" width="114"
-                                    height="114" rx="58" fill="#fff" />
+                                <rect class="toggle-circle-center" x="13" y="42" width="116" height="58"
+                                    rx="29" fill="#fff" />
+                                <rect class="toggle-circle left" x="14" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
+                                <rect class="toggle-circle right" x="164" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
                             </g>
                             <filter id="goo">
                                 <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
@@ -461,17 +485,17 @@
                         <svg class="toggle" viewBox="0 0 292 142" xmlns="http://www.w3.org/2000/svg">
                             <path class="toggle-background"
                                 d="M71 142C31.7878 142 0 110.212 0 71C0 31.7878 31.7878 0 71 0C110.212 0 119 30 146 30C173 30 182 0 221 0C260 0 292 31.7878 292 71C292 110.212 260.212 142 221 142C181.788 142 173 112 146 112C119 112 110.212 142 71 142Z" />
-                            <rect class="toggle-icon on" x="64" y="39" width="12"
-                                height="64" rx="6" />
+                            <rect class="toggle-icon on" x="64" y="39" width="12" height="64"
+                                rx="6" />
                             <path class="toggle-icon off" fill-rule="evenodd"
                                 d="M221 91C232.046 91 241 82.0457 241 71C241 59.9543 232.046 51 221 51C209.954 51 201 59.9543 201 71C201 82.0457 209.954 91 221 91ZM221 103C238.673 103 253 88.6731 253 71C253 53.3269 238.673 39 221 39C203.327 39 189 53.3269 189 71C189 88.6731 203.327 103 221 103Z" />
                             <g filter="url('#goo')">
-                                <rect class="toggle-circle-center" x="13" y="42" width="116"
-                                    height="58" rx="29" fill="#fff" />
-                                <rect class="toggle-circle left" x="14" y="14" width="114"
-                                    height="114" rx="58" fill="#fff" />
-                                <rect class="toggle-circle right" x="164" y="14" width="114"
-                                    height="114" rx="58" fill="#fff" />
+                                <rect class="toggle-circle-center" x="13" y="42" width="116" height="58"
+                                    rx="29" fill="#fff" />
+                                <rect class="toggle-circle left" x="14" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
+                                <rect class="toggle-circle right" x="164" y="14" width="114" height="114"
+                                    rx="58" fill="#fff" />
                             </g>
                             <filter id="goo">
                                 <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
@@ -487,7 +511,7 @@
                     class="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-success rounded-full shadow-md group">
                     <span
                         class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-success group-hover:translate-x-0 ease">
-                       
+
 
                         <img width="30" height="30"
                             src="https://img.icons8.com/sf-regular/48/FFFFFF/add-user-male.png"
