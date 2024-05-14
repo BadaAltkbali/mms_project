@@ -29,20 +29,14 @@
                     <input type="text" class="form-control text-center" name="fileNumber"
                         value="{{ $employeeOfficers->id }}" disabled>
                 </div>
-                <div class="form-group col-md-3">
-                    <label for="exampleInputEmail1">الاسم رباعي</label>
-                    <input type="text" class="form-control" name="full_name"
-                        value="{{ $employeeOfficers->full_name }}">
-                    @foreach ($errors->get('full_name') as $error)
+                <div class="form-group col-md-2">
+                    <label for="exampleInputPassword1">الرقم المالي</label>
+                    <input type="text" class="form-control" name="military_number"
+                        value="{{ $employeeOfficers->military_number }}">
+                    @foreach ($errors->get('military_number') as $error)
                         <span style="font-size: 15px;position: absolute;color:#f5707a">{{ $error }}</span>
                     @endforeach
                 </div>
-                <div class="form-group col-md-3">
-                    <label for="exampleInputPassword1">اسم الأم ثلاثي</label>
-                    <input type="text" class="form-control" name="familyHandbook_No"
-                        value="{{ $employeeOfficers->familyHandbook_No }}">
-                </div>
-
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">الرتبة</label>
                     <select class="form-control" id="" name="Rank">
@@ -259,11 +253,11 @@
                         @endif
                     </select>
                 </div>
-                <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">الرقم المالي</label>
-                    <input type="text" class="form-control" name="military_number"
-                        value="{{ $employeeOfficers->military_number }}">
-                    @foreach ($errors->get('military_number') as $error)
+                <div class="form-group col-md-3">
+                    <label for="exampleInputEmail1">الاسم رباعي</label>
+                    <input type="text" class="form-control" name="full_name"
+                        value="{{ $employeeOfficers->full_name }}">
+                    @foreach ($errors->get('full_name') as $error)
                         <span style="font-size: 15px;position: absolute;color:#f5707a">{{ $error }}</span>
                     @endforeach
                 </div>
@@ -274,6 +268,11 @@
                     @foreach ($errors->get('national_no') as $error)
                         <span style="font-size: 15px;position: absolute;color:#f5707a">{{ $error }}</span>
                     @endforeach
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="exampleInputPassword1">اسم الأم ثلاثي</label>
+                    <input type="text" class="form-control" name="familyHandbook_No"
+                        value="{{ $employeeOfficers->familyHandbook_No }}">
                 </div>
                 <div class="form-group col-md-2">
                     <label for="exampleInputEmail1">تاريخ الميلاد</label>
@@ -664,6 +663,7 @@
                             <option value="معهد عالي">معهد عالي</option>
                             <option value="معهد متوسط">معهد متوسط</option>
                             <option value="ثانوي">ثانوي</option>
+                            <option value="اعدادي">اعدادي</option>
                         @elseif ($employeeOfficers->qualification == 'دكتوراء')
                             <option value="/"> -- اختر -- </option>
                             <option value="دكتوراء" selected>دكتوراء</option>
@@ -672,6 +672,7 @@
                             <option value="معهد عالي">معهد عالي</option>
                             <option value="معهد متوسط">معهد متوسط</option>
                             <option value="ثانوي">ثانوي</option>
+                            <option value="اعدادي">اعدادي</option>
                         @elseif ($employeeOfficers->qualification == 'ماجستير')
                             <option value="/"> -- اختر -- </option>
                             <option value="دكتوراء">دكتوراء</option>
@@ -680,6 +681,7 @@
                             <option value="معهد عالي">معهد عالي</option>
                             <option value="معهد متوسط">معهد متوسط</option>
                             <option value="ثانوي">ثانوي</option>
+                            <option value="اعدادي">اعدادي</option>
                         @elseif ($employeeOfficers->qualification == 'باكالوريوس')
                             <option value="/"> -- اختر -- </option>
                             <option value="دكتوراء">دكتوراء</option>
@@ -688,6 +690,7 @@
                             <option value="معهد عالي">معهد عالي</option>
                             <option value="معهد متوسط">معهد متوسط</option>
                             <option value="ثانوي">ثانوي</option>
+                            <option value="اعدادي">اعدادي</option>
                         @elseif ($employeeOfficers->qualification == 'معهد عالي')
                             <option value="/"> -- اختر -- </option>
                             <option value="دكتوراء">دكتوراء</option>
@@ -696,6 +699,7 @@
                             <option value="معهد عالي" selected>معهد عالي</option>
                             <option value="معهد متوسط">معهد متوسط</option>
                             <option value="ثانوي">ثانوي</option>
+                            <option value="اعدادي">اعدادي</option>
                         @elseif ($employeeOfficers->qualification == 'معهد متوسط')
                             <option value="/"> -- اختر -- </option>
                             <option value="دكتوراء">دكتوراء</option>
@@ -704,6 +708,7 @@
                             <option value="معهد عالي">معهد عالي</option>
                             <option value="معهد متوسط" selected>معهد متوسط</option>
                             <option value="ثانوي">ثانوي</option>
+                            <option value="اعدادي">اعدادي</option>
                         @elseif ($employeeOfficers->qualification == 'ثانوي')
                             <option value="/"> -- اختر -- </option>
                             <option value="دكتوراء">دكتوراء</option>
@@ -712,6 +717,16 @@
                             <option value="معهد عالي">معهد عالي</option>
                             <option value="معهد متوسط">معهد متوسط</option>
                             <option value="ثانوي" selected>ثانوي</option>
+                            <option value="اعدادي">اعدادي</option>
+                        @elseif ($employeeOfficers->qualification == 'اعدادي')
+                            <option value="/"> -- اختر -- </option>
+                            <option value="دكتوراء">دكتوراء</option>
+                            <option value="ماجستير">ماجستير</option>
+                            <option value="باكالوريوس">باكالوريوس</option>
+                            <option value="معهد عالي">معهد عالي</option>
+                            <option value="معهد متوسط">معهد متوسط</option>
+                            <option value="ثانوي" selected>ثانوي</option>
+                            <option value="اعدادي">اعدادي</option>
                         @endif
                     </select>
                 </div>

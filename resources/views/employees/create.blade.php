@@ -26,82 +26,6 @@
                      <label for="">رقم الملف</label>
                      <input id="" type="text" class="form-control" name="fileNumber" >
                 </div> --}}
-                <div class="form-group col-md-4  m-b-30">
-                    <label for="full_name">الاسم رباعي</label>
-
-                    <input id="full_name" type="text" name="full_name" value="{{ old('full_name') }}"
-                        @class(['form-control'])>
-
-                    @foreach ($errors->get('full_name') as $error)
-                        @if ($error == 'الرجاء ادخال اسم الموظف ')
-                            <span @class([
-                                'errorText' => $errors->get('full_name'),
-                            ])>
-                                <i class="fa fa-info-circle" aria-hidden="true"></i> {{ $error }}
-                                <script>
-                                    document.getElementById("full_name").classList.add("inputHasError");
-                                    document.getElementById("full_name").focus();
-                                </script>
-                            </span>
-                        @elseif ($error == 'اسم الموظف موجود مسبقا')
-                            <span @class([
-                                'WarningText' => $errors->get('full_name'),
-                            ])>
-                                <i class="fa fa-info-circle" aria-hidden="true"></i>
-                                {{ $error }}
-                                <script>
-                                    document.getElementById("full_name").classList.add("inputHasWarning");
-                                    document.getElementById("full_name").focus();
-                                </script>
-                            </span>
-                        @endif
-                    @endforeach
-                </div>
-
-                <div class="form-group col-md-3 m-b-30">
-                    <label for="familyHandbook_No">اسم الأم ثلاثي</label>
-                    <input id="familyHandbook_No" type="number" class="form-control" name="familyHandbook_No"
-                        value="{{ old('familyHandbook_No') }}">
-                </div>
-                <div class="form-group col-md-2  m-b-30">
-                    <label for="adjective">الصفه</label>
-                    <select id="adjective" class="form-control"name="adjective_id">
-                        @foreach ($Adjectives as $id => $Adjective_Name)
-                            <option value="{{ $id }}">
-                                {{ $Adjective_Name }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group col-md-3 m-b-30">
-                    <label for="national_no">الرقم الوطني</label>
-                    <input id="national_no" type="number" class="form-control" name="national_no"
-                        value="{{ old('national_no') }}">
-                    @foreach ($errors->get('national_no') as $error)
-                        @if ($error == 'الرقم الوطني الذي ادخلته موجود مسبقاً')
-                            <span @class([
-                                'errorText' => $errors->get('national_no'),
-                            ])>
-                                <i class="fa fa-info-circle" aria-hidden="true"></i> {{ $error }}
-                                <script>
-                                    document.getElementById("national_no").classList.add("inputHasError");
-                                    document.getElementById("national_no").focus();
-                                </script>
-                            </span>
-                        @elseif ($error == 'الحد الأقصى للادخال 12 رقم')
-                            <span @class([
-                                'WarningText' => $errors->get('national_no'),
-                            ])>
-                                <i class="fa fa-info-circle" aria-hidden="true"></i>
-                                {{ $error }}
-                                <script>
-                                    document.getElementById("national_no").classList.add("inputHasWarning");
-                                    document.getElementById("national_no").focus();
-                                </script>
-                            </span>
-                        @endif
-                    @endforeach
-                </div>
                 <div class="form-group col-md-2">
                     <label for="financial_Figure">الرقم المالي</label>
                     <input id="financial_Figure" type="number" class="form-control" name="financial_Figure"
@@ -132,6 +56,84 @@
                         @endif
                     @endforeach
                 </div>
+                <div class="form-group col-md-2  m-b-30">
+                    <label for="adjective">الصفه</label>
+                    <select id="adjective" class="form-control"name="adjective_id">
+                        @foreach ($Adjectives as $id => $Adjective_Name)
+                            <option value="{{ $id }}">
+                                {{ $Adjective_Name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group col-md-3  m-b-30">
+                    <label for="full_name">الاسم رباعي</label>
+
+                    <input id="full_name" type="text" name="full_name" value="{{ old('full_name') }}"
+                        @class(['form-control'])>
+
+                    @foreach ($errors->get('full_name') as $error)
+                        @if ($error == 'الرجاء ادخال اسم الموظف ')
+                            <span @class([
+                                'errorText' => $errors->get('full_name'),
+                            ])>
+                                <i class="fa fa-info-circle" aria-hidden="true"></i> {{ $error }}
+                                <script>
+                                    document.getElementById("full_name").classList.add("inputHasError");
+                                    document.getElementById("full_name").focus();
+                                </script>
+                            </span>
+                        @elseif ($error == 'اسم الموظف موجود مسبقا')
+                            <span @class([
+                                'WarningText' => $errors->get('full_name'),
+                            ])>
+                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                {{ $error }}
+                                <script>
+                                    document.getElementById("full_name").classList.add("inputHasWarning");
+                                    document.getElementById("full_name").focus();
+                                </script>
+                            </span>
+                        @endif
+                    @endforeach
+                </div>
+ <div class="form-group col-md-2 m-b-30">
+                    <label for="national_no">الرقم الوطني</label>
+                    <input id="national_no" type="number" class="form-control" name="national_no"
+                        value="{{ old('national_no') }}">
+                    @foreach ($errors->get('national_no') as $error)
+                        @if ($error == 'الرقم الوطني الذي ادخلته موجود مسبقاً')
+                            <span @class([
+                                'errorText' => $errors->get('national_no'),
+                            ])>
+                                <i class="fa fa-info-circle" aria-hidden="true"></i> {{ $error }}
+                                <script>
+                                    document.getElementById("national_no").classList.add("inputHasError");
+                                    document.getElementById("national_no").focus();
+                                </script>
+                            </span>
+                        @elseif ($error == 'الحد الأقصى للادخال 12 رقم')
+                            <span @class([
+                                'WarningText' => $errors->get('national_no'),
+                            ])>
+                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                {{ $error }}
+                                <script>
+                                    document.getElementById("national_no").classList.add("inputHasWarning");
+                                    document.getElementById("national_no").focus();
+                                </script>
+                            </span>
+                        @endif
+                    @endforeach
+                </div>
+                <div class="form-group col-md-3 m-b-30">
+                    <label for="familyHandbook_No">اسم الأم ثلاثي</label>
+                    <input id="familyHandbook_No" type="number" class="form-control" name="familyHandbook_No"
+                        value="{{ old('familyHandbook_No') }}">
+                </div>
+
+               
+
                 <div class="form-group col-md-2  m-b-30">
                     <label for="birth_d">تاريخ الميلاد</label>
                     <input id="birth_d" type="date" class="form-control" name="birth_d"
@@ -424,6 +426,8 @@
                         <option value="معهد متوسط" {{ old('qualification') == 'معهد متوسط' ? 'selected' : '' }}>
                             معهد متوسط</option>
                         <option value="ثانوي" {{ old('qualification') == 'ثانوي' ? 'selected' : '' }}>ثانوي
+                        </option>
+                        <option value="اعدادي" {{ old('qualification') == 'اعدادي' ? 'selected' : '' }}>اعدادي
                         </option>
                     </select>
                 </div>

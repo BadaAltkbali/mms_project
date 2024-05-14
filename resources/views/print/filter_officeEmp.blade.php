@@ -49,9 +49,9 @@
             <thead style="font-size: 12px;">
                 <tr>
                     <th>#</th>
-                    <th>الاسم</th>
                     <th>الرقم العسكري</th>
                     <th>الرتبة</th>
+                    <th>الاسم</th>
                     <th>الرقم الوطني</th>
                     <th>الوحدة الفرعيه</th>
                 </tr>
@@ -60,7 +60,7 @@
                 @foreach ($employees as $employee)
                     <tr>
                         <th scope="row">{{ ++$i }}</th>
-                        <td>{{ $employee->full_name }}</td>
+                       
                         <td>{{ $employee->military_number }}</td>
                         <td>
                             @if ($employee->Rank == 'اللواء')
@@ -102,7 +102,8 @@
                             @if ($employee->Rank == 'جندي')
                                 جندي
                             @endif
-                        </td>
+                        </td> 
+                        <td>{{ $employee->full_name }}</td>
                         <td>{{ $employee->national_no }}</td>
                         @foreach ($UnitsBranche as $id => $Branch_Name)
                             @if ($employee->unitBranch_id == $id)

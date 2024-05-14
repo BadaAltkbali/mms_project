@@ -51,7 +51,8 @@
 <a href="{{ route('employeesofficer.index') }}">
 <div class="col-lg-6 col-md-6">
     <div class="card-box widget-box-two widget-two-warning" dir="rtl">
-        <i class="fi fi-rs-users-alt widget-two-icon"></i>
+        
+        <i class="fi fi-rr-badge-sheriff widget-two-icon"></i>
         <div class="wigdet-two-content">
             <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">الضباط</p>
             <h2><span data-plugin="counterup">{{ $employeesOfficer }}</span>
@@ -64,7 +65,8 @@
 <a href="{{ route('employeesofficer/NonCommissOfficers') }}">
 <div class="col-lg-6 col-md-6">
     <div class="card-box widget-box-two widget-two-warning" dir="rtl">
-        <i class="fi fi-rs-users-alt widget-two-icon"></i>
+   
+        <i class="fi fi-rr-badge-sheriff widget-two-icon"></i>
         <div class="wigdet-two-content">
             <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">ضباط الصف</p>
             <h2><span data-plugin="counterup">{{ $NonCommissOfficers }}</span>

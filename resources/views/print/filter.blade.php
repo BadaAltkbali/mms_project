@@ -47,9 +47,10 @@
             <thead style="font-size: 12px;">
                 <tr>
                     <th>#</th>
-                    <th>الاسم</th>
+
                     <th>الرقم المالي</th>
                     <th>الصفة</th>
+                    <th>الاسم</th>
                     <th>الرقم الوطني</th>
                     <th>الوحدة الفرعيه</th>
                 </tr>
@@ -58,13 +59,14 @@
                 @foreach ($employees as $employee)
                     <tr>
                         <th scope="row">{{ ++$i }}</th>
-                        <td>{{ $employee->full_name }}</td>
+
                         <td>{{ $employee->financial_Figure }}</td>
                         @foreach ($Adjectives as $id => $Adjective_Name)
                             @if ($employee->adjective_id == $id)
                                 <td> {{ $Adjective_Name }}</td>
                             @endif
                         @endforeach
+                        <td>{{ $employee->full_name }}</td>
                         <td>{{ $employee->national_no }}</td>
 
                         {{-- <td>{{ $employee->familyHandbook_No }}</td> --}}

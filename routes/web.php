@@ -44,6 +44,8 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     Route::resource('employees',  EmployeeController::class);
+    Route::get('employees/export', [EmployeeController::class, 'exportDataInExcel']);
+
     Route::get('PrintEmployees', [EmployeeController::class, 'PrintEmployees'])->name('employees/PrintEmployees');
 
     
@@ -80,8 +82,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('stopping', [Filter::class, 'getStopping'])->name('subList/stopping');
     Route::get('Mandate', [Filter::class, 'getMandate'])->name('subList/mandate');
     Route::get('Doomed', [Filter::class, 'getDoomed'])->name('subList/doomed');
-
-
 
 
     Route::resource('Bank',  BanksController::class);

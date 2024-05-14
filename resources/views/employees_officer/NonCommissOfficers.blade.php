@@ -21,7 +21,7 @@
             <div class="m-b-30">
                 <a id="addToTable" href="{{ route('employeesofficer/PrintNonCommissOfficers') }}"
                     class="btn btn-success waves-effect waves-light">Print <i
-                        class="mdi mdi-plus-circle-outline"></i></a>
+                    class="mdi mdi-printer"></i></a>
             </div>
         </div>
     </div>

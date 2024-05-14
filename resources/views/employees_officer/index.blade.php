@@ -25,7 +25,7 @@
                             class="mdi mdi-plus-circle-outline"></i></a>
                             <a id="addToTable" href="{{ route('employeesofficer/PrintEmployeesOfficer') }}"
                         class="btn btn-success waves-effect waves-light">Print <i
-                            class="mdi mdi-plus-circle-outline"></i></a>
+                        class="mdi mdi-printer"></i></a>
                 </div>
             </div>
         </div>
@@ -42,8 +42,8 @@
                 <tr>
                     <th>رقم الملف</th>
                     <th>الرقم العسكري</th>
-                    <th>الاسم</th>
                     <th>الرتبه</th>
+                    <th>الاسم</th>
                     <th>الرقم الوطني</th>
                     <th>الوحدة الفرعية</th>
 
@@ -59,7 +59,6 @@
                         <th scope="row">{{ ++$i }}</th>
                         {{-- <th scope="row">{{ $employee->id }}</th> --}}
                         <td>{{ $employee->military_number }}</td>
-                        <td>{{ $employee->full_name }}</td>
                         <td>
 
                             @if ($employee->Rank == 'اللواء')
@@ -103,6 +102,8 @@
                             @endif
 
                         </td>
+                        <td>{{ $employee->full_name }}</td>
+                        
                         <td>{{ $employee->national_no }}</td>
 
 
@@ -132,11 +133,17 @@
                                 @method('DELETE')
                                 @can('empOffice-update')
                                     <a href="{{ route('employeesofficer.edit', $employee->id) }}"
-                                        class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        class="on-default edit-row">
+                                        {{-- <i class="fa fa-pencil"></i> --}}
+                                         تعديل
+                                    </a>
                                 @endcan
                                 @can('empOffice-delete')
                                     <input name="_method" type="hidden" value="DELETE">
-                                    <a type="submit" class="confirm-button"><i class="fa fa-trash-o"></i></a>
+                                    <a type="submit" class="confirm-button">
+                                        {{-- <i class="fa fa-trash-o"></i> --}}
+                                        حذف
+                                    </a>
                                 @endcan
                             </form>
                         </td>

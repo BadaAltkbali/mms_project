@@ -8,9 +8,7 @@ use App\Models\Emp_data;
 use App\Models\Employee;
 use App\Models\BankBranch;
 use App\Models\UnitBranch;
-// use Maatwebsite\Excel\Excel;
 use Illuminate\Http\Request;
-
 use App\Models\bankBranch_id;
 use App\Imports\EmployeeImport;
 use App\Models\employeesOfficer;
@@ -20,6 +18,9 @@ use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\EmployeeRequest;
 use Illuminate\Support\Facades\Artisan;
+use App\Exports\EmployeeExport;
+
+
 
 class EmployeeController extends Controller
 {
@@ -33,6 +34,34 @@ class EmployeeController extends Controller
         $this->middleware('permission:emp-delete', ['only' => ['destroy']]);
     }
 
+    public function exportDataInExcel(Request $request)
+    {
+        if($request->type == 'xlsx'){
+
+            $fileExt = 'xlsx';
+            $exportFormat = \Maatwebsite\Excel\Excel::XLSX;
+        }
+        elseif($request->type == 'csv'){
+
+            $fileExt = 'csv';
+            $exportFormat = \Maatwebsite\Excel\Excel::CSV;
+        }
+        elseif($request->type == 'xls'){
+
+            $fileExt = 'xls';
+            $exportFormat = \Maatwebsite\Excel\Excel::XLS;
+        }
+        else{
+
+            $fileExt = 'xlsx';
+            $exportFormat = \Maatwebsite\Excel\Excel::XLSX;
+        }
+
+
+        $filename = "Emloyees-".date('d-m-Y').".".$fileExt;
+        return Excel::download(new EmployeeExport, $filename, $exportFormat);
+    }
+    
     public function upload(Request $request)
     {
         $request->validate([

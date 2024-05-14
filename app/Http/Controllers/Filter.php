@@ -34,7 +34,7 @@ class Filter extends Controller
             ->join('adjective_employees', 'employees.adjective_id', '=', 'adjective_employees.id')
             // ->join('banks', 'employees.bankName_id', '=', 'banks.id')
             // ->join('bank_branches', 'employees.bankBranch_id', '=', 'bank_branches.id')
-            // ->join('unit_branches', 'employees.unitBranch_id', '=', 'unit_branches.id')
+            ->join('unit_branches', 'employees.unitBranch_id', '=', 'unit_branches.id')
             ->Where('full_name', 'LIKE','%' . request('search') .'%')
             ->orWhere('financial_Figure', 'LIKE','%' . request('search') .'%')
             // ->orWhere('bank_accountNo', 'LIKE','%' . request('search') .'%')
@@ -47,7 +47,7 @@ class Filter extends Controller
             // ->orWhere('banks.BankName', 'LIKE','%' . request('search') .'%')
             ->orWhere('adjective_employees.AdjName', 'LIKE','%' . request('search') .'%')
             // ->orWhere('bank_branches.BranchName', 'LIKE','%' . request('search') .'%')
-            // ->orWhere('unit_branches.unitBranch_Name', 'LIKE','%' . request('search') .'%')
+            ->orWhere('unit_branches.unitBranch_Name', 'LIKE','%' . request('search') .'%')
             ->get();
 
         }else {
@@ -72,7 +72,7 @@ class Filter extends Controller
         
             // ->join('banks', 'employees_officers.bankName_id', '=', 'banks.id')
             // ->join('bank_branches', 'employees_officers.bankBranch_id', '=', 'bank_branches.id')
-            // ->join('unit_branches', 'employees_officers.unitBranch_id', '=', 'unit_branches.id')
+            ->join('unit_branches', 'employees_officers.unitBranch_id', '=', 'unit_branches.id')
 
             ->Where('full_name', 'LIKE','%' . request('search') .'%')
             ->orWhere('military_number', 'LIKE','%' . request('search') .'%')
@@ -85,7 +85,7 @@ class Filter extends Controller
             // ->orWhere('passport', 'LIKE','%' . request('search') .'%')
             // ->orWhere('current_grade', 'LIKE','%' . request('search') .'%')
             // ->orWhere('current_grade_date', 'LIKE','%' . request('search') .'%')
-            // ->Where('unit_branches.unitBranch_Name', 'LIKE','%' . request('search') .'%')
+            ->orWhere('unit_branches.unitBranch_Name', 'LIKE','%' . request('search') .'%')
             // ->orWhere('banks.BankName', 'LIKE','%' . request('search') .'%')
             // ->orWhere('bank_branches.BranchName', 'LIKE','%' . request('search') .'%')
             ->get();
@@ -164,7 +164,7 @@ class Filter extends Controller
             ->orWhere('passport', 'LIKE','%' . request('search') .'%')
             ->orWhere('current_grade', 'LIKE','%' . request('search') .'%')
             ->orWhere('current_grade_date', 'LIKE','%' . request('search') .'%')
-            ->Where('unit_branches.unitBranch_Name', 'LIKE','%' . request('search') .'%')
+            ->orWhere('unit_branches.unitBranch_Name', 'LIKE','%' . request('search') .'%')
             ->orWhere('banks.BankName', 'LIKE','%' . request('search') .'%')
             ->orWhere('bank_branches.BranchName', 'LIKE','%' . request('search') .'%')
             ->get();

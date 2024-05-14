@@ -28,87 +28,7 @@
                     <input type="text" class="form-control text-center" name="fileNumber"
                         value="{{ $employee->id }}" disabled>
                 </div>
-                <div class="form-group col-md-4">
-                    <label for="exampleInputEmail1">الاسم رباعي</label>
-                    <input type="text" class="form-control" name="full_name" value="{{ $employee->full_name }}">
-                    @foreach ($errors->get('full_name') as $error)
-                        @if ($error == 'الرجاء ادخال اسم الموظف ')
-                            <span @class([
-                                'errorText' => $errors->get('full_name'),
-                            ])>
-                                <i class="fa fa-info-circle" aria-hidden="true"></i> {{ $error }}
-                                <script>
-                                    document.getElementById("full_name").classList.add("inputHasError");
-                                    document.getElementById("full_name").focus();
-                                </script>
-                            </span>
-                        @elseif ($error == 'اسم الموظف موجود مسبقا')
-                            <span @class([
-                                'WarningText' => $errors->get('full_name'),
-                            ])>
-                                <i class="fa fa-info-circle" aria-hidden="true"></i>
-                                {{ $error }}
-                                <script>
-                                    document.getElementById("full_name").classList.add("inputHasWarning");
-                                    document.getElementById("full_name").focus();
-                                </script>
-                            </span>
-                        @endif
-                    @endforeach
-                </div>
-
-                <div class="form-group col-md-4">
-                    <label for="exampleInputPassword1">اسم الأم ثلاثي</label>
-                    <input type="text" class="form-control" name="familyHandbook_No"
-                        value="{{ $employee->familyHandbook_No }}">
-                </div>
-
-                <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">الصفه</label>
-                    {{-- @dd($Adjectives_ids), --}}
-                    {{-- @dd($employee->adjective_id)  --}}
-                    <select class="form-control" id="" name="adjective_id">
-                        @foreach ($Adjectives as $id => $adjname)
-                            <option @selected($employee->adjective_id == $id) value="{{ $id }}">
-                                {{ $adjname }}
-                            </option>
-                        @endforeach
-
-                    </select>
-                    {{-- {!! Form::Label('item', 'الصفه') !!}
-                    {!! Form::select('item_id', $Adjectives, $selectedID, ['class' => 'form-control']) !!} --}}
-                </div>
-
-                <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">الرقم الوطني</label>
-                    <input type="text" class="form-control" name="national_no"
-                        value="{{ $employee->national_no }}">
-                    @foreach ($errors->get('national_no') as $error)
-                        @if ($error == 'الرقم الوطني الذي ادخلته موجود مسبقاً')
-                            <span @class([
-                                'errorText' => $errors->get('national_no'),
-                            ])>
-                                <i class="fa fa-info-circle" aria-hidden="true"></i> {{ $error }}
-                                <script>
-                                    document.getElementById("national_no").classList.add("inputHasError");
-                                    document.getElementById("national_no").focus();
-                                </script>
-                            </span>
-                        @elseif ($error == 'الحد الأقصى للادخال 12 رقم')
-                            <span @class([
-                                'WarningText' => $errors->get('national_no'),
-                            ])>
-                                <i class="fa fa-info-circle" aria-hidden="true"></i>
-                                {{ $error }}
-                                <script>
-                                    document.getElementById("national_no").classList.add("inputHasWarning");
-                                    document.getElementById("national_no").focus();
-                                </script>
-                            </span>
-                        @endif
-                    @endforeach
-                </div>
-
+                
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">الرقم المالي</label>
                     <input type="text" class="form-control" name="financial_Figure"
@@ -138,6 +58,86 @@
                         @endif
                     @endforeach
                 </div>
+                
+
+                <div class="form-group col-md-2">
+                    <label for="exampleInputPassword1">الصفه</label>
+                    {{-- @dd($Adjectives_ids), --}}
+                    {{-- @dd($employee->adjective_id)  --}}
+                    <select class="form-control" id="" name="adjective_id">
+                        @foreach ($Adjectives as $id => $adjname)
+                            <option @selected($employee->adjective_id == $id) value="{{ $id }}">
+                                {{ $adjname }}
+                            </option>
+                        @endforeach
+
+                    </select>
+                    {{-- {!! Form::Label('item', 'الصفه') !!}
+                    {!! Form::select('item_id', $Adjectives, $selectedID, ['class' => 'form-control']) !!} --}}
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="exampleInputEmail1">الاسم رباعي</label>
+                    <input type="text" class="form-control" name="full_name" value="{{ $employee->full_name }}">
+                    @foreach ($errors->get('full_name') as $error)
+                        @if ($error == 'الرجاء ادخال اسم الموظف ')
+                            <span @class([
+                                'errorText' => $errors->get('full_name'),
+                            ])>
+                                <i class="fa fa-info-circle" aria-hidden="true"></i> {{ $error }}
+                                <script>
+                                    document.getElementById("full_name").classList.add("inputHasError");
+                                    document.getElementById("full_name").focus();
+                                </script>
+                            </span>
+                        @elseif ($error == 'اسم الموظف موجود مسبقا')
+                            <span @class([
+                                'WarningText' => $errors->get('full_name'),
+                            ])>
+                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                {{ $error }}
+                                <script>
+                                    document.getElementById("full_name").classList.add("inputHasWarning");
+                                    document.getElementById("full_name").focus();
+                                </script>
+                            </span>
+                        @endif
+                    @endforeach
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="exampleInputPassword1">الرقم الوطني</label>
+                    <input type="text" class="form-control" name="national_no"
+                        value="{{ $employee->national_no }}">
+                    @foreach ($errors->get('national_no') as $error)
+                        @if ($error == 'الرقم الوطني الذي ادخلته موجود مسبقاً')
+                            <span @class([
+                                'errorText' => $errors->get('national_no'),
+                            ])>
+                                <i class="fa fa-info-circle" aria-hidden="true"></i> {{ $error }}
+                                <script>
+                                    document.getElementById("national_no").classList.add("inputHasError");
+                                    document.getElementById("national_no").focus();
+                                </script>
+                            </span>
+                        @elseif ($error == 'الحد الأقصى للادخال 12 رقم')
+                            <span @class([
+                                'WarningText' => $errors->get('national_no'),
+                            ])>
+                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                {{ $error }}
+                                <script>
+                                    document.getElementById("national_no").classList.add("inputHasWarning");
+                                    document.getElementById("national_no").focus();
+                                </script>
+                            </span>
+                        @endif
+                    @endforeach
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="exampleInputPassword1">اسم الأم ثلاثي</label>
+                    <input type="text" class="form-control" name="familyHandbook_No"
+                        value="{{ $employee->familyHandbook_No }}">
+                </div>
+                
                 <div class="form-group col-md-2">
                     <label for="exampleInputEmail1">تاريخ الميلاد</label>
                     <input type="date" class="form-control" name="birth_d" value="{{ $employee->birth_d }}">
@@ -517,6 +517,7 @@
                             <option value="معهد عالي">معهد عالي</option>
                             <option value="معهد متوسط">معهد متوسط</option>
                             <option value="ثانوي">ثانوي</option>
+                            <option value="اعدادي">اعدادي</option>
                         @elseif ($employee->qualification == 'دكتوراء')
                             <option value="/"> -- اختر -- </option>
                             <option value="دكتوراء" selected>دكتوراء</option>
@@ -525,6 +526,7 @@
                             <option value="معهد عالي">معهد عالي</option>
                             <option value="معهد متوسط">معهد متوسط</option>
                             <option value="ثانوي">ثانوي</option>
+                            <option value="اعدادي">اعدادي</option>
                         @elseif ($employee->qualification == 'ماجستير')
                             <option value="/"> -- اختر -- </option>
                             <option value="دكتوراء">دكتوراء</option>
@@ -533,6 +535,7 @@
                             <option value="معهد عالي">معهد عالي</option>
                             <option value="معهد متوسط">معهد متوسط</option>
                             <option value="ثانوي">ثانوي</option>
+                            <option value="اعدادي">اعدادي</option>
                         @elseif ($employee->qualification == 'باكالوريوس')
                             <option value="/"> -- اختر -- </option>
                             <option value="دكتوراء">دكتوراء</option>
@@ -541,6 +544,7 @@
                             <option value="معهد عالي">معهد عالي</option>
                             <option value="معهد متوسط">معهد متوسط</option>
                             <option value="ثانوي">ثانوي</option>
+                            <option value="اعدادي">اعدادي</option>
                         @elseif ($employee->qualification == 'معهد عالي')
                             <option value="/"> -- اختر -- </option>
                             <option value="دكتوراء">دكتوراء</option>
@@ -549,6 +553,7 @@
                             <option value="معهد عالي" selected>معهد عالي</option>
                             <option value="معهد متوسط">معهد متوسط</option>
                             <option value="ثانوي">ثانوي</option>
+                            <option value="اعدادي">اعدادي</option>
                         @elseif ($employee->qualification == 'معهد متوسط')
                             <option value="/"> -- اختر -- </option>
                             <option value="دكتوراء">دكتوراء</option>
@@ -557,6 +562,7 @@
                             <option value="معهد عالي">معهد عالي</option>
                             <option value="معهد متوسط" selected>معهد متوسط</option>
                             <option value="ثانوي">ثانوي</option>
+                            <option value="اعدادي">اعدادي</option>
                         @elseif ($employee->qualification == 'ثانوي')
                             <option value="/"> -- اختر -- </option>
                             <option value="دكتوراء">دكتوراء</option>
@@ -565,6 +571,16 @@
                             <option value="معهد عالي">معهد عالي</option>
                             <option value="معهد متوسط">معهد متوسط</option>
                             <option value="ثانوي" selected>ثانوي</option>
+                            <option value="اعدادي">اعدادي</option>
+                        @elseif ($employee->qualification == 'اعدادي')
+                            <option value="/"> -- اختر -- </option>
+                            <option value="دكتوراء">دكتوراء</option>
+                            <option value="ماجستير">ماجستير</option>
+                            <option value="باكالوريوس">باكالوريوس</option>
+                            <option value="معهد عالي">معهد عالي</option>
+                            <option value="معهد متوسط">معهد متوسط</option>
+                            <option value="ثانوي">ثانوي</option>
+                            <option value="اعدادي" selected>اعدادي</option>
                         @endif
                     </select>
                 </div>

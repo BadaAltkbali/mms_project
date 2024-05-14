@@ -34,14 +34,27 @@
                     <a id="addToTable" href="{{ route('employees.create') }}"
                         class="btn btn-success waves-effect waves-light">Add <i
                             class="mdi mdi-plus-circle-outline"></i></a>
-                           
-                            <a id="addToTable" href="{{ route('employees/PrintEmployees') }}"
-                        class="btn btn-success waves-effect waves-light">Print <i
-                            class="mdi mdi-plus-circle-outline"></i></a>
+
+                    <a id="addToTable" href="{{ route('employees/PrintEmployees') }}"
+                        class="btn btn-success waves-effect waves-light">Print <i class="mdi mdi-printer"></i></a>
                 </div>
             </div>
         </div>
     @endcan
+
+    <form action="{{ url('employees/export') }}" method="GET">
+        <label>Export Customer Data in Excel File</label>
+        <div class="input-group mt-2">
+            <select name="type" class="form-control" required>
+                <option value="">Select Excel Format</option>
+                <option value="xlsx">XLSX</option>
+                <option value="csv">CSV</option>
+                <option value="xls">XLS</option>
+            </select>
+            <button type="submit" class="btn btn-success">Export</button>
+        </div>
+    </form>
+
     <form>
         <input type="search" class="form-control" placeholder="البحث بالرقم المالي" name="search">
     </form>
@@ -52,8 +65,8 @@
                 <tr>
                     <th>رقم الملف</th>
                     <th>الرقم المالي</th>
-                    <th>الاسم</th>
                     <th>الصفه</th>
+                    <th>الاسم</th>
                     <th>الرقم الوطني</th>
                     <th>الوحدة الفرعية</th>
 
@@ -67,12 +80,13 @@
                         <th scope="row">{{ ++$i }}</th>
                         {{-- <th scope="row">{{ $employee->id }}</th> --}}
                         <td>{{ $employee->financial_Figure }}</td>
-                        <td>{{ $employee->full_name }}</td>
                         @foreach ($Adjectives as $id => $Adjective_Name)
                             @if ($employee->adjective_id == $id)
                                 <td> {{ $Adjective_Name }}</td>
                             @endif
                         @endforeach
+                        <td>{{ $employee->full_name }}</td>
+
 
 
                         <td>{{ $employee->national_no }}</td>
@@ -96,11 +110,17 @@
                                 @endcan
                                 @can('emp-update')
                                     <a href="{{ route('employees.edit', $employee->id) }}"
-                                        class="on-default edit-row"><i class="fi fi-rr-pen-square"></i></a>
+                                        class="on-default edit-row">
+                                        {{-- <i class="fi fi-rr-pen-square"></i> --}}
+                                    تعديل
+                                    </a>
                                 @endcan
                                 @can('emp-delete')
                                     <input name="_method" type="hidden" value="DELETE">
-                                    <a type="submit" class="confirm-button"><i class="fi fi-rr-trash"></i></a>
+                                    <a type="submit" class="confirm-button">
+                                        {{-- <i class="fi fi-rr-trash"></i> --}}
+                                        حذف
+                                    </a>
                                 @endcan
                             </form>
                         </td>

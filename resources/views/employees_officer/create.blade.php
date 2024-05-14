@@ -25,24 +25,14 @@
                     <label for="exampleInputEmail1">رقم الملف</label>
                     <input type="text" class="form-control" name="fileNumber" >
                 </div> --}}
-                <div class="form-group col-md-3  m-b-30">
-                    <label for="exampleInputEmail1">الاسم رباعي</label>
-                    <input type="text" class="form-control" name="full_name" value="{{ old('full_name') }}">
-                    {{-- @error('full_name')
-                        <span class="" style="font-size: 15px;position: absolute;color:#f5707a">الرجاء ادخال اسم
-                            الموظف</span>
-                    @enderror --}}
-                    @foreach ($errors->get('full_name') as $error)
+                <div class="form-group col-md-2">
+                    <label for="exampleInputPassword1">الرقم العسكري</label>
+                    <input type="text" class="form-control" name="military_number"
+                        value="{{ old('military_number') }}">
+                    @foreach ($errors->get('military_number') as $error)
                         <span style="font-size: 15px;position: absolute;color:#f5707a">{{ $error }}</span>
                     @endforeach
                 </div>
-
-                <div class="form-group col-md-3 m-b-30">
-                    <label for="exampleInputPassword1">اسم الأم ثلاثي</label>
-                    <input type="text" class="form-control" name="familyHandbook_No"
-                        value="{{ old('familyHandbook_No') }}">
-                </div>
-
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1"> الرتبه</label>
                     <select class="form-control" id="" name="Rank">
@@ -62,16 +52,17 @@
                         <option value="جندي">جندي</option>
                     </select>
                 </div>
-
-                <div class="form-group col-md-2">
-                    <label for="exampleInputPassword1">الرقم العسكري</label>
-                    <input type="text" class="form-control" name="military_number"
-                        value="{{ old('military_number') }}">
-                    @foreach ($errors->get('military_number') as $error)
+                <div class="form-group col-md-3  m-b-30">
+                    <label for="exampleInputEmail1">الاسم رباعي</label>
+                    <input type="text" class="form-control" name="full_name" value="{{ old('full_name') }}">
+                    {{-- @error('full_name')
+                        <span class="" style="font-size: 15px;position: absolute;color:#f5707a">الرجاء ادخال اسم
+                            الموظف</span>
+                    @enderror --}}
+                    @foreach ($errors->get('full_name') as $error)
                         <span style="font-size: 15px;position: absolute;color:#f5707a">{{ $error }}</span>
                     @endforeach
                 </div>
-
                 <div class="form-group col-md-2 m-b-30">
                     <label for="exampleInputPassword1">الرقم الوطني</label>
                     <input type="text" class="form-control" name="national_no" value="{{ old('national_no') }}">
@@ -83,6 +74,16 @@
                             الموظف</span>
                     @enderror --}}
                 </div>
+                <div class="form-group col-md-3 m-b-30">
+                    <label for="exampleInputPassword1">اسم الأم ثلاثي</label>
+                    <input type="text" class="form-control" name="familyHandbook_No"
+                        value="{{ old('familyHandbook_No') }}">
+                </div>
+
+
+
+
+
                 <div class="form-group col-md-2 m-b-30">
                     <label for="exampleInputEmail1">تاريخ الميلاد</label>
                     <input type="date" class="form-control" name="birth_d" value="{{ old('birth_d') }}">
@@ -327,6 +328,7 @@
                         <option value="معهد عالي">معهد عالي</option>
                         <option value="معهد متوسط">معهد متوسط</option>
                         <option value="ثانوي">ثانوي</option>
+                        <option value="اعدادي">اعدادي</option>
                     </select>
                 </div>
 
