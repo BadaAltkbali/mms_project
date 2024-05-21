@@ -44,7 +44,7 @@
     </form>
 
     <div class="table-responsive">
-        <table class="table m-0 table-colored table-success" id="datatable-editable">
+        <table class="table m-0 table-colored table-success">
             <thead style="font-size: 12px;">
                 <tr>
                     {{-- <th>#</th>
@@ -80,13 +80,13 @@
                     <th>رقم القرار</th>
                     <th>نوع الاثبات</th>
                     <th>رقم الاثبات</th>
-                    
-                    
+
+
                     <th>المصرف</th>
                     <th>الفرع</th>
                     <th>رقم الحساب</th>
-                    
-                    
+
+
                     <th>الوحدة الام</th>
                     <th>الوحدة الفرعيه</th>
                 </tr>
@@ -231,7 +231,7 @@
                                 <td> {{ $BranchName }}</td>
                             @endif
                         @endforeach
-                       <td>{{ $employee->bank_accountNo }}</td>
+                        <td>{{ $employee->bank_accountNo }}</td>
 
                         <td>ادارة الخدمات الطبية العسكرية</td>
                         @foreach ($UnitsBranche as $id => $Branch_Name)

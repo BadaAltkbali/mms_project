@@ -8,8 +8,12 @@
 @endsection
 
 <div class="table-responsive" id="print">
+<button type="button" class="btn btn-success waves-effect waves-light" id="btnExport" data-kt-menu-trigger="click"
+    data-kt-menu-placement="bottom-end" style="padding: 9px; margin-left: 78%;">Export To Excel
+</button>
+<br> <br>
 <h1>قائمة المنقطعين</h1>
-<table class="table m-0 table-colored table-success" id="datatable-editable">
+<table class="table m-0 table-colored table-success" id="mydatatable">
     <thead>
         <tr>
             <th>الرقم التسلسلي</th>
@@ -68,7 +72,7 @@
                     @if ($stopping->Rank == 'جندي')
                         جندي
                     @endif
-    
+
                 </td>
                 <td>{{ $stopping->full_name }}</td>
                 <td>{{ $stopping->national_no }}</td>
@@ -120,6 +124,31 @@
     </button>
 </div> --}}
 </div>
+
+
+
+
+{{-- Export to Excel Fife  --}}
+
+
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#btnExport").click(function() {
+            let table = document.getElementsByTagName("table");
+            console.log(table);
+            debugger;
+            TableToExcel.convert(table[0], {
+                name: `UserManagement.xlsx`,
+                sheet: {
+                    name: 'Usermanagement'
+                }
+            });
+        });
+    });
+</script>
 
 
 @endsection

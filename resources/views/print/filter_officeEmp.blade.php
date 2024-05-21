@@ -44,7 +44,7 @@
     </form>
 
     <div class="table-responsive">
-        <table class="table m-0 table-colored table-success" id="datatable-editable">
+        <table class="table m-0 table-colored table-success">
 
             <thead style="font-size: 12px;">
                 <tr>
@@ -60,7 +60,7 @@
                 @foreach ($employees as $employee)
                     <tr>
                         <th scope="row">{{ ++$i }}</th>
-                       
+
                         <td>{{ $employee->military_number }}</td>
                         <td>
                             @if ($employee->Rank == 'اللواء')
@@ -102,7 +102,7 @@
                             @if ($employee->Rank == 'جندي')
                                 جندي
                             @endif
-                        </td> 
+                        </td>
                         <td>{{ $employee->full_name }}</td>
                         <td>{{ $employee->national_no }}</td>
                         @foreach ($UnitsBranche as $id => $Branch_Name)

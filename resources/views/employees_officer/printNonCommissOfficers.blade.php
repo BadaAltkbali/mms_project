@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html dir="rtl">
+
 <head>
-<style>
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
 
-th, td {
-  text-align: center;
-  padding: 8px;
-}
+        th,
+        td {
+            text-align: center;
+            padding: 8px;
+        }
 
-tr:nth-child(even) {background-color: #f2f2f2;}
-
-</style>
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
+
 <body>
 
-<h2> &nbsp;&nbsp; &nbsp;  ضباط الصف</h2>
+    <h2> &nbsp;&nbsp; &nbsp; ضباط الصف</h2>
     <div class="table-responsive">
-        <table class="table m-0 table-colored table-success" id="datatable-editable">
+        <table class="table m-0 table-colored table-success">
             <thead>
                 <tr>
                     <th>رقم الملف</th>
@@ -99,4 +103,5 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 
 </body>
+
 </html>

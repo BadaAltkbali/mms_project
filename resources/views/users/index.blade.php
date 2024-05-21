@@ -7,10 +7,10 @@
 @endsection
 @endsection
 @if ($message = Session::get('success'))
-            <div class="alert alert-success">
-                <p>{{ $message }}</p>
-            </div>
-        @endif
+<div class="alert alert-success">
+    <p>{{ $message }}</p>
+</div>
+@endif
 <div class="panel">
 <div class="panel-body">
     <div class="row">
@@ -23,8 +23,8 @@
         </div>
     </div>
     <div class="table-responsive">
-        
-        <table class="table m-0 table-colored table-success" id="datatable-editable">
+
+        <table class="table m-0 table-colored table-success">
             <thead>
                 <tr>
                     <th>رقم المستخدم</th>

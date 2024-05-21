@@ -24,7 +24,7 @@
         </div>
     @endif
     <div class="table-responsive">
-        <table class="table m-0 table-colored table-success" id="datatable-editable">
+        <table class="table m-0 table-colored table-success">
             <thead>
                 <tr>
                     <th>رقم الوحدة</th>

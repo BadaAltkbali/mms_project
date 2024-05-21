@@ -13,9 +13,9 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-    
+
     <div class="table-responsive">
-        <table class="table m-0 table-colored table-success" id="datatable-editable">
+        <table class="table m-0 table-colored table-success">
             <thead>
                 <tr>
                     <th>رقم الملف</th>
@@ -38,7 +38,7 @@
                 @foreach ($employees as $employee)
                     {{-- @if ($employees_type = $employee->financial_Figure) --}}
                     <tr>
-                        <th scope="row">{{ $employee->id }}</th> 
+                        <th scope="row">{{ $employee->id }}</th>
                         <td>{{ $employee->financial_Figure }}</td>
                         <td>{{ $employee->full_name }}</td>
                         <td>{{ $employee->adjective }}</td>
@@ -47,8 +47,8 @@
 
                         <td>{{ $employee->current_grade }}</td>
                         <td>{{ $employee->current_grade_date }}</td>
-                       
-                        
+
+
                         <td>{{ $employee->qualification }}</td>
                         <td>{{ $employee->phone_n }}</td>
                         <td>{{ $employee->Contract_registrationNo }}</td>
@@ -63,7 +63,7 @@
                 @foreach ($employeesOfficer as $employee)
                     {{-- @if ($employees_type = $employee->financial_Figure) --}}
                     <tr>
-                        <th scope="row">{{ $employee->id }}</th> 
+                        <th scope="row">{{ $employee->id }}</th>
                         <td>{{ $employee->financial_Figure }}</td>
                         <td>{{ $employee->full_name }}</td>
                         <td>{{ $employee->adjective }}</td>
@@ -72,8 +72,8 @@
 
                         <td>{{ $employee->current_grade }}</td>
                         <td>{{ $employee->current_grade_date }}</td>
-                       
-                        
+
+
                         <td>{{ $employee->qualification }}</td>
                         <td>{{ $employee->phone_n }}</td>
                         <td>{{ $employee->Contract_registrationNo }}</td>

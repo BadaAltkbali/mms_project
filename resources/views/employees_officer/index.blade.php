@@ -23,21 +23,25 @@
                     <a id="addToTable" href="{{ route('employeesofficer.create') }}"
                         class="btn btn-success waves-effect waves-light">Add <i
                             class="mdi mdi-plus-circle-outline"></i></a>
-                            <a id="addToTable" href="{{ route('employeesofficer/PrintEmployeesOfficer') }}"
-                        class="btn btn-success waves-effect waves-light">Print <i
-                        class="mdi mdi-printer"></i></a>
+                    <a id="addToTable" href="{{ route('employeesofficer/PrintEmployeesOfficer') }}"
+                        class="btn btn-success waves-effect waves-light">Print <i class="mdi mdi-printer"></i></a>
                 </div>
             </div>
         </div>
     @endcan
-    
-    
+
+    <button type="button" class="btn btn-success waves-effect waves-light" id="btnExport"
+        data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end"
+        style="padding: 9px; margin-left: 78%;">Export To Excel
+    </button>
+    <br> <br>
+
     <form>
         <input type="search" class="form-control" placeholder="البحث بالرقم العسكري" name="search">
     </form>
     <br>
     <div class="table-responsive">
-        <table class="table m-0 table-colored table-success" id="datatable-editable">
+        <table class="table m-0 table-colored table-success" id="mydatatable">
             <thead>
                 <tr>
                     <th>رقم الملف</th>
@@ -103,7 +107,7 @@
 
                         </td>
                         <td>{{ $employee->full_name }}</td>
-                        
+
                         <td>{{ $employee->national_no }}</td>
 
 
@@ -135,7 +139,7 @@
                                     <a href="{{ route('employeesofficer.edit', $employee->id) }}"
                                         class="on-default edit-row">
                                         {{-- <i class="fa fa-pencil"></i> --}}
-                                         تعديل
+                                        تعديل
                                     </a>
                                 @endcan
                                 @can('empOffice-delete')
@@ -175,4 +179,30 @@
             });
     });
 </script>
+
+
+
+{{-- Export to Excel Fife  --}}
+
+
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#btnExport").click(function() {
+            let table = document.getElementsByTagName("table");
+            console.log(table);
+            debugger;
+            TableToExcel.convert(table[0], {
+                name: `UserManagement.xlsx`,
+                sheet: {
+                    name: 'Usermanagement'
+                }
+            });
+        });
+    });
+</script>
+
+
 @endsection

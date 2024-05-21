@@ -42,7 +42,7 @@
         </div>
     @endcan
 
-    <form action="{{ url('employees/export') }}" method="GET">
+    {{-- <form action="{{ url('employees/export') }}" method="GET">
         <label>Export Customer Data in Excel File</label>
         <div class="input-group mt-2">
             <select name="type" class="form-control" required>
@@ -53,14 +53,20 @@
             </select>
             <button type="submit" class="btn btn-success">Export</button>
         </div>
-    </form>
+    </form> --}}
+
+    <button type="button" class="btn btn-success waves-effect waves-light" id="btnExport"
+        data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end"
+        style="padding: 9px; margin-left: 78%;">Export To Excel
+    </button>
+    <br> <br>
 
     <form>
         <input type="search" class="form-control" placeholder="البحث بالرقم المالي" name="search">
     </form>
     <br>
     <div class="table-responsive">
-        <table class="table m-0 table-colored table-success" id="datatable-editable">
+        <table class="table m-0 table-colored table-success" id="mydatatable">
             <thead>
                 <tr>
                     <th>رقم الملف</th>
@@ -109,10 +115,9 @@
                                         class="on-default edit-row"><i class="fi fi-rr-eye"></i></a> --}}
                                 @endcan
                                 @can('emp-update')
-                                    <a href="{{ route('employees.edit', $employee->id) }}"
-                                        class="on-default edit-row">
+                                    <a href="{{ route('employees.edit', $employee->id) }}" class="on-default edit-row">
                                         {{-- <i class="fi fi-rr-pen-square"></i> --}}
-                                    تعديل
+                                        تعديل
                                     </a>
                                 @endcan
                                 @can('emp-delete')
@@ -210,4 +215,30 @@
         }
     });
 </script>
+
+
+
+{{-- Export to Excel Fife  --}}
+
+
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#btnExport").click(function() {
+            let table = document.getElementsByTagName("table");
+            console.log(table);
+            debugger;
+            TableToExcel.convert(table[0], {
+                name: `UserManagement.xlsx`,
+                sheet: {
+                    name: 'Usermanagement'
+                }
+            });
+        });
+    });
+</script>
+
+
 @endsection

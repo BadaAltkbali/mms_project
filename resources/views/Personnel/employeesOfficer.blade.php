@@ -8,9 +8,9 @@
 @endsection
 <div class="panel">
 <div class="panel-body">
-   
+
     <div class="table-responsive">
-        <table class="table m-0 table-colored table-success" id="datatable-editable">
+        <table class="table m-0 table-colored table-success">
             <thead>
                 <tr>
                     <th>رقم التسلسلي</th>
@@ -25,7 +25,7 @@
                     <th>رقم الهاتف</th>
                     <th>رقم القيد</th>
                     <th>ملاحظات</th>
-                    
+
                 </tr>
             </thead>
             <tbody>

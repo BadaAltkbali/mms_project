@@ -24,7 +24,7 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-   
+
 
     {{-- Upload employee file Excel --}}
     {{-- <form action="{{ route('uploadusers') }}" enctype="multipart/form-data" method="POST" class="blur_effect">
@@ -47,13 +47,13 @@
         <input type="search" class="form-control" placeholder="Find user here" name="search">
     </form> --}}
 
-    
+
     <form>
         <input type="search" class="form-control" placeholder="البحث بالرقم الوطني" name="search">
     </form>
     <br>
     <div class="table-responsive">
-        <table class="table m-0 table-colored table-success" id="datatable-editable">
+        <table class="table m-0 table-colored table-success">
             <thead>
                 <tr>
                     <th>رقم الملف</th>

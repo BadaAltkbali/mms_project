@@ -25,7 +25,7 @@
             <a id="addToTable" href="{{ route('Bank.create') }}" class="btn btn-success waves-effect waves-light">Add
                 <i class="mdi mdi-plus-circle-outline"></i></a>
         </div>
-        <table class="table m-0 table-colored table-success " id="datatable-editable">
+        <table class="table m-0 table-colored table-success ">
             <thead>
                 <tr>
                     <th>رقم المصرف</th>
@@ -69,7 +69,7 @@
             <a id="addToTable" href="{{ route('Branch.create') }}"
                 class="btn btn-success waves-effect waves-light">Add <i class="mdi mdi-plus-circle-outline"></i></a>
         </div>
-        <table class="table m-0 table-colored table-success " id="datatable-editable">
+        <table class="table m-0 table-colored table-success ">
             <thead>
                 <tr>
                     <th>رقم الفرع</th>
