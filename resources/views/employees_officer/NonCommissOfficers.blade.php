@@ -76,10 +76,10 @@
                             @if ($employee->Rank == 'ملازم ثاني')
                                 ملازم ثاني
                             @endif
-                            @if ($employee->Rank == 'رئيس عرفة وحدة')
+                            @if ($employee->Rank == 'رئيس عرفه وحدة')
                                 رئيس عرفة وحدة
                             @endif
-                            @if ($employee->Rank == 'رئيس عرفة سرية')
+                            @if ($employee->Rank == 'رئيس عرفه سريه')
                                 رئيس عرفة سرية
                             @endif
                             @if ($employee->Rank == 'عريف')

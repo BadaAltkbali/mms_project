@@ -218,6 +218,7 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         // 'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+
         
 
     ])->toArray(),

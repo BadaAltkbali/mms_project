@@ -253,7 +253,7 @@
                         @endif
                     </select>
                 </div>
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-2">
                     <label for="exampleInputEmail1">الاسم رباعي</label>
                     <input type="text" class="form-control" name="full_name"
                         value="{{ $employeeOfficers->full_name }}">
@@ -269,41 +269,41 @@
                         <span style="font-size: 15px;position: absolute;color:#f5707a">{{ $error }}</span>
                     @endforeach
                 </div>
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">اسم الأم ثلاثي</label>
                     <input type="text" class="form-control" name="familyHandbook_No"
                         value="{{ $employeeOfficers->familyHandbook_No }}">
                 </div>
-                <div class="form-group col-md-2">
+                {{-- <div class="form-group col-md-2">
                     <label for="exampleInputEmail1">تاريخ الميلاد</label>
                     <input type="date" class="form-control" name="birth_d"
                         value="{{ $employeeOfficers->birth_d }}">
-                </div>
-                <div class="form-group col-md-2">
+                </div> --}}
+                {{-- <div class="form-group col-md-2">
                     <label for="exampleInputEmail1">مكان الميلاد</label>
                     <input type="text" class="form-control" name="place_birth"
                         value="{{ $employeeOfficers->place_birth }}">
-                </div>
+                </div> --}}
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">مكان الاقامه الحاليه</label>
                     <input type="text" class="form-control"
                         name="place_residence"value="{{ $employeeOfficers->place_residence }}">
                 </div>
-                <div class="form-group col-md-2">
+                {{-- <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">أقرب نقطه داله</label>
                     <input type="text" class="form-control" name="closest_point"
                         value="{{ $employeeOfficers->closest_point }}">
-                </div>
+                </div> --}}
                 <div class="form-group col-md-2">
                     <label for="exampleInputEmail1">الجنسية</label>
                     <input type="text" class="form-control" name="nationality"
                         value="{{ $employeeOfficers->nationality }}">
                 </div>
-                <div class="form-group col-md-2">
+                {{-- <div class="form-group col-md-2">
                     <label for="exampleInputEmail1">الديانه</label>
                     <input type="text" class="form-control" name="religion"
                         value="{{ $employeeOfficers->religion }}">
-                </div>
+                </div> --}}
                 <div class="form-group col-md-2">
                     <label for="exampleInputEmail1">فصيله الدم</label>
                     <select class="form-control" id="" name="blood_t">
@@ -427,22 +427,22 @@
                         @endif
                     </select>
                 </div>
-                <div class="form-group col-md-2">
+                {{-- <div class="form-group col-md-2">
                     <label for="exampleInputEmail1">عدد الأبناء - الذكور</label>
                     <input type="text" class="form-control" name="sons"
                         value="{{ $employeeOfficers->sons }}">
-                </div>
-                <div class="form-group col-md-2">
+                </div> --}}
+                {{-- <div class="form-group col-md-2">
                     <label for="exampleInputEmail1">عدد الأبناء - الاناث</label>
                     <input type="text" class="form-control" name="daughter"
                         value="{{ $employeeOfficers->daughter }}">
-                </div>
-                <div class="form-group col-md-4">
+                </div> --}}
+                <div class="form-group col-md-2">
                     <label for="exampleInputEmail1">رقم الهاتف</label>
                     <input type="number" class="form-control" name="phone_n"
                         value="{{ $employeeOfficers->phone_n }}">
                 </div>
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">رقم جواز السفر أو البطاقه الشخصيه</label>
                     <select class="form-control" id="" name="passport_or_card">
                         @if ($employeeOfficers->passport_or_card == '/' || $employeeOfficers->passport_or_card == '')
@@ -617,11 +617,11 @@
                         value="{{ $employeeOfficers->startJopDate }}">
                 </div>
 
-                <div class="form-group col-md-2">
+                {{-- <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">رقم قيد العقد</label>
                     <input type="text" class="form-control" name="Contract_registrationNo"
                         value="{{ $employeeOfficers->Contract_registrationNo }}">
-                </div>
+                </div> --}}
                 <div class="form-group col-md-2">
                     <label for="current_grade">الدرجة الحاليه</label>
                     <input id="current_grade" type="text" class="form-control" name="current_grade"
@@ -736,21 +736,21 @@
                     <input type="text" class="form-control" name="specialization"
                         value="{{ $employeeOfficers->specialization }}">
                 </div>
-                <div class="form-group col-md-2">
+                {{-- <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">مكان التخرج</label>
                     <input type="text" class="form-control" name="graduationPlace"
                         value="{{ $employeeOfficers->graduationPlace }}">
-                </div>
+                </div> --}}
                 <div class="form-group col-md-2">
-                    <label for="">تاريخ التخرج</label>
-                    <input id="" type="date" class="form-control" name="graduationDate"
+                    <label for="">سنه التخرج</label>
+                    <input id="" type="number" class="form-control" name="graduationDate"
                         value="{{ $employeeOfficers->graduationDate }}">
                 </div>
-                <div class="form-group col-md-2">
+                {{-- <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">جهة العمل</label>
                     <input type="text" class="form-control" name="workplace"
                         value="{{ $employeeOfficers->workplace }}">
-                </div>
+                </div> --}}
                 {{-- <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">التنسيب</label>
                     <input type="text" class="form-control" name="placement"

@@ -68,15 +68,45 @@ class EmployeeOfficerController extends Controller
     }
     public function PrintNonCommissOfficers()
     {
-        $employeesOfficer = employeesOfficer::orderBy('military_number')->where('Rank', 'like', 'رئيس عرفه وحدة')
-        ->orWhere('Rank', 'like', 'رئيس عرفه سريه')
-        ->orWhere('Rank', 'like', 'عريف')
-        ->orWhere('Rank', 'like', 'نائب عريف')
-        ->orWhere('Rank', 'like', 'جندي أول')
-        ->orWhere('Rank', 'like', 'جندي')->get();
+        // $employeesOfficer = employeesOfficer::orderBy('military_number')->where('Rank', 'like', 'رئيس عرفه وحدة')
+        // ->orWhere('Rank', 'like', 'رئيس عرفه سريه')
+        // ->orWhere('Rank', 'like', 'عريف')
+        // ->orWhere('Rank', 'like', 'نائب عريف')
+        // ->orWhere('Rank', 'like', 'جندي أول')
+        // ->orWhere('Rank', 'like', 'جندي')->get();
+
+        if (request('search')) {
+          
+            $employeesOfficer = employeesOfficer::orderBy('military_number')
+            ->join('unit_branches', 'employees_officers.unitBranch_id', '=', 'unit_branches.id')
+            ->where('mandate', 'LIKE', "%off%")
+            ->where('retired', 'LIKE', "%off%")
+            ->orWhere('Rank', 'like', 'رئيس عرفه وحدة')
+            ->orWhere('Rank', 'like', 'رئيس عرفه سريه')
+            ->orWhere('Rank', 'like', 'عريف')
+            ->orWhere('Rank', 'like', 'نائب عريف')
+            ->orWhere('Rank', 'like', 'جندي أول')
+            ->orWhere('Rank', 'like', 'جندي')
+            ->orWhere('military_number', 'like', '%' . request('search') . '%')
+            ->orWhere('full_name', 'like', '%' . request('search') . '%')
+            ->orWhere('bank_accountNo', 'like', '%' . request('search') . '%')
+            ->orWhere('familyHandbook_No', 'like', '%' . request('search') . '%')
+            ->orWhere('unit_branches.unitBranch_Name', 'like','%' . request('search') . '%')
+            ->orWhere('national_no', 'like', '%' . request('search') . '%')->get();
+        
+        } else {
+
+            $employeesOfficer = employeesOfficer::orderBy('military_number')
+            ->where('Rank', 'like', 'رئيس عرفه وحدة')
+            ->orWhere('Rank', 'like', 'رئيس عرفه سريه')
+            ->orWhere('Rank', 'like', 'عريف')
+            ->orWhere('Rank', 'like', 'نائب عريف')
+            ->orWhere('Rank', 'like', 'جندي أول')
+            ->orWhere('Rank', 'like', 'جندي')->get();
+
+        }
        
         $UnitBranches = UnitBranch::pluck('unitBranch_Name', 'id');
-
         return view('employees_officer.printNonCommissOfficers', compact('employeesOfficer', 'UnitBranches'))->with('i');
 
     }
@@ -84,14 +114,30 @@ class EmployeeOfficerController extends Controller
     public function index()
     {
         if (request('search')) {
-            $employeesOfficer = employeesOfficer::where('military_number', 'like', '%' . request('search') . '%')
+            $employeesOfficer = employeesOfficer::where('mandate', 'LIKE', "%off%")
+            ->where('retired', 'LIKE', "%off%")
+            ->whereNot('Rank', 'like', 'رئيس عرفه وحدة')
+            ->join('unit_branches', 'employees_officers.unitBranch_id', '=', 'unit_branches.id')
+            ->whereNot('Rank', 'like', 'رئيس عرفه سريه')
+            ->whereNot('Rank', 'like', 'عريف')
+            ->whereNot('Rank', 'like', 'نائب عريف')
+            ->whereNot('Rank', 'like', 'جندي أول')
+            ->whereNot('Rank', 'like', 'جندي')
+            ->Where('military_number', 'like', '%' . request('search') . '%')
             ->orWhere('full_name', 'like', '%' . request('search') . '%')
             ->orWhere('bank_accountNo', 'like', '%' . request('search') . '%')
             ->orWhere('familyHandbook_No', 'like', '%' . request('search') . '%')
+            ->orWhere('unit_branches.unitBranch_Name', 'LIKE','%' . request('search') .'%')
             ->orWhere('national_no', 'like', '%' . request('search') . '%')->get();
         
         } else {
-            $employeesOfficer = employeesOfficer::orderBy('military_number')->paginate(3000);
+            $employeesOfficer = employeesOfficer::where('mandate', 'LIKE', "%off%")->where('retired', 'LIKE', "%off%")->whereNot('Rank', 'like', 'رئيس عرفه وحدة')
+            ->whereNot('Rank', 'like', 'رئيس عرفه سريه')
+            ->whereNot('Rank', 'like', 'عريف')
+            ->whereNot('Rank', 'like', 'نائب عريف')
+            ->whereNot('Rank', 'like', 'جندي أول')
+            ->whereNot('Rank', 'like', 'جندي')
+            ->orderBy('military_number')->paginate(3000);
         }
         $UnitBranches = UnitBranch::pluck('unitBranch_Name', 'id');
 

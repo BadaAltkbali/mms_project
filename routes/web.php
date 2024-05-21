@@ -44,7 +44,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     Route::resource('employees',  EmployeeController::class);
-    Route::get('employees/export', [EmployeeController::class, 'exportDataInExcel']);
+    Route::get('employees/export', [App\Http\Controllers\EmployeeController::class, 'exportDataInExcel']);
 
     Route::get('PrintEmployees', [EmployeeController::class, 'PrintEmployees'])->name('employees/PrintEmployees');
 

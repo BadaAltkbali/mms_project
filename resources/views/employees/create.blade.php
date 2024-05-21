@@ -191,16 +191,16 @@
                         </option>
                     </select>
                 </div>
-                <div class="form-group col-md-2 m-b-30">
+                {{-- <div class="form-group col-md-2 m-b-30">
                     <label for="sons"> الأبناء - الذكور</label>
                     <input id="sons" type="number" class="form-control" name="sons"
                         value="{{ old('sons') }}">
-                </div>
-                <div class="form-group col-md-2 m-b-30">
+                </div> --}}
+                {{-- <div class="form-group col-md-2 m-b-30">
                     <label for="daughter"> الأبناء - الاناث</label>
                     <input id="daughter" type="number" class="form-control" name="daughter"
                         value="{{ old('daughter') }}">
-                </div>
+                </div> --}}
                 <div class="form-group col-md-2 m-b-30">
                     <label for="phone_n">رقم الهاتف</label>
                     <input id="phone_n" type="number" class="form-control" name="phone_n"
@@ -369,11 +369,11 @@
                     <input id="startJopDate" type="date" class="form-control" name="startJopDate"
                         value="{{ old('startJopDate') }}">
                 </div>
-                <div class="form-group col-md-2">
+                {{-- <div class="form-group col-md-2">
                     <label for="Contract_registrationNo">رقم قيد العقد</label>
                     <input id="Contract_registrationNo" type="number" class="form-control"
                         name="Contract_registrationNo" value="{{ old('Contract_registrationNo') }}">
-                </div>
+                </div> --}}
                 <div class="form-group col-md-2">
                     <label for="lastPromotion">تاريخ آخر قرار ترقيه</label>
                     <input id="lastPromotion" type="date" class="form-control" name="lastPromotion"
@@ -436,20 +436,20 @@
                     <input id="specialization" type="text" class="form-control" name="specialization"
                         value="{{ old('specialization') }}">
                 </div>
-                <div class="form-group col-md-2">
+                {{-- <div class="form-group col-md-2">
                     <label for="graduationPlace">مكان التخرج</label>
                     <input id="graduationPlace" type="text" class="form-control" name="graduationPlace"
                         value="{{ old('graduationPlace') }}">
-                </div>
+                </div> --}}
                 <div class="form-group col-md-2">
-                    <label for="">تاريخ التخرج</label>
-                    <input id="" type="date" class="form-control" name="graduationDate">
+                    <label for="">سنه التخرج</label>
+                    <input id="" type="number" class="form-control" name="graduationDate">
                 </div>
-                <div class="form-group col-md-2">
+                {{-- <div class="form-group col-md-2">
                     <label for="workplace">جهة العمل</label>
                     <input id="workplace" type="text" class="form-control" name="workplace"
                         value="{{ old('workplace') }}">
-                </div>
+                </div> --}}
                 <div class="form-group col-md-4">
                     <label for="notes">ملاحظات</label>
                     <textarea id="notes" name="notes" class="form-control" cols="30" rows="5"

@@ -80,10 +80,6 @@
                         value="{{ old('familyHandbook_No') }}">
                 </div>
 
-
-
-
-
                 <div class="form-group col-md-2 m-b-30">
                     <label for="exampleInputEmail1">تاريخ الميلاد</label>
                     <input type="date" class="form-control" name="birth_d" value="{{ old('birth_d') }}">
@@ -134,14 +130,14 @@
                         <option value="أرملة">أرملة</option>
                     </select>
                 </div>
-                <div class="form-group col-md-2 m-b-30">
+                {{-- <div class="form-group col-md-2 m-b-30">
                     <label for="exampleInputEmail1">عدد الأبناء - الذكور</label>
                     <input type="text" class="form-control" name="sons" value="{{ old('sons') }}">
-                </div>
-                <div class="form-group col-md-2 m-b-30">
+                </div> --}}
+                {{-- <div class="form-group col-md-2 m-b-30">
                     <label for="exampleInputEmail1">عدد الأبناء - الاناث</label>
                     <input type="text" class="form-control" name="daughter" value="{{ old('daughter') }}">
-                </div>
+                </div> --}}
                 <div class="form-group col-md-4 m-b-30">
                     <label for="exampleInputEmail1">رقم الهاتف</label>
                     <input type="number" class="form-control" name="phone_n" value="{{ old('phone_n') }}">
@@ -283,12 +279,12 @@
                     <input type="date" class="form-control" name="startJopDate"
                         value="{{ old('startJopDate') }}">
                 </div>
-
+{{-- 
                 <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">رقم قيد العقد</label>
                     <input type="text" class="form-control" name="Contract_registrationNo"
                         value="{{ old('Contract_registrationNo') }}">
-                </div>
+                </div> --}}
                 <div class="form-group col-md-2">
                     <label for="current_grade">الدرجة الحاليه</label>
                     <input id="current_grade" type="text" class="form-control" name="current_grade"
@@ -338,19 +334,19 @@
                     <input type="text" class="form-control" name="specialization"
                         value="{{ old('specialization') }}">
                 </div>
-                <div class="form-group col-md-2">
+                {{-- <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">مكان التخرج</label>
                     <input type="text" class="form-control" name="graduationPlace"
                         value="{{ old('graduationPlace') }}">
-                </div>
+                </div> --}}
                 <div class="form-group col-md-2">
-                    <label for="">تاريخ التخرج</label>
-                    <input id="" type="date" class="form-control" name="graduationDate">
+                    <label for="">سنه التخرج</label>
+                    <input id="" type="number" class="form-control" name="graduationDate">
                 </div>
-                <div class="form-group col-md-2">
+                {{-- <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">جهة العمل</label>
                     <input type="text" class="form-control" name="workplace" value="{{ old('workplace') }}">
-                </div>
+                </div> --}}
                 {{-- <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">التنسيب</label>
                     <input type="text" class="form-control" name="placement" value="{{ old('placement') }}">

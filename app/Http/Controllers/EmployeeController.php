@@ -15,10 +15,11 @@ use App\Models\employeesOfficer;
 use App\Models\AdjectiveEmployee;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
-use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\EmployeeRequest;
 use Illuminate\Support\Facades\Artisan;
 use App\Exports\EmployeeExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 
 
@@ -58,8 +59,10 @@ class EmployeeController extends Controller
         }
 
 
-        $filename = "Emloyees-".date('d-m-Y').".".$fileExt;
-        return Excel::download(new EmployeeExport, $filename, $exportFormat);
+        // $filename = "Emloyees-".date('d-m-Y').".".$fileExt;
+        return Excel::download(new EmployeeExport, 'invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+
+        // return Excel::download(new EmployeeExport, $filename, $exportFormat);
     }
     
     public function upload(Request $request)
@@ -87,14 +90,17 @@ class EmployeeController extends Controller
     public function index()
     {
         if (request('search')) {
-            $employees = Employee::where('financial_Figure', 'like', '%' . request('search') . '%')
+            $employees = Employee::where('mandate', 'LIKE', "%off%")->where('retired', 'LIKE', "%off%")->where('financial_Figure', 'like', '%' . request('search') . '%')
+            ->join('unit_branches', 'employees.unitBranch_id', '=', 'unit_branches.id')
             ->orWhere('full_name', 'like', '%' . request('search') . '%')
             ->orWhere('bank_accountNo', 'like', '%' . request('search') . '%')
             ->orWhere('familyHandbook_No', 'like', '%' . request('search') . '%')
-            ->orWhere('national_no', 'like', '%' . request('search') . '%')->get();
+            ->orWhere('national_no', 'like', '%' . request('search') . '%')
+            ->orWhere('unit_branches.unitBranch_Name', 'LIKE','%' . request('search') .'%')
+            ->get();
             // $employees::orderBy('id')->paginate(20);
         } else {
-            $employees = Employee::orderBy('financial_Figure')->paginate(3000);
+            $employees = Employee::where('mandate', 'LIKE', "%off%")->where('retired', 'LIKE', "%off%")->orderBy('financial_Figure')->paginate(3000);
         }
         $Adjectives = AdjectiveEmployee::pluck('AdjName', 'id');
         $UnitBranches = UnitBranch::pluck('unitBranch_Name', 'id');
@@ -114,12 +120,12 @@ class EmployeeController extends Controller
         // }
 
         if (request('search')) {
-            $employees = Employee::where('national_no', 'like', '%' . request('search') . '%')->get();
+            $employees = Employee::where('mandate', 'LIKE', "%off%")->where('retired', 'LIKE', "%off%")->orwhere('national_no', 'like', '%' . request('search') . '%')->get();
 
             $employeesOfficer = employeesOfficer::where('national_no', 'like', '%' . request('search') . '%')->get();
             // $employees::orderBy('id')->paginate(20);
         } else {
-            $employees = Employee::orderBy('id')->paginate(3000);
+            $employees = Employee::where('mandate', 'LIKE', "%off%")->where('retired', 'LIKE', "%off%")->orderBy('id')->paginate(3000);
             $employeesOfficer = employeesOfficer::orderBy('id')->paginate(3000);
         }
         // $employees = Employee::orderBy('id')->paginate(100);

@@ -2,13 +2,12 @@
 
 namespace App\Exports;
 
-use Maatwebsite\Excel\Concerns\FromCollection;
 use App\Models\Employee;
-use App\Models\Customer;
+use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
 
-class EmployeeExport implements FromCollection
+class EmployeeExport implements FromCollection, WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
