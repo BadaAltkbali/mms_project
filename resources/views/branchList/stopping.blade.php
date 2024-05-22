@@ -141,9 +141,9 @@
             console.log(table);
             debugger;
             TableToExcel.convert(table[0], {
-                name: `UserManagement.xlsx`,
+                name: `المنقطعين.xlsx`,
                 sheet: {
-                    name: 'Usermanagement'
+                    name: 'المنقطعين'
                 }
             });
         });

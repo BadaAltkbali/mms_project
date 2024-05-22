@@ -138,9 +138,9 @@
             console.log(table);
             debugger;
             TableToExcel.convert(table[0], {
-                name: `UserManagement.xlsx`,
+                name: `المتقاعدين.xlsx`,
                 sheet: {
-                    name: 'Usermanagement'
+                    name: 'المتقاعدين'
                 }
             });
         });

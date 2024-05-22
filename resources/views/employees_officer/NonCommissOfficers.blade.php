@@ -182,9 +182,9 @@
             console.log(table);
             debugger;
             TableToExcel.convert(table[0], {
-                name: `UserManagement.xlsx`,
+                name: `ضباط الصف.xlsx`,
                 sheet: {
-                    name: 'Usermanagement'
+                    name: 'ضباط الصف'
                 }
             });
         });

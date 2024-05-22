@@ -22,10 +22,7 @@
 
             <fieldset class="m-t-50">
                 <legend>البيانات الاساسيه : </legend>
-                {{-- <div class="form-group col-md-12">
-                     <label for="">رقم الملف</label>
-                     <input id="" type="text" class="form-control" name="fileNumber" >
-                </div> --}}
+
                 <div class="form-group col-md-2">
                     <label for="financial_Figure">الرقم المالي</label>
                     <input id="financial_Figure" type="number" class="form-control" name="financial_Figure"
@@ -97,7 +94,7 @@
                         @endif
                     @endforeach
                 </div>
- <div class="form-group col-md-2 m-b-30">
+                <div class="form-group col-md-2 m-b-30">
                     <label for="national_no">الرقم الوطني</label>
                     <input id="national_no" type="number" class="form-control" name="national_no"
                         value="{{ old('national_no') }}">
@@ -131,9 +128,6 @@
                     <input id="familyHandbook_No" type="number" class="form-control" name="familyHandbook_No"
                         value="{{ old('familyHandbook_No') }}">
                 </div>
-
-               
-
                 <div class="form-group col-md-2  m-b-30">
                     <label for="birth_d">تاريخ الميلاد</label>
                     <input id="birth_d" type="date" class="form-control" name="birth_d"
@@ -159,11 +153,11 @@
                     <input id="nationality" type="text" class="form-control" name="nationality"
                         value="{{ old('nationality') }}">
                 </div>
-                <div class="form-group col-md-2 m-b-30">
+                {{-- <div class="form-group col-md-2 m-b-30">
                     <label for="religion">الديانه</label>
                     <input id="religion" type="text" class="form-control" name="religion"
                         value="{{ old('religion') }}">
-                </div>
+                </div> --}}
                 <div class="form-group col-md-2 m-b-30">
                     <label for="blood_t">فصيله الدم</label>
                     <select id="blood_t" class="form-control" name="blood_t">

@@ -162,10 +162,10 @@
                     <input type="text" class="form-control" name="nationality"
                         value="{{ $employee->nationality }}">
                 </div>
-                <div class="form-group col-md-2">
+                {{-- <div class="form-group col-md-2">
                     <label for="exampleInputEmail1">الديانه</label>
                     <input type="text" class="form-control" name="religion" value="{{ $employee->religion }}">
-                </div>
+                </div> --}}
                 <div class="form-group col-md-2">
                     <label for="exampleInputEmail1">فصيله الدم</label>
                     <select class="form-control" id="" name="blood_t">
