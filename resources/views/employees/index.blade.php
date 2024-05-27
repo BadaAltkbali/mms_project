@@ -134,20 +134,21 @@
 
             </tbody>
         </table>
-        <div dir="ltr">
+        {{-- <div dir="ltr">
 
-            {{-- @empty($employees)
+            @empty($employees)
                 {!! $employees->withQueryString()->links('pagination::bootstrap-4') !!}
-            @endempty --}}
+            @endempty
 
-            {{-- @if ($employees->withQueryString() != null)
+            @if ($employees->withQueryString() != null)
             {!! $employees->withQueryString()->links('pagination::bootstrap-4') !!}
             @else
-            {{-- {!! $employees->withQueryString()->links('pagination::bootstrap-4') !!} 
-            @endif --}}
+           {!! $employees->withQueryString()->links('pagination::bootstrap-4') !!} 
+            @endif
 
-
-
+        </div> --}}
+        <div dir="ltr">
+            {!! $employees->withQueryString()->links('pagination::bootstrap-4') !!}
         </div>
     </div>
 </div>

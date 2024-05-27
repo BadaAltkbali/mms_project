@@ -9,13 +9,12 @@
 
 <div class="table-responsive" id="print">
 
-    <button type="button" class="btn btn-success waves-effect waves-light" id="btnExport"
-    data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end"
-    style="padding: 9px; margin-left: 78%;">Export To Excel
+<button type="button" class="btn btn-success waves-effect waves-light" id="btnExport" data-kt-menu-trigger="click"
+    data-kt-menu-placement="bottom-end" style="padding: 9px; margin-left: 78%;">Export To Excel
 </button>
 <br> <br>
 <h1>قائمة المحكومين</h1>
-<table class="table m-0 table-colored table-success" id="mydatatable"> 
+<table class="table m-0 table-colored table-success" id="mydatatable">
     <thead>
         <tr>
             <th>الرقم التسلسلي</th>

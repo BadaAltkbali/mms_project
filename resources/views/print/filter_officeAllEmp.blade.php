@@ -38,6 +38,12 @@
 
 <body>
 
+    <button type="button" class="btn btn-success waves-effect waves-light" id="btnExport"
+        data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end"
+        style="padding: 9px; margin-left: 78%;">Export To Excel
+    </button>
+    <br> <br>
+
     <form action="{{ route('print_AllEmpOffice') }}" method ="GET" class="container_search" dir="ltr">
         <input type="search" class="form-control input-sm btn-search" name="search"
             placeholder=" click here to filter .." />
@@ -247,5 +253,27 @@
     </div>
 
 </body>
+
+{{-- Export to Excel Fife  --}}
+
+
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#btnExport").click(function() {
+            let table = document.getElementsByTagName("table");
+            console.log(table);
+            debugger;
+            TableToExcel.convert(table[0], {
+                name: `الضباط.xlsx`,
+                sheet: {
+                    name: 'الضباط'
+                }
+            });
+        });
+    });
+</script>
 
 </html>

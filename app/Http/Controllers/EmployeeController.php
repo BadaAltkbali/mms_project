@@ -97,10 +97,10 @@ class EmployeeController extends Controller
             ->orWhere('familyHandbook_No', 'like', '%' . request('search') . '%')
             ->orWhere('national_no', 'like', '%' . request('search') . '%')
             ->orWhere('unit_branches.unitBranch_Name', 'LIKE','%' . request('search') .'%')
-            ->get();
+            ->get()->toQuery()->paginate(50);
             // $employees::orderBy('id')->paginate(20);
         } else {
-            $employees = Employee::where('mandate', 'LIKE', "%off%")->where('retired', 'LIKE', "%off%")->orderBy('financial_Figure')->paginate(3000);
+            $employees = Employee::where('mandate', 'LIKE', "%off%")->where('retired', 'LIKE', "%off%")->orderBy('financial_Figure')->paginate(50);
         }
         $Adjectives = AdjectiveEmployee::pluck('AdjName', 'id');
         $UnitBranches = UnitBranch::pluck('unitBranch_Name', 'id');
@@ -120,7 +120,8 @@ class EmployeeController extends Controller
         // }
 
         if (request('search')) {
-            $employees = Employee::where('mandate', 'LIKE', "%off%")->where('retired', 'LIKE', "%off%")->orwhere('national_no', 'like', '%' . request('search') . '%')->get();
+            $employees = Employee::where('mandate', 'LIKE', "%off%")->where('retired', 'LIKE', "%off%")
+            ->orwhere('national_no', 'like', '%' . request('search') . '%')->get()->toQuery()->paginate(50);
 
             $employeesOfficer = employeesOfficer::where('national_no', 'like', '%' . request('search') . '%')->get();
             // $employees::orderBy('id')->paginate(20);
@@ -155,10 +156,10 @@ class EmployeeController extends Controller
     {
         if ($request->ajax()) {
             $output = "";
-            $products = DB::table('employees')->where('full_name', 'LIKE', '%' . $request->search . "%")->get();
+            $products = DB::table('employees')->where('full_name', 'LIKE', '%' . $request->search . "%")->get()->toQuery()->paginate(50);
             if ($products) {
 
-                $output = "search is Succes         ";
+                $output = "search is Succes";
 
                 return Response($output);
             }

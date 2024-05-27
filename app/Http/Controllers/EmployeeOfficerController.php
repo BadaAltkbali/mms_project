@@ -27,7 +27,8 @@ class EmployeeOfficerController extends Controller
     public function NonCommissOfficers()
     {
         if (request('search')) {
-            if($employeesOfficerss = employeesOfficer::where('Rank', 'like', 'رئيس عرفه وحدة')
+            if(
+                $employeesOfficerss = employeesOfficer::where('Rank', 'like', 'رئيس عرفه وحدة')
             ->orWhere('Rank', 'like', 'رئيس عرفه سريه')
             ->orWhere('Rank', 'like', 'عريف')
             ->orWhere('Rank', 'like', 'نائب عريف')
@@ -39,7 +40,7 @@ class EmployeeOfficerController extends Controller
             ->orWhere('bank_accountNo', 'like', '%' . request('search') . '%')
             ->orWhere('familyHandbook_No', 'like', '%' . request('search') . '%')
             ->orWhere('national_no', 'like', '%' . request('search') . '%')
-            ->orWhere('Rank', 'like', '%' . request('search') . '%')->get();
+            ->orWhere('Rank', 'like', '%' . request('search') . '%')->get()->toQuery()->paginate(50);
         }
         
         } else {
@@ -48,7 +49,7 @@ class EmployeeOfficerController extends Controller
             ->orWhere('Rank', 'like', 'عريف')
             ->orWhere('Rank', 'like', 'نائب عريف')
             ->orWhere('Rank', 'like', 'جندي أول')
-            ->orWhere('Rank', 'like', 'جندي')->paginate(3000); 
+            ->orWhere('Rank', 'like', 'جندي')->paginate(50); 
         }
         $UnitBranches = UnitBranch::pluck('unitBranch_Name', 'id');
 
@@ -59,7 +60,7 @@ class EmployeeOfficerController extends Controller
     public function PrintOfficers()
     {
         
-            $employeesOfficer = employeesOfficer::orderBy('military_number')->paginate(3000);
+            $employeesOfficer = employeesOfficer::orderBy('military_number')->paginate(50);
        
         $UnitBranches = UnitBranch::pluck('unitBranch_Name', 'id');
 
@@ -92,7 +93,7 @@ class EmployeeOfficerController extends Controller
             ->orWhere('bank_accountNo', 'like', '%' . request('search') . '%')
             ->orWhere('familyHandbook_No', 'like', '%' . request('search') . '%')
             ->orWhere('unit_branches.unitBranch_Name', 'like','%' . request('search') . '%')
-            ->orWhere('national_no', 'like', '%' . request('search') . '%')->get();
+            ->orWhere('national_no', 'like', '%' . request('search') . '%')->get()->toQuery()->paginate(50);
         
         } else {
 
@@ -102,7 +103,7 @@ class EmployeeOfficerController extends Controller
             ->orWhere('Rank', 'like', 'عريف')
             ->orWhere('Rank', 'like', 'نائب عريف')
             ->orWhere('Rank', 'like', 'جندي أول')
-            ->orWhere('Rank', 'like', 'جندي')->get();
+            ->orWhere('Rank', 'like', 'جندي')->get()->toQuery()->paginate(50);
 
         }
        
@@ -128,7 +129,7 @@ class EmployeeOfficerController extends Controller
             ->orWhere('bank_accountNo', 'like', '%' . request('search') . '%')
             ->orWhere('familyHandbook_No', 'like', '%' . request('search') . '%')
             ->orWhere('unit_branches.unitBranch_Name', 'LIKE','%' . request('search') .'%')
-            ->orWhere('national_no', 'like', '%' . request('search') . '%')->get();
+            ->orWhere('national_no', 'like', '%' . request('search') . '%')->get()->toQuery()->paginate(50);
         
         } else {
             $employeesOfficer = employeesOfficer::where('mandate', 'LIKE', "%off%")->where('retired', 'LIKE', "%off%")->whereNot('Rank', 'like', 'رئيس عرفه وحدة')
@@ -137,7 +138,7 @@ class EmployeeOfficerController extends Controller
             ->whereNot('Rank', 'like', 'نائب عريف')
             ->whereNot('Rank', 'like', 'جندي أول')
             ->whereNot('Rank', 'like', 'جندي')
-            ->orderBy('military_number')->paginate(3000);
+            ->orderBy('military_number')->paginate(50);
         }
         $UnitBranches = UnitBranch::pluck('unitBranch_Name', 'id');
 
