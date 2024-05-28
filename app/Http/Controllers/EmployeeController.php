@@ -90,13 +90,16 @@ class EmployeeController extends Controller
     public function index()
     {
         if (request('search')) {
-            $employees = Employee::where('mandate', 'LIKE', "%off%")->where('retired', 'LIKE', "%off%")->where('financial_Figure', 'like', '%' . request('search') . '%')
-            ->join('unit_branches', 'employees.unitBranch_id', '=', 'unit_branches.id')
-            ->orWhere('full_name', 'like', '%' . request('search') . '%')
-            ->orWhere('bank_accountNo', 'like', '%' . request('search') . '%')
-            ->orWhere('familyHandbook_No', 'like', '%' . request('search') . '%')
-            ->orWhere('national_no', 'like', '%' . request('search') . '%')
-            ->orWhere('unit_branches.unitBranch_Name', 'LIKE','%' . request('search') .'%')
+            $employees = Employee::where('financial_Figure', 'like', '%' . request('search') . '%')
+            
+            ->where('retired', 'LIKE', "%off%")
+            ->where('mandate', 'LIKE', "%off%")
+            // ->join('unit_branches', 'employees.unitBranch_id', '=', 'unit_branches.id')
+            // ->orWhere('full_name', 'like', '%' . request('search') . '%')
+            // ->orWhere('bank_accountNo', 'like', '%' . request('search') . '%')
+            // ->orWhere('familyHandbook_No', 'like', '%' . request('search') . '%')
+            // ->orWhere('national_no', 'like', '%' . request('search') . '%')
+            // ->orWhere('unit_branches.unitBranch_Name', 'LIKE','%' . request('search') .'%')
             ->get()->toQuery()->paginate(50);
             // $employees::orderBy('id')->paginate(20);
         } else {
