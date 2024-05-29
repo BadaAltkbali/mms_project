@@ -147,9 +147,9 @@
             @endif
 
         </div> --}}
-        <div dir="ltr">
+        {{-- <div dir="ltr">
             {!! $employees->withQueryString()->links('pagination::bootstrap-4') !!}
-        </div>
+        </div> --}}
     </div>
 </div>
 </div>

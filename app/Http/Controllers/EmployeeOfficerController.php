@@ -115,22 +115,21 @@ class EmployeeOfficerController extends Controller
     public function index()
     {
         if (request('search')) {
-            $employeesOfficer = employeesOfficer::Where('military_number', 'like','%'.request('search').'%')
-            ->Where('retired', 'LIKE', "%off%")
-            ->Where('mandate', 'LIKE', "%off%")
-            // ->whereNot('Rank', 'like', 'رئيس عرفه وحدة')
-            // ->join('unit_branches', 'employees_officers.unitBranch_id', '=', 'unit_branches.id')
-            // ->whereNot('Rank', 'like', 'رئيس عرفه سريه')
-            // ->whereNot('Rank', 'like', 'عريف')
-            // ->whereNot('Rank', 'like', 'نائب عريف')
-            // ->whereNot('Rank', 'like', 'جندي أول')
-            // ->whereNot('Rank', 'like', 'جندي')
-            // ->orWhere('full_name', 'like', '%' . request('search') . '%')
-            // ->orWhere('bank_accountNo', 'like', '%' . request('search') . '%')
-            // ->orWhere('familyHandbook_No', 'like', '%' . request('search') . '%')
-            // ->orWhere('unit_branches.unitBranch_Name', 'LIKE','%' . request('search') .'%')
-            // ->orWhere('national_no', 'like', '%' . request('search') . '%')
-            ->paginate(50);
+            $employeesOfficer = employeesOfficer::where('mandate', 'LIKE', "%off%")
+            ->where('retired', 'LIKE', "%off%")
+            ->whereNot('Rank', 'like', 'رئيس عرفه وحدة')
+            ->join('unit_branches', 'employees_officers.unitBranch_id', '=', 'unit_branches.id')
+            ->whereNot('Rank', 'like', 'رئيس عرفه سريه')
+            ->whereNot('Rank', 'like', 'عريف')
+            ->whereNot('Rank', 'like', 'نائب عريف')
+            ->whereNot('Rank', 'like', 'جندي أول')
+            ->whereNot('Rank', 'like', 'جندي')
+            ->Where('military_number', 'like', '%' . request('search') . '%')
+            ->orWhere('full_name', 'like', '%' . request('search') . '%')
+            ->orWhere('bank_accountNo', 'like', '%' . request('search') . '%')
+            ->orWhere('familyHandbook_No', 'like', '%' . request('search') . '%')
+            ->orWhere('unit_branches.unitBranch_Name', 'LIKE','%' . request('search') .'%')
+            ->orWhere('national_no', 'like', '%' . request('search') . '%')->get();
             
         
         } else {
