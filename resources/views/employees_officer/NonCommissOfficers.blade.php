@@ -41,8 +41,8 @@
                 <tr>
                     <th>رقم الملف</th>
                     <th>الرقم العسكري</th>
-                    <th>الاسم</th>
                     <th>الرتبه</th>
+                    <th>الاسم</th>
                     <th>الرقم الوطني</th>
                     <th>الوحدة الفرعية</th>
 
@@ -58,7 +58,6 @@
                         <th scope="row">{{ ++$i }}</th>
                         {{-- <th scope="row">{{ $employee->id }}</th> --}}
                         <td>{{ $employee->military_number }}</td>
-                        <td>{{ $employee->full_name }}</td>
                         <td>
 
                             @if ($employee->Rank == 'اللواء')
@@ -102,6 +101,7 @@
                             @endif
 
                         </td>
+                        <td>{{ $employee->full_name }}</td>
                         <td>{{ $employee->national_no }}</td>
 
 

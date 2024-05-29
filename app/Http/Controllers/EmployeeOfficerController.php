@@ -36,11 +36,14 @@ class EmployeeOfficerController extends Controller
             ->orWhere('Rank', 'like', 'جندي'))
             {
             $employeesOfficer = employeesOfficer::where('military_number', 'like', '%' . request('search') . '%')
+            ->join('unit_branches', 'employees_officers.unitBranch_id', '=', 'unit_branches.id')
             ->orWhere('full_name', 'like', '%' . request('search') . '%')
             ->orWhere('bank_accountNo', 'like', '%' . request('search') . '%')
             ->orWhere('familyHandbook_No', 'like', '%' . request('search') . '%')
             ->orWhere('national_no', 'like', '%' . request('search') . '%')
-            ->orWhere('Rank', 'like', '%' . request('search') . '%')->get()->toQuery()->paginate(50);
+            ->orWhere('Rank', 'like', '%' . request('search') . '%')
+            ->orWhere('unit_branches.unitBranch_Name', 'like','%' . request('search') . '%')->get();
+
         }
         
         } else {
@@ -67,6 +70,7 @@ class EmployeeOfficerController extends Controller
         return view('employees_officer.print', compact('employeesOfficer', 'UnitBranches'))->with('i');
 
     }
+    
     public function PrintNonCommissOfficers()
     {
         // $employeesOfficer = employeesOfficer::orderBy('military_number')->where('Rank', 'like', 'رئيس عرفه وحدة')
@@ -82,18 +86,18 @@ class EmployeeOfficerController extends Controller
             ->join('unit_branches', 'employees_officers.unitBranch_id', '=', 'unit_branches.id')
             ->where('mandate', 'LIKE', "%off%")
             ->where('retired', 'LIKE', "%off%")
-            ->orWhere('Rank', 'like', 'رئيس عرفه وحدة')
-            ->orWhere('Rank', 'like', 'رئيس عرفه سريه')
-            ->orWhere('Rank', 'like', 'عريف')
-            ->orWhere('Rank', 'like', 'نائب عريف')
-            ->orWhere('Rank', 'like', 'جندي أول')
-            ->orWhere('Rank', 'like', 'جندي')
-            ->orWhere('military_number', 'like', '%' . request('search') . '%')
+            ->Where('Rank', 'like', 'رئيس عرفه وحدة')
+            ->Where('Rank', 'like', 'رئيس عرفه سريه')
+            ->Where('Rank', 'like', 'عريف')
+            ->Where('Rank', 'like', 'نائب عريف')
+            ->Where('Rank', 'like', 'جندي أول')
+            ->Where('Rank', 'like', 'جندي')
+            ->Where('military_number', 'like', '%' . request('search') . '%')
             ->orWhere('full_name', 'like', '%' . request('search') . '%')
             ->orWhere('bank_accountNo', 'like', '%' . request('search') . '%')
             ->orWhere('familyHandbook_No', 'like', '%' . request('search') . '%')
             ->orWhere('unit_branches.unitBranch_Name', 'like','%' . request('search') . '%')
-            ->orWhere('national_no', 'like', '%' . request('search') . '%')->get()->toQuery()->paginate(50);
+            ->orWhere('national_no', 'like', '%' . request('search') . '%')->get();
         
         } else {
 
@@ -103,7 +107,7 @@ class EmployeeOfficerController extends Controller
             ->orWhere('Rank', 'like', 'عريف')
             ->orWhere('Rank', 'like', 'نائب عريف')
             ->orWhere('Rank', 'like', 'جندي أول')
-            ->orWhere('Rank', 'like', 'جندي')->get()->toQuery()->paginate(50);
+            ->orWhere('Rank', 'like', 'جندي')->get()->paginate(3000);
 
         }
        

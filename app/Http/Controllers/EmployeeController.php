@@ -104,7 +104,7 @@ class EmployeeController extends Controller
         } else {
             $employees = Employee::where('mandate', 'LIKE', "%off%")
             ->where('retired', 'LIKE', "%off%")->orderBy('financial_Figure')
-            ->paginate(3000);
+            ->paginate(50);
         }
         $Adjectives = AdjectiveEmployee::pluck('AdjName', 'id');
         $UnitBranches = UnitBranch::pluck('unitBranch_Name', 'id');
