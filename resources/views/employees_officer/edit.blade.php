@@ -254,14 +254,6 @@
                     </select>
                 </div>
                 <div class="form-group col-md-2">
-                    <label for="exampleInputEmail1">الاسم رباعي</label>
-                    <input type="text" class="form-control" name="full_name"
-                        value="{{ $employeeOfficers->full_name }}">
-                    @foreach ($errors->get('full_name') as $error)
-                        <span style="font-size: 15px;position: absolute;color:#f5707a">{{ $error }}</span>
-                    @endforeach
-                </div>
-                <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">الرقم الوطني</label>
                     <input type="text" class="form-control" name="national_no"
                         value="{{ $employeeOfficers->national_no }}">
@@ -480,7 +472,7 @@
                     <input type="text" class="form-control" name="familyRegistration_No"
                         value="{{ $employeeOfficers->familyRegistration_No }}">
                 </div>
-                {{-- <div class="form-group col-md-2">
+                <div class="form-group col-md-2">
                     <label for="exampleInputPassword1">رقم كتيب العائله</label>
                     <input type="text" class="form-control" name="familyHandbook_No"
                         value="{{ $employeeOfficers->familyHandbook_No }}">

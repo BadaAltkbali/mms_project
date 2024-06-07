@@ -10,6 +10,7 @@
 @if (session('status'))
 <div class="alert alert-success mb-1 mt-1">
     {{ session('status') }}
+
 </div>
 @endif
 
@@ -123,9 +124,9 @@
                         @endif
                     @endforeach
                 </div>
-                <div class="form-group col-md-3 m-b-30">
-                    <label for="familyHandbook_No">اسم الأم ثلاثي</label>
-                    <input id="familyHandbook_No" type="number" class="form-control" name="familyHandbook_No"
+                <div class="form-group col-md-2 m-b-30">
+                    <label for="familyHandbook_No">اسم الام ثلاثي</label>
+                    <input id="familyHandbook_No" type="tex0t" class="form-control" name="familyHandbook_No"
                         value="{{ old('familyHandbook_No') }}">
                 </div>
                 <div class="form-group col-md-2  m-b-30">
@@ -224,7 +225,7 @@
                 {{-- <div class="form-group col-md-2 m-b-30">
                     <label for="passport_placeOfissue">مكان الاصدار</label>
                     <input id="passport_placeOfissue" type="text" class="form-control"
-                        name="passport_placeOfissue" value="{{ old('passport_placeOfissue') }}"> 
+                        name="passport_placeOfissue" value="{{ old('passport_placeOfissue') }}">
                 </div> --}}
                 <div class="form-group col-md-2 m-b-30">
                     <label for="familyRegistration_No">رقم قيد العائله</label>
@@ -232,7 +233,7 @@
                         name="familyRegistration_No" value="{{ old('familyRegistration_No') }}">
                 </div>
 
-                {{-- <div class="form-group col-md-2 m-b-30">
+                <div class="form-group col-md-2 m-b-30">
                     <label for="familyPaper_No">رقم ورقه العائله</label>
                     <input id="familyPaper_No" type="number" class="form-control" name="familyPaper_No"
                         value="{{ old('familyPaper_No') }}">
@@ -241,7 +242,7 @@
                     <label for="familyHandbook_No___releaseDate">تاريخ/مكان الاصدار</label>
                     <input id="familyHandbook_No___releaseDate" type="date" class="form-control"
                         name="familyHandbook_No___releaseDate"
-                        value="{{ old('familyHandbook_No___releaseDate') }}"> 
+                        value="{{ old('familyHandbook_No___releaseDate') }}">
                 </div> --}}
                 {{-- <div class="form-group col-md-2 m-b-30">
                      <label for="" >مكان الاصدار</label>

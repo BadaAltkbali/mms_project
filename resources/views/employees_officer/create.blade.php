@@ -52,6 +52,7 @@
                         <option value="جندي">جندي</option>
                     </select>
                 </div>
+<<<<<<< HEAD
                 <div class="form-group col-md-3  m-b-30">
                     <label for="exampleInputEmail1">الاسم رباعي</label>
                     <input type="text" class="form-control" name="full_name" value="{{ old('full_name') }}">
@@ -63,6 +64,10 @@
                         <span style="font-size: 15px;position: absolute;color:#f5707a">{{ $error }}</span>
                     @endforeach
                 </div>
+=======
+
+               
+>>>>>>> 61da2d88dd499f9f68728773784aaf128c0ef108
                 <div class="form-group col-md-2 m-b-30">
                     <label for="exampleInputPassword1">الرقم الوطني</label>
                     <input type="text" class="form-control" name="national_no" value="{{ old('national_no') }}">
@@ -80,6 +85,11 @@
                         value="{{ old('familyHandbook_No') }}">
                 </div>
 
+                <div class="form-group col-md-2 m-b-30">
+                    <label for="exampleInputPassword1">اسم الأم ثلاثي</label>
+                    <input type="text" class="form-control" name="familyHandbook_No"
+                        value="{{ old('familyHandbook_No') }}">
+                </div>
                 <div class="form-group col-md-2 m-b-30">
                     <label for="exampleInputEmail1">تاريخ الميلاد</label>
                     <input type="date" class="form-control" name="birth_d" value="{{ old('birth_d') }}">
@@ -170,8 +180,13 @@
                     <input type="text" class="form-control" name="familyRegistration_No"
                         value="{{ old('familyRegistration_No') }}">
                 </div>
+<<<<<<< HEAD
 
                 {{-- <div class="form-group col-md-2 m-b-30">
+=======
+                
+                <div class="form-group col-md-2 m-b-30">
+>>>>>>> 61da2d88dd499f9f68728773784aaf128c0ef108
                     <label for="exampleInputPassword1">رقم ورقه العائله</label>
                     <input type="text" class="form-control" name="familyPaper_No"
                         value="{{ old('familyPaper_No') }}">
